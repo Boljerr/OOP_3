@@ -178,7 +178,19 @@ namespace VectorUnitTests
 			Assert::IsTrue(v.size() == 4);
 			Assert::IsTrue(v[1] == 7);
 		}
+		TEST_METHOD(VectorInsertMultipleElementsWorks)
+		{
+			Vector<int> v = { 1, 4 };
 
+			auto it = v.insert(v.begin() + 1, 2, 9);
+
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 9);
+			Assert::IsTrue(v[2] == 9);
+			Assert::IsTrue(v[3] == 4);
+			Assert::IsTrue(*it == 9);
+		}
 		TEST_METHOD(VectorEraseOneElementWorks)
 		{
 			Vector<int> v = { 1, 2, 3, 4 };

@@ -382,6 +382,46 @@ public:
 
 		return duomenys_ + indeksas;
 	}
+	T* insert(T* pozicija, std::size_t kiekis, const T& reiksme)
+	{
+		std::size_t indeksas = pozicija - duomenys_;
+
+		if (indeksas > dydis_)
+		{
+			throw std::out_of_range("Insert position out of range");
+		}
+
+		if (kiekis == 0)
+		{
+			return duomenys_ + indeksas;
+		}
+
+		if (dydis_ + kiekis > talpa_)
+		{
+			std::size_t naujaTalpa = (talpa_ == 0) ? 1 : talpa_;
+
+			while (naujaTalpa < dydis_ + kiekis)
+			{
+				naujaTalpa *= 2;
+			}
+
+			reserve(naujaTalpa);
+		}
+		
+		for (std::size_t i = dydis_; i > indeksas; --i)
+		{
+			duomenys_[i + kiekis - 1] = duomenys_[i - 1];
+		}
+
+		for (std::size_t i = 0; i < kiekis; i++)
+		{
+			duomenys_[indeksas + i] = reiksme;
+		}
+		
+		dydis_ += kiekis;
+
+		return duomenys_ + indeksas;
+	}
 
 	/**
 	 * @brief Pasalina elementa is nurodytos pozicijos.
