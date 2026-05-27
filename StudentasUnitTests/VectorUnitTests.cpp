@@ -102,6 +102,28 @@ namespace VectorUnitTests
 					v.back();
 				});
 		}
+		TEST_METHOD(VectorAtWorks)
+		{
+			Vector<int> v = { 4, 5, 6 };
+
+			Assert::IsTrue(v.at(0) == 4);
+			Assert::IsTrue(v.at(1) == 5);
+			Assert::IsTrue(v.at(2) == 6);
+
+			v.at(1) = 50;
+
+			Assert::IsTrue(v[1] == 50);
+		}
+
+		TEST_METHOD(VectorAtThrowsWhenIndexInvalid)
+		{
+			Vector<int> v = { 4, 5, 6 };
+
+			Assert::ExpectException<std::out_of_range>([&v]()
+				{
+					v.at(3);
+				});
+		}
 		TEST_METHOD(VectorCopyConstructorWorks)
 		{
 			Vector<int> pirmas;
