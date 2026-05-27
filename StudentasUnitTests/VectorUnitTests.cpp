@@ -327,5 +327,12 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 2);
 			Assert::IsTrue(v[2] == 3);
 		}
+		TEST_METHOD(VectorMaxSizeWorks)
+		{
+			Vector<int> v;
+
+			Assert::IsTrue(v.max_size() > 0);
+			Assert::IsTrue(v.max_size() >= v.capacity());
+		}
 	};
 }

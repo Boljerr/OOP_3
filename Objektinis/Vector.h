@@ -92,6 +92,11 @@ public:
 		return dydis_;
 	}
 
+	std::size_t max_size() const
+	{
+		return std::numeric_limits<std::size_t>::max() / sizeof(T);
+	}
+
 	/**
 	 * @brief Grazina rezervuotos vietos kieki.
 	 */
@@ -790,6 +795,12 @@ public:
 		return *this;
 	}
 
+	/**
+	 * @brief Priskira Vector turini is inicializavimo saraso.
+	 * 
+	 * @param sarasas Naujos elementu reiksmes
+	 * @return nuoroda i si Vector objekta,
+	 */
 	Vector& operator=(std::initializer_list<T> sarasas)
 	{
 		if (sarasas.size() > talpa_);
