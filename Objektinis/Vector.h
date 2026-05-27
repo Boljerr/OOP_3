@@ -382,6 +382,15 @@ public:
 
 		return duomenys_ + indeksas;
 	}
+
+	/**
+	 * @brief Iterpia kelias vienodas reikses pries nurodyta pozicija.
+	 * 
+	 * @param pozicija Iteratorius i vieta, pries kuria iterpiama.
+	 * @param kiekis Kiek elementu iterpti
+	 * @param reiksme Iterpiama reiksme
+	 * @return Iteratorius i pirma iterpta elementa.
+	 */
 	T* insert(T* pozicija, std::size_t kiekis, const T& reiksme)
 	{
 		std::size_t indeksas = pozicija - duomenys_;
@@ -418,6 +427,55 @@ public:
 			duomenys_[indeksas + i] = reiksme;
 		}
 		
+		dydis_ += kiekis;
+
+		return duomenys_ + indeksas;
+	}
+
+	/**
+	 * @brief Iterpia inicializavimo saraso elementus pries nurodyta pozicija
+	 * 
+	 * @param pozicija Iteratorius i vieta, pries kuria iterpiama
+	 * @param sarasas Iterpiamos reiksmes
+	 * @return Iteratorius i pirma iterpta elementa
+	 */
+	T* insert(T* pozicija, std::initializer_list<T> sarasas)
+	{
+		std::size_t indeksas = pozicija - duomenys_;
+		std::size_t kiekis = sarasas.size();
+
+		if (indeksas > dydis_)
+		{
+			throw std::out_of_range("Insert position out of range");
+		}
+
+		if (kiekis == 0)
+		{
+			return duomenys_ + indeksas;
+		}
+
+		if (dydis_ + kiekis > talpa_)
+		{
+			std::size_t naujaTalpa = (talpa_ == 0) ? 1 : talpa_;
+
+			while (naujaTalpa < dydis_ + kiekis)
+			{
+				naujaTalpa *= 2;
+			}
+			reserve(naujaTalpa);
+		}
+		for (std::size_t i = dydis_ ; i > indeksas; --i )
+		{
+			duomenys_[i + kiekis - 1] = duomenys_[i - 1];
+		}
+
+		std::size_t i = 0;
+
+		for (const T& reiksme : sarasas)
+		{
+			duomenys_[indeksas + i] = reiksme;
+			++i;
+		}
 		dydis_ += kiekis;
 
 		return duomenys_ + indeksas;

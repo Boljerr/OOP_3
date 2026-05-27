@@ -267,5 +267,18 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[0] == 5);
 			Assert::IsTrue(v[1] == 6);
 		}
+		TEST_METHOD(VectorInsertInitializerListWorks)
+		{
+			Vector<int> v = { 1, 4 };
+
+			auto it = v.insert(v.begin() + 1, { 2, 3 });
+
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+			Assert::IsTrue(v[3] == 4);
+			Assert::IsTrue(*it == 2);
+		}
 	};
 }
