@@ -220,5 +220,17 @@ namespace VectorUnitTests
 			Assert::IsTrue(v2[1] == 2);
 			Assert::IsTrue(v2[2] == 3);
 		}
+		TEST_METHOD(VectorComparisonOperatorsWork)
+		{
+			Vector<int> pirmas = { 1, 2, 3 };
+			Vector<int> antras = { 1, 2, 3 };
+			Vector<int> trecias = { 1, 2, 4 };
+
+			Assert::IsTrue(pirmas == antras);
+			Assert::IsFalse(pirmas != antras);
+
+			Assert::IsTrue(pirmas != trecias);
+			Assert::IsFalse(pirmas == trecias);
+		}
 	};
 }

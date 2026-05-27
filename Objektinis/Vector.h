@@ -431,6 +431,11 @@ public:
 		dydis_ -= kiekSalinti;
 		return duomenys_ + pradzia;
 	}
+
+	/**
+	 * @brief Apkeicia du Vector konteinerio duomenis.
+	 * @param kitas Kitas Vector konteineris, su kuriuo keciami duomenys.
+	 */
 	void swap(Vector& kitas) noexcept
 	{
 		T* laikiniDuomenys = duomenys_;
@@ -446,6 +451,36 @@ public:
 		kitas.talpa_ = laikinaTalpa;
 	}
 
+	/**
+	 *@brief Palygina du Vector objektus
+	 *@param kitas Kitas Vector objektas, su kuriuo bus lyginamas esamas objektas
+	 *@return true jeigu dydis ir visi elementai sutampa.
+	*/
+	bool operator==(const Vector& kitas) const
+	{
+		if (dydis_ != kitas.dydis_)
+		{
+			return false;
+		}
+
+		for (std::size_t i = 0; i < dydis_; ++i)
+		{
+			if (duomenys_[i] != kitas.duomenys_[i])
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	/**
+	 * @brief Palygina du Vector objektus.
+	 * @param kitas Kitas Vector objektas, su kuriuo bus lyginamas esamas objektas.
+	 * @return true jeigu dydis arba bent vienas elementas nesutampa.
+	 */
+	bool operator!=(const Vector& kitas) const
+	{
+		return !(*this == kitas);
+	}
 
 
 	/**
