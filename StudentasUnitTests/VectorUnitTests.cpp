@@ -153,55 +153,66 @@ namespace VectorUnitTests
 		}
 		TEST_METHOD(VectorCopyConstructorWorks)
 		{
-			Vector<int> pirmas;
-			pirmas.push_back(4);
-			pirmas.push_back(7);
+			Vector<int> pirmas = { 1, 2, 3 };
 
 			Vector<int> antras(pirmas);
 
-			Assert::IsTrue(antras.size() == 2);
-			Assert::IsTrue(antras[0] == 4);
-			Assert::IsTrue(antras[1] == 7);
-		}
-		TEST_METHOD(VectorCopyAssignmentOperatorWorks)
-		{
-			Vector<int> pirmas;
-			pirmas.push_back(4);
-			pirmas.push_back(7);
+			Assert::IsTrue(antras.size() == 3);
+			Assert::IsTrue(antras[0] == 1);
+			Assert::IsTrue(antras[1] == 2);
+			Assert::IsTrue(antras[2] == 3);
 
+			pirmas[0] = 99;
+
+			Assert::IsTrue(antras[0] == 1);
+		}
+
+		TEST_METHOD(VectorCopyAssignmentWorks)
+		{
+			Vector<int> pirmas = { 4, 5, 6 };
 			Vector<int> antras;
+
 			antras = pirmas;
 
-			Assert::IsTrue(antras.size() == 2);
+			Assert::IsTrue(antras.size() == 3);
 			Assert::IsTrue(antras[0] == 4);
-			Assert::IsTrue(antras[1] == 7);
+			Assert::IsTrue(antras[1] == 5);
+			Assert::IsTrue(antras[2] == 6);
+
+			pirmas[0] = 99;
+
+			Assert::IsTrue(antras[0] == 4);
 		}
+
 		TEST_METHOD(VectorMoveConstructorWorks)
 		{
-			Vector<int> pirmas;
-			pirmas.push_back(4);
-			pirmas.push_back(7);
+			Vector<int> pirmas = { 7, 8, 9 };
 
 			Vector<int> antras(std::move(pirmas));
 
-			Assert::IsTrue(antras.size() == 2);
-			Assert::IsTrue(antras[0] == 4);
-			Assert::IsTrue(antras[1] == 7);
-		}
-		TEST_METHOD(VectorMoveAssignmentOperatorWorks)
-		{
-			Vector<int> pirmas;
-			pirmas.push_back(4);
-			pirmas.push_back(7);
-
-			Vector<int> antras;
-			antras = std::move(pirmas);
-
-			Assert::IsTrue(antras.size() == 2);
-			Assert::IsTrue(antras[0] == 4);
-			Assert::IsTrue(antras[1] == 7);
+			Assert::IsTrue(antras.size() == 3);
+			Assert::IsTrue(antras[0] == 7);
+			Assert::IsTrue(antras[1] == 8);
+			Assert::IsTrue(antras[2] == 9);
 
 			Assert::IsTrue(pirmas.size() == 0);
+			Assert::IsTrue(pirmas.capacity() == 0);
+		}
+
+		TEST_METHOD(VectorMoveAssignmentWorks)
+		{
+			Vector<int> pirmas = { 10, 11, 12 };
+			Vector<int> antras;
+
+			antras = std::move(pirmas);
+
+			Assert::IsTrue(antras.size() == 3);
+			Assert::IsTrue(antras[0] == 10);
+			Assert::IsTrue(antras[1] == 11);
+			Assert::IsTrue(antras[2] == 12);
+
+			Assert::IsTrue(pirmas.size() == 0);
+			Assert::IsTrue(pirmas.capacity() == 0);
 		}
 		TEST_METHOD(VectorDefaultConstructorWorks)
 		{
