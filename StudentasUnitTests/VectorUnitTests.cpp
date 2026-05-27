@@ -14,10 +14,37 @@ namespace VectorUnitTests
 	{
 	public:
 
-		TEST_METHOD(ReserveMethodWorks)
+		TEST_METHOD(VectorReserveIncreasesCapacity)
 		{
 			Vector<int> v;
+
 			v.reserve(10);
+
+			Assert::IsTrue(v.capacity() >= 10);
+			Assert::IsTrue(v.size() == 0);
+			Assert::IsTrue(v.empty());
+		}
+
+		TEST_METHOD(VectorReserveKeepsExistingElements)
+		{
+			Vector<int> v = { 1, 2, 3 };
+
+			v.reserve(20);
+
+			Assert::IsTrue(v.capacity() >= 20);
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+		}
+
+		TEST_METHOD(VectorReserveDoesNotShrink)
+		{
+			Vector<int> v;
+
+			v.reserve(10);
+			v.reserve(5);
+
 			Assert::IsTrue(v.capacity() == 10);
 		}
 		TEST_METHOD(PushBackMethodWorks)
