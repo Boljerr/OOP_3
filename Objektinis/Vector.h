@@ -389,7 +389,40 @@ public:
 		return duomenys_[dydis_ - 1];
 	}
 
+	/**
+	 * @brief Sukuria nauja elementa nurodytoje pozicijoje.
+	 * 
+	 * @tparam Args Konstruktoriaus argumentu tipai
+	 * @param pozicija Iteratorius i vieta, kur bus iterpiamas elementas.
+	 * @param args Argumentai, perduodami elemento konstruktoriui.
+	 * @return Iteratorius i naujai sukurta elementa.
+	 */
+	template <typename... Args>
+	T* emplace(T* pozicija, Args&&... args)
+	{
+		std::size_t indeksas = pozicija - duomenys_;
 
+		if (indeksas > dydis_)
+		{
+			throw std::out_of_range("Vector emplace pozicija uz ribu");
+		}
+		if (dydis_ == talpa_ )
+		{
+			std::size_t naujaTalpa = (talpa_ == 0) ? 1 : talpa_ * 2;
+			reserve(naujaTalpa);
+		}
+
+		for (std::size_t i = dydis_; i > indeksas; --i)
+		{
+			duomenys_[i] = std::move(duomenys_[i - 1]);
+		}
+
+		duomenys_[indeksas] = T(std::forward<Args>(args)...);
+		++dydis_;
+
+		return duomenys_ + indeksas;
+
+	}
 	/**
 	 * @brief pasalina paskutini elementa.
 	 */

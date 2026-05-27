@@ -300,5 +300,19 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[0] == "aaaaa");
 			Assert::IsTrue(tekstas == "aaaaa");
 		}
+		TEST_METHOD(VectorEmplaceWorks)
+		{
+			Vector<std::string> v;
+			v.push_back("Jonas");
+			v.push_back("Petras");
+
+			auto it = v.emplace(v.begin() + 1, 3, 'x');
+
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == "Jonas");
+			Assert::IsTrue(v[1] == "xxx");
+			Assert::IsTrue(v[2] == "Petras");
+			Assert::IsTrue(*it == "xxx");
+		}
 	};
 }
