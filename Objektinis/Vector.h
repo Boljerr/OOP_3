@@ -247,7 +247,13 @@ public:
 	    }
 	    --dydis_;
     }
-
+	/**
+	 * @brief Pasalina visus elementus, bet palieka rezervuota talpa.
+	 */
+	void clear()
+    {
+		dydis_ = 0;
+    }
 };
 
 #endif

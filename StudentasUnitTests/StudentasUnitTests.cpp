@@ -132,5 +132,12 @@ namespace StudentasUnitTests
 			v.pop_back();
 			Assert::IsTrue(v.size() == 0);
 		}
+		TEST_METHOD(ClearMethodWorks)
+		{
+			Vector<int> v;
+			v.push_back(5);
+			v.clear();
+			Assert::IsTrue(v.size() == 0);
+		}
 	};
 }
