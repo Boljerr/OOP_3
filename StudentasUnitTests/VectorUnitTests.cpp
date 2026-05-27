@@ -250,43 +250,58 @@ namespace VectorUnitTests
 				Assert::IsTrue(v[i] == i + 1);
 			}
 		}
-		TEST_METHOD(VectorResizeMethodWorks)
+		TEST_METHOD(VectorResizeBiggerWithDefaultValueWorks)
 		{
-			Vector<int> v;
+			Vector<int> v = { 1, 2 };
 
-			v.resize(5);
+			v.resize(4);
+
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 0);
+			Assert::IsTrue(v[3] == 0);
+		}
+
+		TEST_METHOD(VectorResizeBiggerWithGivenValueWorks)
+		{
+			Vector<int> v = { 1, 2 };
+
+			v.resize(5, 9);
 
 			Assert::IsTrue(v.size() == 5);
-			Assert::IsTrue(v.capacity() == 5);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 9);
+			Assert::IsTrue(v[3] == 9);
+			Assert::IsTrue(v[4] == 9);
 		}
-		TEST_METHOD(VectorResizeWithValueMethodWorks)
+
+		TEST_METHOD(VectorResizeSmallerWorks)
 		{
-			Vector<int> v;
+			Vector<int> v = { 1, 2, 3, 4 };
 
-			v.resize(5, 10);
+			v.resize(2);
 
-			Assert::IsTrue(v.size() == 5);
-			Assert::IsTrue(v.capacity() == 5);
-
-			for (std::size_t i = 0; i < v.size(); ++i)
-			{
-				Assert::IsTrue(v[i] == 10);
-			}
+			Assert::IsTrue(v.size() == 2);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
 		}
-		TEST_METHOD(VectorShrinkToFitMethodWorks)
+
+		TEST_METHOD(VectorShrinkToFitWorks)
 		{
-			Vector<int> v;
+			Vector<int> v = { 1, 2 };
 
 			v.reserve(10);
-
-			v.push_back(5);
-			v.push_back(10);
+			Assert::IsTrue(v.capacity() >= 10);
 
 			v.shrink_to_fit();
 
+			Assert::IsTrue(v.size() == 2);
 			Assert::IsTrue(v.capacity() == 2);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
 		}
-		
 		TEST_METHOD(VectorInsertMethodWorks)
 		{
 			Vector<int> v;
@@ -511,5 +526,5 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 2);
 			Assert::IsTrue(v[2] == 3);
 		}
-	};
+	};	
 }
