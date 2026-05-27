@@ -254,7 +254,10 @@ public:
 	{
 		dydis_ = 0;
 	}
-
+	/**
+	 * @brief Kopijuoja vieno Vector objekto duomenis i kita Vector objektas.
+	 * @param kitas Kopijuojamas Vector objektas
+	 */
 	Vector(const Vector& kitas)
 		: duomenys_(nullptr), dydis_(kitas.dydis_), talpa_(kitas.talpa_)
 	{
@@ -269,6 +272,11 @@ public:
 		}
 	}
 
+	/**
+	 * @brief Priskiria vieno Vector objekto duomenis kitam Vector objektui.
+	 * @param kitas Kopijuojamas Vector objektas
+	 * @return nuoroda si Vector objekta.
+	 */
 	Vector& operator=(const Vector& kitas)
 	{
 		if (this != &kitas)
@@ -292,6 +300,17 @@ public:
 			talpa_ = kitas.talpa_;
 		}
 		return *this;
+	}
+	/**
+	 * @brief Perkelia vieno Vector objekto duomenis i kita Vector objektas.
+	 * @param kitas Vector objektas, kurio duomenys bus perkelti.
+	 */
+	Vector(Vector&& kitas) noexcept
+		: duomenys_(kitas.duomenys_), dydis_(kitas.dydis_), talpa_(kitas.talpa_)
+	{
+		kitas.duomenys_ = nullptr;
+		kitas.dydis_ = 0;
+		kitas.talpa_ = 0;
 	}
 };
 
