@@ -78,5 +78,20 @@ namespace VectorUnitTests
 			Assert::IsTrue(antras[0] == 4);
 			Assert::IsTrue(antras[1] == 7);
 		}
+		TEST_METHOD(VectorMoveAssignmentOperatorWorks)
+		{
+			Vector<int> pirmas;
+			pirmas.push_back(4);
+			pirmas.push_back(7);
+
+			Vector<int> antras;
+			antras = std::move(pirmas);
+
+			Assert::IsTrue(antras.size() == 2);
+			Assert::IsTrue(antras[0] == 4);
+			Assert::IsTrue(antras[1] == 7);
+
+			Assert::IsTrue(pirmas.size() == 0);
+		}
 	};
 }

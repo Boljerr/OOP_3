@@ -312,6 +312,29 @@ public:
 		kitas.dydis_ = 0;
 		kitas.talpa_ = 0;
 	}
+
+	/**
+	 * @brief Perkelia vieno Vector objekto duomenis i kita Vector objektas.
+	 * 
+	 * @param kitas Vector objektas, kurio duomenys bus perkelti.
+	 * @return nuoroda si Vector objekta.
+	 */
+	Vector& operator=(Vector&& kitas) noexcept
+	{
+		if (this != &kitas)
+		{
+			delete[] duomenys_;
+
+			duomenys_ = kitas.duomenys_;
+			dydis_ = kitas.dydis_;
+			talpa_ = kitas.talpa_;
+
+			kitas.duomenys_ = nullptr;
+			kitas.dydis_ = 0;
+			kitas.talpa_ = 0;
+		}
+		return *this;
+	}
 };
 
 #endif
