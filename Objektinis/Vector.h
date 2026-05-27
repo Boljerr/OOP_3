@@ -4,6 +4,7 @@
 
 #include <cstddef>
 #include <stdexcept>
+#include <initializer_list>
 
 /**
  * @brief Paprastas dinaminio masyvo konteineris, panasus i std::vector.
@@ -58,6 +59,22 @@ public:
 		}
 	}
 
+	Vector(std::initializer_list<T> sarasas)
+		: duomenys_(nullptr), dydis_(sarasas.size()), talpa_(sarasas.size())
+	{
+		if (talpa_ > 0)
+		{
+			duomenys_ = new T[talpa_];
+			
+			std::size_t i = 0;
+
+			for (const T& item : sarasas)
+			{
+				duomenys_[i] = item;
+				++i;
+			}
+		}
+	}
 	/**
 	 * @brief Atlaisvina konteinerio naudojama atminti.
 	 */

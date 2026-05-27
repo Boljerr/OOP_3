@@ -117,5 +117,16 @@ namespace VectorUnitTests
 				Assert::IsTrue(v[i] == 10);
 			}
 		}
+		TEST_METHOD(VectorInitializerListConstructorWorks)
+		{
+			Vector<int> v = { 1, 2, 3, 4, 5 };
+			Assert::IsTrue(v.size() == 5);
+			Assert::IsTrue(v.capacity() == 5);
+
+			for (std::size_t i = 0; i < v.size(); ++i)
+			{
+				Assert::IsTrue(v[i] == i + 1);
+			}
+		}
 	};
 }
