@@ -3,6 +3,7 @@
 #define VECTOR_H
 
 #include <cstddef>
+#include <stdexcept>
 
 /**
  * @brief Paprastas dinaminio masyvo konteineris, panasus i std::vector.
@@ -56,6 +57,48 @@ public:
     {
         return dydis_ == 0;
     }
+
+    /**
+     * @brief Grazina elementa pagal indeksa be ribu tikrinimo.  
+     */
+    T& operator[](std::size_t index)
+	{
+		return duomenys_[index];
+	}
+
+    /**
+	 * @brief Grazina elementa pagal indeksa be ribu tikrinimo.
+     */
+    const T& operator[](std::size_t index) const
+	{
+		return duomenys_[index];
+	}
+
+	/**
+	 * @brief Grazina elementa pagal indeksa su ribu tikrinimu.
+	 */
+    T& at(std::size_t index)
+    {
+		if (index >= dydis_)
+		{
+			throw std::out_of_range("Index out of range");
+		}
+        return duomenys_[index];
+    }
+
+    /**
+     * @brief Grazina elementa pagal indeksa su ribu tikrinimu 
+	 */
+    const T& at(std::size_t index) const
+    {
+	    if (index >= dydis_)
+	    {
+		    throw std::out_of_range("Index out of range");
+	    }
+        return duomenys_[index];
+    }
+
+
 };
 
 #endif
