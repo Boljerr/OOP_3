@@ -57,6 +57,20 @@ public:
     {
         return dydis_ == 0;
     }
+	/**
+	 * @brief Grazina rodykle i saugomu elementu masyva.
+	 */
+    T* data()
+    {
+        return duomenys_;
+    }
+	/**
+	 * @brief Grazina rodykle i saugomu elementu masyva.
+	 */
+	const T* data() const
+	{
+		return duomenys_;
+	}
 
     /**
      * @brief Grazina elementa pagal indeksa be ribu tikrinimo.  
@@ -98,7 +112,52 @@ public:
         return duomenys_[index];
     }
 
+	/**
+	 * @brief Grazina pirma elementa.
+	 */
+    T& front()
+	{
+        if (empty())
+        {
+            throw std::out_of_range("Vector is empty");
+        }
+        return duomenys_[0];
+	}
 
+    /**
+     * 
+     * @brief Grazina pirma elementa.
+     */
+    const T& front() const
+	{
+		if (empty())
+		{
+			throw std::out_of_range("Vector is empty");
+		}
+		return duomenys_[0];
+	}
+	/**
+	 * @brief Grazina paskutini elementa.
+	 */
+	T& back()
+	{
+		if (empty())
+		{
+			throw std::out_of_range("Vector is empty");
+		}
+		return duomenys_[dydis_ - 1];
+	}
+	/**
+	 * @brief Grazina paskutini elementa.
+	 */
+	const T& back() const
+	{
+		if (empty())
+		{
+			throw std::out_of_range("Vector is empty");
+		}
+		return duomenys_[dydis_ - 1];
+	}
 };
 
 #endif
