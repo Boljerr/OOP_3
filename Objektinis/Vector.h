@@ -349,6 +349,11 @@ public:
 		++dydis_;
 	}
 
+	/**
+	 * @brief Prideda perkelta elementa i konteinerio pabaiga.
+	 * 
+	 * @param reiksme Perkeliama reiksme
+	 */
 	void push_back(T&& reiksme)
 	{
 		if (dydis_ == talpa_)
@@ -360,6 +365,31 @@ public:
 		duomenys_[dydis_] = std::move(reiksme);
 		++dydis_;
 	}
+
+	/**
+	 * @brief Sukuria nauja elementa konteinerio pabaigoje;
+	 * 
+	 * @tparam Args Konstruktoriaus argumentu tipai.
+	 * @param args Argumentai, perduodami elemento konstruktoriui.
+	 *
+	 * @return Nuoroda i naujai sukurta elementa.
+	 */
+	template <typename... Args>
+	T& emplace_back(Args&&... args)
+	{
+		if (dydis_ == talpa_)
+		{
+			std::size_t naujaTalpa = (talpa_ == 0) ? 1 : talpa_ * 2;
+			reserve(naujaTalpa);
+		}
+
+		duomenys_[dydis_] = T(std::forward<Args>(args)...);
+		++dydis_;
+
+		return duomenys_[dydis_ - 1];
+	}
+
+
 	/**
 	 * @brief pasalina paskutini elementa.
 	 */
