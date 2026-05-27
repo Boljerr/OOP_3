@@ -70,6 +70,38 @@ namespace VectorUnitTests
 
 			Assert::IsTrue(v[0] == 99);
 		}
+
+		TEST_METHOD(VectorFrontBackWork)
+		{
+			Vector<int> v;
+			v.push_back(3);
+			v.push_back(7);
+			v.push_back(9);
+
+			Assert::IsTrue(v.front() == 3);
+			Assert::IsTrue(v.back() == 9);
+
+			v.front() = 100;
+			v.back() = 200;
+
+			Assert::IsTrue(v[0] == 100);
+			Assert::IsTrue(v[2] == 200);
+		}
+
+		TEST_METHOD(VectorFrontBackThrowWhenEmpty)
+		{
+			Vector<int> v;
+
+			Assert::ExpectException<std::out_of_range>([&v]()
+				{
+					v.front();
+				});
+
+			Assert::ExpectException<std::out_of_range>([&v]()
+				{
+					v.back();
+				});
+		}
 		TEST_METHOD(VectorCopyConstructorWorks)
 		{
 			Vector<int> pirmas;
