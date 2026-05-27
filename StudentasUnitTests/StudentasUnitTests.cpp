@@ -118,5 +118,19 @@ namespace StudentasUnitTests
 			v.reserve(10);
 			Assert::IsTrue(v.capacity() == 10);
 		}
+		TEST_METHOD(PushBackMethodWorks)
+		{
+			Vector<int> v;
+			v.push_back(5);
+			Assert::IsTrue(v.size() == 1);
+			Assert::IsTrue(v[0] == 5);
+		}
+		TEST_METHOD(PopBackMethodWorks)
+		{
+			Vector<int> v;
+			v.push_back(5);
+			v.pop_back();
+			Assert::IsTrue(v.size() == 0);
+		}
 	};
 }

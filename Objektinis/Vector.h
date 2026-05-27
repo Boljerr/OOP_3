@@ -202,7 +202,12 @@ public:
 		return duomenys_[dydis_ - 1];
 	}
 
-	void reserve(std::size_t naujaTalpa)
+    /**
+     * @brief Rezervuoja vietos nurodytam elemetu kiekiui.
+     *  
+     *  Jei nauja talpa yra mazesne arba lygi dabartinei, nieko nedaro.
+     */
+    void reserve(std::size_t naujaTalpa)
     {
 	    if (naujaTalpa <= talpa_)
 	    {
@@ -218,6 +223,31 @@ public:
 		duomenys_ = naujiDuomenys;
 		talpa_ = naujaTalpa;
     }
+	/**
+	 * @brief Prideda elementa i konteinerio pabaiga.
+	 */
+
+	void push_back(const T& reiksme)
+	{
+		if (dydis_ >= talpa_)
+		{
+			reserve(talpa_ == 0 ? 1 : talpa_ * 2);
+		}
+		duomenys_[dydis_] = reiksme;
+		++dydis_;
+	}
+	/**
+	 * @brief pasalina paskutini elementa.
+	 */
+	void pop_back()
+    {
+	    if (empty())
+	    {
+			throw std::out_of_range("Vector is empty");
+	    }
+	    --dydis_;
+    }
+
 };
 
 #endif
