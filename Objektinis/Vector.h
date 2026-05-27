@@ -482,6 +482,50 @@ public:
 		return !(*this == kitas);
 	}
 
+	/**
+	 * @brief Pakeicia Vector turinti nurodytu kiekiu vienodu elementu.
+	 * 
+	 * @param kiekis Naujai priskiriamų elementų kiekis.
+	 * @param reiksme Reikšmė, kuria bus priskirti nauji elementai.
+	 */
+	void assign(std::size_t kiekis, const T& reiksme)
+	{
+		if (kiekis > talpa_)
+		{
+			delete[] duomenys_;
+			duomenys_ = new T[kiekis];
+			talpa_ = kiekis;
+		}
+		for (std::size_t i = 0; i < kiekis; ++i)
+		{
+			duomenys_[i] = reiksme;
+		}
+		dydis_ = kiekis;
+	}
+
+	/**
+	 * @brief Pakeicia Vector turini inicializavimo list
+	 * @param sarasas Naujos elementu reiksmes
+	 */
+	void assign(std::initializer_list<T> sarasas)
+	{
+		if (sarasas.size() > talpa_)
+		{
+			delete[] duomenys_;
+			duomenys_ = new T[sarasas.size()];
+			talpa_ = sarasas.size();
+		}
+
+		std::size_t i = 0;
+		for (const T& reiksme : sarasas)
+		{
+			duomenys_[i] = reiksme;
+			++i;
+		}
+		dydis_ = sarasas.size();
+
+	}
+
 
 	/**
 	 * @brief Pasalina visus elementus, bet palieka rezervuota talpa.

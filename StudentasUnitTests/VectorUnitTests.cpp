@@ -232,5 +232,28 @@ namespace VectorUnitTests
 			Assert::IsTrue(pirmas != trecias);
 			Assert::IsFalse(pirmas == trecias);
 		}
+		TEST_METHOD(VectorAssignCountValueWorks)
+		{
+			Vector<int> v = { 1, 2, 3 };
+
+			v.assign(4, 9);
+
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v[0] == 9);
+			Assert::IsTrue(v[1] == 9);
+			Assert::IsTrue(v[2] == 9);
+			Assert::IsTrue(v[3] == 9);
+		}
+
+		TEST_METHOD(VectorAssignInitializerListWorks)
+		{
+			Vector<int> v = { 1, 2, 3 };
+
+			v.assign({ 5, 6 });
+
+			Assert::IsTrue(v.size() == 2);
+			Assert::IsTrue(v[0] == 5);
+			Assert::IsTrue(v[1] == 6);
+		}
 	};
 }
