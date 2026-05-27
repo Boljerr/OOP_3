@@ -268,6 +268,31 @@ public:
 			}
 		}
 	}
+
+	Vector& operator=(const Vector& kitas)
+	{
+		if (this != &kitas)
+		{
+			T* naujiDuomenys = nullptr;
+
+			if (kitas.talpa_ > 0)
+			{
+				naujiDuomenys = new T[kitas.talpa_];
+
+				for (std::size_t i = 0; i < kitas.dydis_; ++i)
+				{
+					naujiDuomenys[i] = kitas.duomenys_[i];
+				}
+			}
+
+			delete[] duomenys_;
+			
+			duomenys_ = naujiDuomenys;
+			dydis_ = kitas.dydis_;
+			talpa_ = kitas.talpa_;
+		}
+		return *this;
+	}
 };
 
 #endif
