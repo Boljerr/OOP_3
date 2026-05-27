@@ -431,6 +431,23 @@ public:
 		dydis_ -= kiekSalinti;
 		return duomenys_ + pradzia;
 	}
+	void swap(Vector& kitas) noexcept
+	{
+		T* laikiniDuomenys = duomenys_;
+		duomenys_ = kitas.duomenys_;
+		kitas.duomenys_ = laikiniDuomenys;
+
+		std::size_t laikinasDydis = dydis_;
+		dydis_ = kitas.dydis_;
+		kitas.dydis_ = laikinasDydis;
+
+		std::size_t laikinaTalpa = talpa_;
+		talpa_ = kitas.talpa_;
+		kitas.talpa_ = laikinaTalpa;
+	}
+
+
+
 	/**
 	 * @brief Pasalina visus elementus, bet palieka rezervuota talpa.
 	 */

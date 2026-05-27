@@ -203,5 +203,22 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 5);
 			Assert::IsTrue(*it == 5);
 		}
+		TEST_METHOD(VectorSwapMethodWorks)
+		{
+			Vector<int> v1 = { 1, 2, 3 };
+			Vector<int> v2 = { 4, 5, 6 };
+
+			v1.swap(v2);
+
+			Assert::IsTrue(v1.size() == 3);
+			Assert::IsTrue(v1[0] == 4);
+			Assert::IsTrue(v1[1] == 5);
+			Assert::IsTrue(v1[2] == 6);
+
+			Assert::IsTrue(v2.size() == 3);
+			Assert::IsTrue(v2[0] == 1);
+			Assert::IsTrue(v2[1] == 2);
+			Assert::IsTrue(v2[2] == 3);
+		}
 	};
 }
