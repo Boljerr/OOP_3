@@ -272,6 +272,42 @@ public:
 		talpa_ = naujaTalpa;
 	}
 	/**
+	 * @brief Keicia konteinerio dydį. Jei naujas dydis yra didesnis už dabartinį, rezervuoja papildomą vietą ir inicializuoja naujus elementus numatytosiomis reikšmėmis.
+	 * @param naujasDydis Naujas konteinerio dydis.
+	 */
+	void resize(std::size_t naujasDydis)
+	{
+		if (naujasDydis > talpa_)
+		{
+			reserve(naujasDydis);
+		}
+
+		for (std::size_t i = dydis_; i < naujasDydis; ++i)
+		{
+			duomenys_[i] = T();
+		}
+		dydis_ = naujasDydis;
+	}
+	
+	/**
+	 * @brief Keicia konteinerio dydį. Jei naujas dydis yra didesnis už dabartinį, rezervuoja papildomą vietą ir inicializuoja naujus elementus nurodyta reikšme.
+	 * @param naujasDydis Naujas konteinerio dydis.
+	 * @param reiksme Reikšmė, su kuria bus inicializuoti nauji elementai,
+	 */
+	void resize(std::size_t naujasDydis, const T& reiksme)
+	{
+		if (naujasDydis > talpa_)
+		{
+			reserve(naujasDydis);
+		}
+
+		for (std::size_t i = dydis_; i < naujasDydis; ++i)
+		{
+			duomenys_[i] = reiksme;
+		}
+		dydis_ = naujasDydis;
+	}
+	/**
 	 * @brief Prideda elementa i konteinerio pabaiga.
 	 */
 

@@ -128,5 +128,28 @@ namespace VectorUnitTests
 				Assert::IsTrue(v[i] == i + 1);
 			}
 		}
+		TEST_METHOD(VectorResizeMethodWorks)
+		{
+			Vector<int> v;
+
+			v.resize(5);
+
+			Assert::IsTrue(v.size() == 5);
+			Assert::IsTrue(v.capacity() == 5);
+		}
+		TEST_METHOD(VectorResizeWithValueMethodWorks)
+		{
+			Vector<int> v;
+
+			v.resize(5, 10);
+
+			Assert::IsTrue(v.size() == 5);
+			Assert::IsTrue(v.capacity() == 5);
+
+			for (std::size_t i = 0; i < v.size(); ++i)
+			{
+				Assert::IsTrue(v[i] == 10);
+			}
+		}
 	};
 }
