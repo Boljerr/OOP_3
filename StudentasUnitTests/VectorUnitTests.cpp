@@ -245,37 +245,52 @@ namespace VectorUnitTests
 		TEST_METHOD(VectorDefaultConstructorWorks)
 		{
 			Vector<int> v;
+
 			Assert::IsTrue(v.size() == 0);
 			Assert::IsTrue(v.capacity() == 0);
+			Assert::IsTrue(v.empty());
 		}
+
 		TEST_METHOD(VectorSizeConstructorWorks)
 		{
-			Vector<int> v(5);
-			Assert::IsTrue(v.size() == 5);
-			Assert::IsTrue(v.capacity() == 5);
+			Vector<int> v(3);
+
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v.capacity() == 3);
 		}
 
-		TEST_METHOD(VectorSizeAndValueConstructorWorks)
+		TEST_METHOD(VectorSizeValueConstructorWorks)
 		{
-			Vector<int> v(5, 10);
-			Assert::IsTrue(v.size() == 5);
-			Assert::IsTrue(v.capacity() == 5);
+			Vector<int> v(4, 7);
 
-			for (std::size_t i = 0; i < v.size(); ++i)
-			{
-				Assert::IsTrue(v[i] == 10);
-			}
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v.capacity() == 4);
+			Assert::IsTrue(v[0] == 7);
+			Assert::IsTrue(v[1] == 7);
+			Assert::IsTrue(v[2] == 7);
+			Assert::IsTrue(v[3] == 7);
 		}
+
 		TEST_METHOD(VectorInitializerListConstructorWorks)
 		{
-			Vector<int> v = { 1, 2, 3, 4, 5 };
-			Assert::IsTrue(v.size() == 5);
-			Assert::IsTrue(v.capacity() == 5);
+			Vector<int> v = { 8, 9, 10 };
 
-			for (std::size_t i = 0; i < v.size(); ++i)
-			{
-				Assert::IsTrue(v[i] == i + 1);
-			}
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 8);
+			Assert::IsTrue(v[1] == 9);
+			Assert::IsTrue(v[2] == 10);
+		}
+
+		TEST_METHOD(VectorInitializerListAssignmentWorks)
+		{
+			Vector<int> v;
+
+			v = { 1, 2, 3 };
+
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
 		}
 		TEST_METHOD(VectorResizeBiggerWithDefaultValueWorks)
 		{
@@ -477,19 +492,6 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == "xxx");
 			Assert::IsTrue(v[2] == "Petras");
 			Assert::IsTrue(*it == "xxx");
-		}
-
-		TEST_METHOD(VectorInitializerListAssignmentWorks)
-		{
-			Vector<int> v;
-			v.push_back(10);
-
-			v = { 1, 2, 3 };
-
-			Assert::IsTrue(v.size() == 3);
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 2);
-			Assert::IsTrue(v[2] == 3);
 		}
 		TEST_METHOD(VectorMaxSizeWorks)
 		{
