@@ -28,10 +28,16 @@ void skaitytiIsFailoVector(const std::string& failoPavadinimas, std::vector<Stud
 		std::stringstream ss(eilute);
 		Studentas studentas;
 
-		if (!(ss >> studentas.vardas >> studentas.pavarde))
+		std::string vardas;
+		std::string pavarde;
+
+		if (!(ss >> vardas >> pavarde))
 		{
 			throw std::runtime_error("Netinkamas duomenu formatas");
 		}
+		studentas.setVardas(vardas);
+		studentas.setPavarde(pavarde);
+
 
 		int paz;
 		std::vector<int> visiPaz;
@@ -49,9 +55,9 @@ void skaitytiIsFailoVector(const std::string& failoPavadinimas, std::vector<Stud
 		{
 			throw std::runtime_error("Studentui nerastas nei vienas pazymys ar egzamino rezultatas");
 		}
-		studentas.egzaminas = visiPaz.back();
+		studentas.setEgzaminas(visiPaz.back());
 		visiPaz.pop_back();
-		studentas.pazymiai = visiPaz;
+		studentas.setPazymiai(visiPaz);
 
 		studentai.push_back(studentas);
 	}
@@ -65,13 +71,14 @@ void skaiciuotiRezultatusVector(std::vector<Studentas>& studentai, int skaiciavi
 		double nd;
 		if (skaiciavimoTipas == 1)
 		{
-			nd = calculateAverage(studentai[i].pazymiai);
+			nd = calculateAverage(studentai[i].getPazymiai());
 		}
 		else
 		{
-			nd = calculateMedian(studentai[i].pazymiai);
+			nd = calculateMedian(studentai[i].getPazymiai());
 		}
-		studentai[i].rezultatas = calculateFinal(nd, studentai[i].egzaminas);
+		double galutinis = calculateFinal(nd, studentai[i].getEgzaminas());
+		studentai[i].setRezultatas(galutinis);
 	}
 }
 
@@ -103,9 +110,9 @@ void isvestiRezultatusVector(const std::vector<Studentas>& studentai, int skaici
 	std::cout << "--------------------------------------------------\n";
 	for (int i = 0; i < studentai.size(); i++)
 	{
-		std::cout << std::setw(15) << studentai[i].pavarde
-			<< std::setw(15) << studentai[i].vardas
-			<< std::fixed << std::setprecision(2) << studentai[i].rezultatas << "\n";
+		std::cout << std::setw(15) << studentai[i].getPavarde()
+			<< std::setw(15) << studentai[i].getVardas()
+			<< std::fixed << std::setprecision(2) << studentai[i].getRezultatas() << "\n";
 	}
 }
 
@@ -125,9 +132,9 @@ void isvestiRezultatusIFailaVector(const std::vector<Studentas>& studentai, int 
 
 	for (int i = 0; i < studentai.size(); i++)
 	{
-		out << std::setw(15) << studentai[i].pavarde
-			<< std::setw(15) << studentai[i].vardas
-			<< std::fixed << std::setprecision(2) << studentai[i].rezultatas << "\n";
+		out << std::setw(15) << studentai[i].getPavarde()
+			<< std::setw(15) << studentai[i].getVardas()
+			<< std::fixed << std::setprecision(2) << studentai[i].getRezultatas() << "\n";
 	}
 	out.close();
 	std::cout << "Rezultatai issaugoti faile: " << failoPavadinimas << "\n";
@@ -180,7 +187,7 @@ void padalintiStudentus1Vector(const std::vector<Studentas>& studentai, std::vec
 
 	for (int i = 0; i < studentai.size(); ++i)
 	{
-		if (studentai[i].rezultatas < 5)
+		if (studentai[i].getRezultatas() < 5)
 		{
 			nuskriaustieji.push_back(studentai[i]);
 		}
@@ -197,7 +204,7 @@ void padalintiStudentus2Vector(std::vector<Studentas>& studentai, std::vector<St
 
 	for (auto it = studentai.begin(); it != studentai.end();)
 	{
-		if (it->rezultatas < 5)
+		if (it->getRezultatas() < 5)
 		{
 			nuskriaustieji.push_back(*it);
 			it = studentai.erase(it);

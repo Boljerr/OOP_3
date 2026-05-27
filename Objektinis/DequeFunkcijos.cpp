@@ -20,10 +20,16 @@ void skaitytiIsFailoDeque(const std::string& failoPavadinimas, std::deque<Studen
 	{
 		std::stringstream ss(eilute);
 		Studentas studentas;
-		if (!(ss >> studentas.vardas >> studentas.pavarde))
+
+		std::string vardas;
+		std::string pavarde;
+
+		if (!(ss >> vardas >> pavarde))
 		{
 			throw std::runtime_error("Netinkamas duomenu formatas");
 		}
+		studentas.setVardas(vardas);
+		studentas.setPavarde(pavarde);
 		int paz;
 		std::vector<int> visiPaz;
 		while (ss >> paz)
@@ -38,9 +44,9 @@ void skaitytiIsFailoDeque(const std::string& failoPavadinimas, std::deque<Studen
 		{
 			throw std::runtime_error("Studentui nerastas nei vienas pazymys ar egzamino rezultatas");
 		}
-		studentas.egzaminas = visiPaz.back();
+		studentas.setEgzaminas(visiPaz.back());
 		visiPaz.pop_back();
-		studentas.pazymiai = visiPaz;
+		studentas.setPazymiai(visiPaz);
 		studentai.push_back(studentas);
 	}
 	in.close();
@@ -53,13 +59,14 @@ void skaiciuotiRezultatusDeque(std::deque<Studentas>& studentai, int skaiciavimo
 		double nd;
 		if (skaiciavimoTipas == 1)
 		{
-			nd = calculateAverage(studentai[i].pazymiai);
+			nd = calculateAverage(studentai[i].getPazymiai());
 		}
 		else
 		{
-			nd = calculateMedian(studentai[i].pazymiai);
+			nd = calculateMedian(studentai[i].getPazymiai());
 		}
-		studentai[i].rezultatas = calculateFinal(nd, studentai[i].egzaminas);
+		double galutinis = calculateFinal(nd, studentai[i].getEgzaminas());
+		studentai[i].setRezultatas(galutinis);
 	}
 }
 
@@ -87,7 +94,7 @@ void padalintiStudentus1Deque(const std::deque<Studentas>& studentai, std::deque
 	kietiakiai.clear();
 	for (int i = 0; i < studentai.size(); ++i)
 	{
-		if (studentai[i].rezultatas < 5)
+		if (studentai[i].getRezultatas() < 5)
 		{
 			nuskriaustieji.push_back(studentai[i]);
 		}
@@ -104,7 +111,7 @@ void padalintiStudentus2Deque(std::deque<Studentas>& studentai, std::deque<Stude
 
 	for (auto it = studentai.begin(); it != studentai.end();)
 	{
-		if (it->rezultatas < 5)
+		if (it->getRezultatas() < 5)
 		{
 			nuskriaustieji.push_back(*it);
 			it = studentai.erase(it);

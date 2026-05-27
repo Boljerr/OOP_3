@@ -2,11 +2,60 @@
 #include "VectorFunkcijos.h"
 #include "ListFunkcijos.h"
 #include "DequeFunkcijos.h"
+#include "Bendra.h"
 #include <iostream>
 #include <vector>
 #include <list>
 #include <deque>
 #include <chrono>
+
+#include<fstream>
+#include<string>
+void isvestiStudentusIFailaVector(const std::vector<Studentas>& studentai, const std::string& failoPavadinimas)
+{
+    std::ofstream out(failoPavadinimas);
+
+    if (!out.is_open())
+    {
+        std::cout << " Nepavyko sukurti rezultatu failo.\n";
+        return;
+    }
+
+    for (int i = 0; i < studentai.size(); i++)
+    {
+		out << studentai[i] << "\n";
+    }
+}
+
+void isvestiStudentusIFailaList(const std::list<Studentas>& studentai, const std::string& failoPavadinimas)
+{
+    std::ofstream out(failoPavadinimas);
+    if (!out.is_open())
+    {
+        std::cout << " Nepavyko sukurti rezultatu failo.\n";
+        return;
+    }
+    for (const auto& studentas : studentai)
+    {
+        out << studentas << "\n";
+    }
+}
+
+void isvestiStudentusIFailaDeque(const std::deque<Studentas>& studentai, const std::string& failoPavadinimas)
+{
+    std::ofstream out(failoPavadinimas);
+    if (!out.is_open())
+    {
+        std::cout << " Nepavyko sukurti rezultatu failo.\n";
+        return;
+    }
+    for (const auto& studentas : studentai)
+    {
+        out << studentas << "\n";
+    }
+
+
+}
 
 
 TyrimoRezultatai atliktiVectorTyrima(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas)
@@ -27,15 +76,18 @@ TyrimoRezultatai atliktiVectorTyrima(const std::string& failoPavadinimas, int sk
 
     std::vector<Studentas> studentaiSkirstymui = studentai;
     std::vector<Studentas> nuskriaustieji;
-    std::vector<Studentas> kietiakiai;
     auto startSplit = std::chrono::high_resolution_clock::now();
-    padalintiStudentus1Vector(studentaiSkirstymui, nuskriaustieji, kietiakiai);
+    padalintiStudentus3Vector(studentaiSkirstymui, nuskriaustieji);
     auto endSplit = std::chrono::high_resolution_clock::now();
 
     rezultatai.nuskaitymas = std::chrono::duration<double>(endRead - startRead).count();
     rezultatai.rusiavimas = std::chrono::duration<double>(endSort - startSort).count();
     rezultatai.skirstymas = std::chrono::duration<double>(endSplit - startSplit).count();
 
+    rusiuotiStudentusVector(studentaiSkirstymui, rusiavimoTipas);
+    rusiuotiStudentusVector(nuskriaustieji, rusiavimoTipas);
+    isvestiRezultatusIFailaVector(studentaiSkirstymui, skaiciavimoTipas, "rusiuoti_studentai_vector.txt");
+	isvestiRezultatusIFailaVector(nuskriaustieji, skaiciavimoTipas, "nuskriaustieji_vector.txt");
     return rezultatai;
 }
 
@@ -100,7 +152,7 @@ TyrimoRezultatai atliktiDequeTyrima(const std::string& failoPavadinimas, int ska
     return rezultatai;
 }
 
-StrategijuRezultatai atliktiStrategijuTyrimaVector(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas)
+StrategijuRezultatai atliktiStrategijuTyrimaVector(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, bool isvestiIFailus)
 {
 	StrategijuRezultatai rezultatai;
 
@@ -128,16 +180,30 @@ StrategijuRezultatai atliktiStrategijuTyrimaVector(const std::string& failoPavad
     
 	auto start3 = std::chrono::high_resolution_clock::now();
 	padalintiStudentus3Vector(s3, nuskriaustieji3);
-	auto end3 = std::chrono::high_resolution_clock::now();\
+	auto end3 = std::chrono::high_resolution_clock::now();
 
 	rezultatai.strategija1 = std::chrono::duration<double>(end1 - start1).count();
 	rezultatai.strategija2 = std::chrono::duration<double>(end2 - start2).count();
 	rezultatai.strategija3 = std::chrono::duration<double>(end3 - start3).count();
 
+    if (isvestiIFailus)
+    {
+		std::string failoVardas = gautiFailoVardaBePletinio(failoPavadinimas);
+
+
+		isvestiStudentusIFailaVector(kietiakiai1, failoVardas + "_vector_strategija1_kietiakiai.txt");
+		isvestiStudentusIFailaVector(nuskriaustieji1, failoVardas + "_vector_strategija1_nuskriaustieji.txt");
+
+		isvestiStudentusIFailaVector(s2, failoVardas + "_vector_strategija2_kietiakiai.txt");
+		isvestiStudentusIFailaVector(nuskriaustieji2, failoVardas + "_vector_strategija2_nuskriaustieji.txt");
+		isvestiStudentusIFailaVector(s3, failoVardas + "_vector_strategija3_kietiakiai.txt");
+		isvestiStudentusIFailaVector(nuskriaustieji3, failoVardas + "_vector_strategija3_nuskriaustieji.txt");
+    }
+
 	return rezultatai;
 }
 
-StrategijuRezultatai atliktiStrategijuTyrimaList(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas)
+StrategijuRezultatai atliktiStrategijuTyrimaList(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, bool isvestiIFailus)
 {
     StrategijuRezultatai rezultatai;
 
@@ -160,21 +226,35 @@ StrategijuRezultatai atliktiStrategijuTyrimaList(const std::string& failoPavadin
     auto end1 = std::chrono::high_resolution_clock::now();
 
     auto start2 = std::chrono::high_resolution_clock::now();
-    padalintiStudentus2List(s2, nuskriaustieji2);
+   padalintiStudentus2List(s2, nuskriaustieji2);
     auto end2 = std::chrono::high_resolution_clock::now();
     
     auto start3 = std::chrono::high_resolution_clock::now();
-    padalintiStudentus3List(s3, nuskriaustieji3);
+   padalintiStudentus3List(s3, nuskriaustieji3);
     auto end3 = std::chrono::high_resolution_clock::now();
 
     rezultatai.strategija1 = std::chrono::duration<double>(end1 - start1).count();
     rezultatai.strategija2 = std::chrono::duration<double>(end2 - start2).count();
     rezultatai.strategija3 = std::chrono::duration<double>(end3 - start3).count();
 
+    if (isvestiIFailus)
+    {
+		std::string failoVardas = gautiFailoVardaBePletinio(failoPavadinimas);
+
+		isvestiStudentusIFailaList(kietiakiai1, failoVardas + "_list_strategija1_kietiakiai.txt");
+		isvestiStudentusIFailaList(nuskriaustieji1, failoVardas + "_list_strategija1_nuskriaustieji.txt");
+
+		isvestiStudentusIFailaList(s2, failoVardas + "_list_strategija2_kietiakiai.txt");
+		isvestiStudentusIFailaList(nuskriaustieji2, failoVardas + "_list_strategija2_nuskriaustieji.txt");
+
+		isvestiStudentusIFailaList(s3, failoVardas + "_list_strategija3_kietiakiai.txt");
+		isvestiStudentusIFailaList(nuskriaustieji3, failoVardas + "_list_strategija3_nuskriaustieji.txt");
+    }
+
     return rezultatai;
 }
 
-StrategijuRezultatai atliktiStrategijuTyrimaDeque(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas)
+StrategijuRezultatai atliktiStrategijuTyrimaDeque(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, bool isvestiIFailus)
 {
     StrategijuRezultatai rezultatai;
 
@@ -193,20 +273,34 @@ StrategijuRezultatai atliktiStrategijuTyrimaDeque(const std::string& failoPavadi
     std::deque<Studentas> nuskriaustieji3;
 
     auto start1 = std::chrono::high_resolution_clock::now();
-    padalintiStudentus1Deque(s1, nuskriaustieji1, kietiakiai1);
+   padalintiStudentus1Deque(s1, nuskriaustieji1, kietiakiai1);
     auto end1 = std::chrono::high_resolution_clock::now();
 
     auto start2 = std::chrono::high_resolution_clock::now();
-    padalintiStudentus2Deque(s2, nuskriaustieji2);
+   padalintiStudentus2Deque(s2, nuskriaustieji2);
     auto end2 = std::chrono::high_resolution_clock::now();
     
     auto start3 = std::chrono::high_resolution_clock::now();
-    padalintiStudentus3Deque(s3, nuskriaustieji3);
+   padalintiStudentus3Deque(s3, nuskriaustieji3);
     auto end3 = std::chrono::high_resolution_clock::now();
 
     rezultatai.strategija1 = std::chrono::duration<double>(end1 - start1).count();
     rezultatai.strategija2 = std::chrono::duration<double>(end2 - start2).count();
     rezultatai.strategija3 = std::chrono::duration<double>(end3 - start3).count();
+
+    if (isvestiIFailus)
+    {
+		std::string failoVardas = gautiFailoVardaBePletinio(failoPavadinimas);
+
+		isvestiStudentusIFailaDeque(kietiakiai1, failoVardas + "_deque_strategija1_kietiakiai.txt");
+		isvestiStudentusIFailaDeque(nuskriaustieji1, failoVardas + "_deque_strategija1_nuskriaustieji.txt");
+
+		isvestiStudentusIFailaDeque(s2, failoVardas + "_deque_strategija2_kietiakiai.txt");
+		isvestiStudentusIFailaDeque(nuskriaustieji2, failoVardas + "_deque_strategija2_nuskriaustieji.txt");
+
+		isvestiStudentusIFailaDeque(s3, failoVardas + "_deque_strategija3_kietiakiai.txt");
+		isvestiStudentusIFailaDeque(nuskriaustieji3, failoVardas + "_deque_strategija3_nuskriaustieji.txt");
+    }
 
     return rezultatai;
 }
@@ -219,10 +313,11 @@ void atliktiKonteineriuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int
 
     for (int i = 0; i < kartu; i++)
     {
+
+
 		TyrimoRezultatai v = atliktiVectorTyrima(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
 		TyrimoRezultatai l = atliktiListTyrima(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
 		TyrimoRezultatai d = atliktiDequeTyrima(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
-
 		vectorVidurkis.nuskaitymas += v.nuskaitymas;
 		vectorVidurkis.rusiavimas += v.rusiavimas;
 		vectorVidurkis.skirstymas += v.skirstymas;
@@ -274,9 +369,11 @@ void atliktiStrategijuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int 
 
     for (int i = 0; i < kartu; i++)
     {
-		StrategijuRezultatai v = atliktiStrategijuTyrimaVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
-		StrategijuRezultatai l = atliktiStrategijuTyrimaList(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
-    	StrategijuRezultatai d = atliktiStrategijuTyrimaDeque(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
+		bool isvestiIFailus = (i == kartu - 1); // Tik paskutinio bandymo metu isvesime i failus
+
+		StrategijuRezultatai v = atliktiStrategijuTyrimaVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas, isvestiIFailus);
+		StrategijuRezultatai l = atliktiStrategijuTyrimaList(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas, isvestiIFailus);
+        StrategijuRezultatai d = atliktiStrategijuTyrimaDeque(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas, isvestiIFailus);
 
 		vectorVidurkis.strategija1 += v.strategija1;
 		vectorVidurkis.strategija2 += v.strategija2;
@@ -285,7 +382,6 @@ void atliktiStrategijuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int 
 		listVidurkis.strategija1 += l.strategija1;
 		listVidurkis.strategija2 += l.strategija2;
 		listVidurkis.strategija3 += l.strategija3;
-
 		dequeVidurkis.strategija1 += d.strategija1;
 		dequeVidurkis.strategija2 += d.strategija2;
 		dequeVidurkis.strategija3 += d.strategija3;

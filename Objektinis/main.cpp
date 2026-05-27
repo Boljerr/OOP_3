@@ -16,6 +16,8 @@
 #include "Bendra.h"
 #include "Tyrimai.h"
 #include "VectorFunkcijos.h"
+#include "Studentas.h"
+#include "Testai.h"
 
 int main()
 {
@@ -30,9 +32,10 @@ int main()
 		std::cout << "5 - Generuoti studentu faila\n";
 		std::cout << "6 - Atlikti failo kurimo tyrima\n";
 		std::cout << "7 - Atlikti v0.4 duomenu apdorojimo tyrima(vector)\n";
-		std::cout << "8 - Atlikti v1.0 konteineriu tyrima\n";
-		std::cout << "9 - Atlikti v1.0 skirstymo strategiju tyrima\n";
-		std::cout << "10 - Baigti\n";
+		std::cout << "8 - Atlikti v1.1 konteineriu tyrima\n";
+		std::cout << "9 - Atlikti v1.1 skirstymo strategiju tyrima\n";
+		std::cout << "10 - Testuoti Studentas klase\n";
+		std::cout << "11 - Baigti\n";
 		std::cin >> pasirinkimas;
 		if (std::cin.fail())
 		{
@@ -51,8 +54,8 @@ int main()
 
 			do {
 				Studentas studentas;
-				studentas.vardas = ivestiVardaArPavarde("Iveskite varda: ");
-				studentas.pavarde = ivestiVardaArPavarde("Iveskite pavarde: ");
+				studentas.setVardas(ivestiVardaArPavarde("Iveskite varda: "));
+				studentas.setPavarde( ivestiVardaArPavarde("Iveskite pavarde: "));
 
 				std::cout << "Iveskite pazymi (0 - 10). Baigti -1\n";
 
@@ -65,14 +68,14 @@ int main()
 						break;
 					}
 
-					studentas.pazymiai.push_back(temp);
+					studentas.pridetiPazymi(temp);
 				}
-				if (studentas.pazymiai.empty())
+				if (studentas.getPazymiai().empty())
 				{
 					std::cout << "Nerasta pazymiu, galutinis bus skaiciuojamas tik is egzamino\n";
 				}
 
-				studentas.egzaminas = ivestiIntSuValidacija("Iveskite egzamino rezultata (0-10): ", 0, 10);
+				studentas.setEgzaminas(ivestiIntSuValidacija("Iveskite egzamino rezultata (0-10): ", 0, 10));
 
 				studentai.push_back(studentas);
 
@@ -96,8 +99,8 @@ int main()
 			do
 			{
 				Studentas studentas;
-				studentas.vardas = ivestiVardaArPavarde("Iveskite varda: ");
-				studentas.pavarde = ivestiVardaArPavarde("Iveskite pavarde: ");
+				studentas.setVardas(ivestiVardaArPavarde("Iveskite varda: "));
+				studentas.setPavarde(ivestiVardaArPavarde("Iveskite pavarde: "));
 
 				int kiekis = ivestiIntSuValidacija("Kiek generuoti namu darbu pazymiu? ", 1, INT_MAX - 1);
 
@@ -105,10 +108,10 @@ int main()
 				for (int i = 0; i < kiekis; ++i)
 				{
 					int paz = std::rand() % 10 + 1;
-					studentas.pazymiai.push_back(paz);
+					studentas.pridetiPazymi(paz);
 				}
 
-				studentas.egzaminas = std::rand() % 10 + 1;
+				studentas.setEgzaminas(std::rand() % 10 + 1);
 
 				studentai.push_back(studentas);
 
@@ -135,15 +138,15 @@ int main()
 				zmogus z = gen();
 
 				Studentas studentas;
-				studentas.vardas = z.vardas;
-				studentas.pavarde = z.pavarde;
+				studentas.setVardas(z.vardas);
+				studentas.setPavarde(z.pavarde);
 
 				for (int j = 0; j < ndKiekis; ++j)
 				{
-					studentas.pazymiai.push_back(gen().paz);
+					studentas.pridetiPazymi(gen().paz);
 				}
 
-				studentas.egzaminas = std::rand() % 10 + 1;
+				studentas.setEgzaminas(std::rand() % 10 + 1);
 				studentai.push_back(studentas);
 			}
 			int skaiciavimoTipas = pasirinktiSkaiciavimoTipa();
@@ -323,7 +326,13 @@ int main()
 			}
 			break;
 		}
+
 		case 10:
+			{
+			testuotiStudentoKlase();
+			break;
+			}
+		case 11:
 			{
 			std::cout << "Programa baige darba.\n";
 			break;
@@ -335,7 +344,7 @@ int main()
 		}
 		}
 
-	} while (pasirinkimas != 10);
+	} while (pasirinkimas != 11);
 	
 	return 0;
 }

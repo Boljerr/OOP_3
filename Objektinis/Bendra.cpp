@@ -125,18 +125,18 @@ std::string gautiFailoVardaBePletinio(const std::string& failoPavadinimas)
 
 bool compareByVardas(const Studentas& a, const Studentas& b)
 {
-	return a.vardas < b.vardas;
+	return a.getVardas() < b.getVardas();
 }
 bool compareByPavarde(const Studentas& a, const Studentas& b)
 {
-	return a.pavarde < b.pavarde;
+	return a.getPavarde() < b.getPavarde();
 }
 bool compareByRezultatas(const Studentas& a, const Studentas& b)
 {
-	return a.rezultatas < b.rezultatas;
+	return a.getRezultatas() < b.getRezultatas();
 }
 
 bool arKietiakas(const Studentas& studentas)
 {
-	return studentas.rezultatas >= 5.0;
+	return studentas.getRezultatas() >= 5.0;
 }
