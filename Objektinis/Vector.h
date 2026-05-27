@@ -201,6 +201,23 @@ public:
 		}
 		return duomenys_[dydis_ - 1];
 	}
+
+	void reserve(std::size_t naujaTalpa)
+    {
+	    if (naujaTalpa <= talpa_)
+	    {
+		    return;
+	    }
+		T* naujiDuomenys = new T[naujaTalpa];
+
+		for (std::size_t i = 0; i < dydis_; ++i)
+		{
+			naujiDuomenys[i] = duomenys_[i];
+		}
+		delete[] duomenys_;
+		duomenys_ = naujiDuomenys;
+		talpa_ = naujaTalpa;
+    }
 };
 
 #endif

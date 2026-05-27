@@ -4,6 +4,8 @@
 #include <utility>
 #include <sstream>
 #include <string>
+
+#include "Vector.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace StudentasUnitTests
@@ -109,6 +111,12 @@ namespace StudentasUnitTests
 			Assert::IsTrue(tekstas.find("Jonaitis") != std::string::npos);
 
 
+		}
+		TEST_METHOD(ReserveMethodWorks)
+		{
+			Vector<int> v;
+			v.reserve(10);
+			Assert::IsTrue(v.capacity() == 10);
 		}
 	};
 }

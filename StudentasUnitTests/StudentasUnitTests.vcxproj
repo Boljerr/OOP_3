@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Objektinis\Studentas.h" />
+    <ClInclude Include="..\Objektinis\Vector.h" />
     <ClInclude Include="..\Objektinis\Zmogus.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
