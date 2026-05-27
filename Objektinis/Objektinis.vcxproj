@@ -136,6 +136,7 @@
     <ClCompile Include="Studentas.cpp" />
     <ClCompile Include="Testai.cpp" />
     <ClCompile Include="Tyrimai.cpp" />
+    <ClCompile Include="Vector.h" />
     <ClCompile Include="VectorFunkcijos.cpp" />
     <ClCompile Include="Zmogus.cpp" />
   </ItemGroup>
