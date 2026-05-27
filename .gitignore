@@ -434,3 +434,79 @@ studentai1000000.txt
 rezultatai.txt
 kietiakiai.txt
 nuskriaustieji.txt
+studentai1000.txt
+studentai10000000.txt
+studentai100000000.txt
+studentai10000000_kietiakiai.txt
+studentai10000000_nuskriaustieji.txt
+studentai1000000_kietiakiai.txt
+studentai1000000_nuskriaustieji.txt
+studentai100000_kietiakiai.txt
+studentai100000_nuskriaustieji.txt
+studentai10000_kietiakiai.txt
+studentai10000_nuskriaustieji.txt
+studentai1000_kietiakiai.txt
+studentai1000_nuskriaustieji.txt
+studentai100_kietiakiai.txt
+studentai100_nuskriaustieji.txt
+
+V1.0_nuskriausieji.txt
+V1.0_studentai.txt
+V1.1_nuskriausieji.txt
+V1.1_studentai.txt
+nuskriaustieji_vector.txt
+rusiuoti_studentai_vector.txt
+.vs/
+x64/
+Debug/
+Release/
+out/
+build/
+cmake-build-*/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.user
+*.VC.db
+*.VC.opendb
+
+
+# Build folders
+build/
+Debug/
+Release/
+x64/
+x86/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+
+# Compiled files
+*.exe
+*.obj
+*.o
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.exp
+
+# Generated test/build files
+TestResults/
+*.trx
+
+# Generated data files
+studentai*.txt
+vargsiukai*.txt
+kietiakiai*.txt
+rezultatai*.txt
+
+# LaTeX temporary files
+
+       Objektinis.slnx
+        Objektinis/Objektinis.vcxproj
+        Objektinis/Objektinis.vcxproj.filters

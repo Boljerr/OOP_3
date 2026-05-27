@@ -1,0 +1,434 @@
+\doxysection{Studentas Class Reference}
+\hypertarget{class_studentas}{}\label{class_studentas}\index{Studentas@{Studentas}}
+
+
+Klase skirta saugoti studento duomenis.  
+
+
+
+
+{\ttfamily \+\#include $<$Studentas.\+h$>$}
+
+Inheritance diagram for Studentas:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_studentas}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}} ()
+\begin{DoxyCompactList}\small\item\em Tuscias konstruktorius, kuris sukuria \doxylink{class_studentas}{Studentas} objekta su numatytomis reiksmemis. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas_a7b3f3a8f6acc9d3d18d8682502a80c29}{Studentas}} (const std::\+string \&vardas, const std::\+string \&pavarde)
+\begin{DoxyCompactList}\small\item\em Konstruktorius su studento vardu ir pavarde. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas_a78125bb14725b97568689387df8541cc}{Studentas}} (const std::\+string \&vardas, const std::\+string \&pavarde, const std::\+vector$<$ int $>$ \&pazymiai, int egzaminas)
+\begin{DoxyCompactList}\small\item\em Konstruktorius su studento vardu, pavarde, namu darbu pazymiais ir egzamino pazymiu. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas_a63e449e0f51a0b14340d02ee71b4be23}{\texorpdfstring{$\sim$}{\string~}\+Studentas}} ()
+\begin{DoxyCompactList}\small\item\em Destruktorius. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas_a9c99fb8afa58ff7806759aa22e3c1a6f}{Studentas}} (const \doxymbox{\hyperlink{class_studentas}{Studentas}} \&kitas)
+\begin{DoxyCompactList}\small\item\em Kopijavimo konstruktorius. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas}{Studentas}} \& \doxymbox{\hyperlink{class_studentas_a8bd0a78e7c4ba39c5459c8e0b298bc47}{operator=}} (const \doxymbox{\hyperlink{class_studentas}{Studentas}} \&kitas)
+\begin{DoxyCompactList}\small\item\em Kopijavimo priskyrimo operatorius. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas_a35f81eeea8421d4c5a4d1a2e4cfd9f59}{Studentas}} (\doxymbox{\hyperlink{class_studentas}{Studentas}} \&\&kitas) noexcept
+\begin{DoxyCompactList}\small\item\em Perkėlimo konstruktorius. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_studentas}{Studentas}} \& \doxymbox{\hyperlink{class_studentas_a3f542851deb85ac5cf58c6b62ab3b7c7}{operator=}} (\doxymbox{\hyperlink{class_studentas}{Studentas}} \&\&kitas) noexcept
+\begin{DoxyCompactList}\small\item\em Perkėlimo priskyrimo operatorius. \end{DoxyCompactList}\item 
+const std::\+vector$<$ int $>$ \& \doxymbox{\hyperlink{class_studentas_a0f4347b5d93a0aea1f8428f2d86fbf2a}{get\+Pazymiai}} () const
+\begin{DoxyCompactList}\small\item\em Grazina studento namu darbu pazymius. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_studentas_abe38c118e8e899b4de681f1d12adceab}{get\+Egzaminas}} () const
+\begin{DoxyCompactList}\small\item\em Grazina studento egzamino pazymi. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{class_studentas_a539f117ad6e1ab339be103475c05a277}{get\+Rezultatas}} () const
+\begin{DoxyCompactList}\small\item\em Grazina studento galutini rezultata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_studentas_af68c4e292bc857598670ee686001855d}{set\+Pazymiai}} (const std::\+vector$<$ int $>$ \&namu\+Darbai)
+\begin{DoxyCompactList}\small\item\em Nustato studento namu darbu pazymius. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_studentas_ac7fa2f1df9d544ac1fc050689d1928bc}{set\+Egzaminas}} (int egzaminas)
+\begin{DoxyCompactList}\small\item\em Nustato studento egzamino pazymi. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_studentas_a234e45225606bee167aee7a323e13857}{set\+Rezultatas}} (double rezultatas)
+\begin{DoxyCompactList}\small\item\em Nustato studento galutini rezultata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_studentas_a72aa804d9cd252698b20e84a0ee82429}{prideti\+Pazymi}} (int pazymys)
+\begin{DoxyCompactList}\small\item\em Prideda nauja pazymi prie studento namu darbu pazymiu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_studentas_acd52ae8a7b65354e937ddee975af84ec}{read}} (std::\+istream \&in) override
+\begin{DoxyCompactList}\small\item\em Nuskaito studento duomenis is srauto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_studentas_a3117ca77bca476330eed0bd632f1115e}{print}} (std::\+ostream \&out) const override
+\begin{DoxyCompactList}\small\item\em Isveda studento duomenis i srauta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_zmogus}{Zmogus}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_zmogus_aa7a8ba4d3c4778f9b35d59eef3e72574}{Zmogus}} ()
+\begin{DoxyCompactList}\small\item\em Numatytasis konstruktorius. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_zmogus_ae6bfb71e4c8fddf15f3a19b4bcd6fd26}{Zmogus}} (const std::\+string \&vardas, const std::\+string \&pavarde)
+\begin{DoxyCompactList}\small\item\em Konstruktorius su zmogaus vardu ir pavarde. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_zmogus_ac5615bf607a8f2f1b303ffa04328d24d}{\texorpdfstring{$\sim$}{\string~}\+Zmogus}} ()
+\begin{DoxyCompactList}\small\item\em Virtualus Destruktorius. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_zmogus_a4a580af3507a2d27efe978d5be0075ab}{get\+Vardas}} () const
+\begin{DoxyCompactList}\small\item\em Grazina zmogaus varda. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_zmogus_ac50d1e325af387bb385eb88bb7ff42b7}{get\+Pavarde}} () const
+\begin{DoxyCompactList}\small\item\em Grazina zmogaus pavarde. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_zmogus_a6024e8fb5c3a9fbd48ca522f976f8465}{set\+Vardas}} (const std::\+string \&vardas)
+\begin{DoxyCompactList}\small\item\em Nustato zmogaus varda. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_zmogus_ae4c3b02e68af5ed87c68101ba699539c}{set\+Pavarde}} (const std::\+string \&pavarde)
+\begin{DoxyCompactList}\small\item\em Nustato zmogaus pavarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{class_studentas_a8a1b411d320d067b79f416a9dd69ea16}{get\+Sunaikintu\+Objektu\+Kiekis}} ()
+\begin{DoxyCompactList}\small\item\em Grazina sunaikintu \doxylink{class_studentas}{Studentas} objektu kieki. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::\+istream \& \doxymbox{\hyperlink{class_studentas_ae33769c156dd94d4cea9cdba0c136194}{operator$>$$>$}} (std::\+istream \&in, \doxymbox{\hyperlink{class_studentas}{Studentas}} \&studentas)
+\begin{DoxyCompactList}\small\item\em Ivesties operatorius, kuris leidzia nuskaityti studento duomenis is srauto. \end{DoxyCompactList}\item 
+std::\+ostream \& \doxymbox{\hyperlink{class_studentas_a9201792d00afa48c63cd2e4f1ea41bb2}{operator$<$$<$}} (std::\+ostream \&out, const \doxymbox{\hyperlink{class_studentas}{Studentas}} \&studentas)
+\begin{DoxyCompactList}\small\item\em Isvesties operatorius, kuris leidzia isvesti studento duomenis i srauta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_zmogus}{Zmogus}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{class_zmogus_a80e72cd553492344884a264a72ce33d2}{vardas\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Zmogaus vardas. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_zmogus_a85cd6103a5f887059263d15413a3f081}{pavarde\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Zmogaus pavarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klase skirta saugoti studento duomenis. 
+
+\doxylink{class_studentas}{Studentas} klase paveldi is \doxylink{class_zmogus}{Zmogus} klases. Ji saugo studento namu darbu pazymius, egzamino pazymi ir galutini rezultata.
+
+Klase turi Rule of Five metodus, kad objektus butu galima teisingai kopijuoti, priskirti ir perkelti.
+
+Taip pat yra statinis kintamasis, kuris seka kiek \doxylink{class_studentas}{Studentas} klases objektu buvo sunaikinta, Kad butu galima atlikti dekonstruktoriaus testavima ir stebeti atminties valymus. 
+
+\label{class_studentas_doc-constructors}
+\Hypertarget{class_studentas_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539} 
+Studentas::\+\+Studentas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Tuscias konstruktorius, kuris sukuria \doxylink{class_studentas}{Studentas} objekta su numatytomis reiksmemis. 
+
+\Hypertarget{class_studentas_a7b3f3a8f6acc9d3d18d8682502a80c29}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{class_studentas_a7b3f3a8f6acc9d3d18d8682502a80c29} 
+Studentas::\+\+Studentas (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{vardas}{, }\item[{const std::\+string \&}]{pavarde}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktorius su studento vardu ir pavarde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vardas} & Studento vardas. \\
+\hline
+{\em pavarde} & Studento pavarde. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_studentas_a78125bb14725b97568689387df8541cc}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{class_studentas_a78125bb14725b97568689387df8541cc} 
+Studentas::\+\+Studentas (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{vardas}{, }\item[{const std::\+string \&}]{pavarde}{, }\item[{const std::\+vector$<$ int $>$ \&}]{pazymiai}{, }\item[{int}]{egzaminas}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktorius su studento vardu, pavarde, namu darbu pazymiais ir egzamino pazymiu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vardas} & Studento vardas. \\
+\hline
+{\em pavarde} & Studento pavarde. \\
+\hline
+{\em pazymiai} & Studento namu darbu pazymiai. \\
+\hline
+{\em egzaminas} & Studento egzamino pazymys. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_studentas_a63e449e0f51a0b14340d02ee71b4be23}\index{Studentas@{Studentas}!````~Studentas@{\texorpdfstring{$\sim$}{\string~}Studentas}}
+\index{````~Studentas@{\texorpdfstring{$\sim$}{\string~}Studentas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Studentas()}{\string~Studentas()}}
+{\footnotesize\ttfamily \label{class_studentas_a63e449e0f51a0b14340d02ee71b4be23} 
+Studentas::\+\texorpdfstring{$\sim$}{\string~}\+Studentas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destruktorius. 
+
+Sunaikinus objekta padidinamas sunaikintu objektu skaicius. \Hypertarget{class_studentas_a9c99fb8afa58ff7806759aa22e3c1a6f}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{class_studentas_a9c99fb8afa58ff7806759aa22e3c1a6f} 
+Studentas::\+\+Studentas (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_studentas}{Studentas}} \&}]{kitas}{}\end{DoxyParamCaption})}
+
+
+
+Kopijavimo konstruktorius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_studentas}{Studentas} objektas, kurio duomenys bus kopijuojami. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_studentas_a35f81eeea8421d4c5a4d1a2e4cfd9f59}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{class_studentas_a35f81eeea8421d4c5a4d1a2e4cfd9f59} 
+Studentas::\+\+Studentas (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_studentas}{Studentas}} \&\&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Perkėlimo konstruktorius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_studentas}{Studentas} objektas, kurio duomenys bus perkelti. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_studentas_doc-func-members}
+\Hypertarget{class_studentas_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_studentas_abe38c118e8e899b4de681f1d12adceab}\index{Studentas@{Studentas}!getEgzaminas@{getEgzaminas}}
+\index{getEgzaminas@{getEgzaminas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{getEgzaminas()}{getEgzaminas()}}
+{\footnotesize\ttfamily \label{class_studentas_abe38c118e8e899b4de681f1d12adceab} 
+int Studentas::\+get\+Egzaminas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Grazina studento egzamino pazymi. 
+
+\begin{DoxyReturn}{Returns}
+Studento egzamino pazymys. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_a0f4347b5d93a0aea1f8428f2d86fbf2a}\index{Studentas@{Studentas}!getPazymiai@{getPazymiai}}
+\index{getPazymiai@{getPazymiai}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{getPazymiai()}{getPazymiai()}}
+{\footnotesize\ttfamily \label{class_studentas_a0f4347b5d93a0aea1f8428f2d86fbf2a} 
+const std::\+vector$<$ int $>$ \& Studentas::\+get\+Pazymiai (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Grazina studento namu darbu pazymius. 
+
+\begin{DoxyReturn}{Returns}
+Studento namu darbu pazymiai. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_a539f117ad6e1ab339be103475c05a277}\index{Studentas@{Studentas}!getRezultatas@{getRezultatas}}
+\index{getRezultatas@{getRezultatas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{getRezultatas()}{getRezultatas()}}
+{\footnotesize\ttfamily \label{class_studentas_a539f117ad6e1ab339be103475c05a277} 
+double Studentas::\+get\+Rezultatas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Grazina studento galutini rezultata. 
+
+\begin{DoxyReturn}{Returns}
+Studento galutinis rezultatas. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_a8a1b411d320d067b79f416a9dd69ea16}\index{Studentas@{Studentas}!getSunaikintuObjektuKiekis@{getSunaikintuObjektuKiekis}}
+\index{getSunaikintuObjektuKiekis@{getSunaikintuObjektuKiekis}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{getSunaikintuObjektuKiekis()}{getSunaikintuObjektuKiekis()}}
+{\footnotesize\ttfamily \label{class_studentas_a8a1b411d320d067b79f416a9dd69ea16} 
+int Studentas::\+get\+Sunaikintu\+Objektu\+Kiekis (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Grazina sunaikintu \doxylink{class_studentas}{Studentas} objektu kieki. 
+
+\begin{DoxyReturn}{Returns}
+Sunaikintu \doxylink{class_studentas}{Studentas} objektu kiekis. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_a8bd0a78e7c4ba39c5459c8e0b298bc47}\index{Studentas@{Studentas}!operator=@{operator=}}
+\index{operator=@{operator=}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_studentas_a8bd0a78e7c4ba39c5459c8e0b298bc47} 
+\doxymbox{\hyperlink{class_studentas}{Studentas}} \& Studentas::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_studentas}{Studentas}} \&}]{kitas}{}\end{DoxyParamCaption})}
+
+
+
+Kopijavimo priskyrimo operatorius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_studentas}{Studentas} objektas, kurio duomenys bus kopijuojami. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i esama \doxylink{class_studentas}{Studentas} objektą. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_a3f542851deb85ac5cf58c6b62ab3b7c7}\index{Studentas@{Studentas}!operator=@{operator=}}
+\index{operator=@{operator=}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_studentas_a3f542851deb85ac5cf58c6b62ab3b7c7} 
+\doxymbox{\hyperlink{class_studentas}{Studentas}} \& Studentas::\+operator= (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_studentas}{Studentas}} \&\&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Perkėlimo priskyrimo operatorius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_studentas}{Studentas} objektas, kurio duomenys bus perkelti. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i esama \doxylink{class_studentas}{Studentas} objektą. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_a72aa804d9cd252698b20e84a0ee82429}\index{Studentas@{Studentas}!pridetiPazymi@{pridetiPazymi}}
+\index{pridetiPazymi@{pridetiPazymi}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{pridetiPazymi()}{pridetiPazymi()}}
+{\footnotesize\ttfamily \label{class_studentas_a72aa804d9cd252698b20e84a0ee82429} 
+void Studentas::\+prideti\+Pazymi (\begin{DoxyParamCaption}\item[{int}]{pazymys}{}\end{DoxyParamCaption})}
+
+
+
+Prideda nauja pazymi prie studento namu darbu pazymiu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pazymys} & Naujas pazymys. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_studentas_a3117ca77bca476330eed0bd632f1115e}\index{Studentas@{Studentas}!print@{print}}
+\index{print@{print}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_studentas_a3117ca77bca476330eed0bd632f1115e} 
+void Studentas::\+print (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{out}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Isveda studento duomenis i srauta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Isvesties srautas, i kuri bus isvedami studento duomenys. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_zmogus_a352531099db952e52228c06290c7e717}{Zmogus}}.
+
+\Hypertarget{class_studentas_acd52ae8a7b65354e937ddee975af84ec}\index{Studentas@{Studentas}!read@{read}}
+\index{read@{read}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \label{class_studentas_acd52ae8a7b65354e937ddee975af84ec} 
+void Studentas::\+read (\begin{DoxyParamCaption}\item[{std::\+istream \&}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Nuskaito studento duomenis is srauto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Ivesties srautas, is kurio bus nuskaitomi studento duomenys. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_zmogus_a9b3d37f05499cb719b465c3b9c76d275}{Zmogus}}.
+
+\Hypertarget{class_studentas_ac7fa2f1df9d544ac1fc050689d1928bc}\index{Studentas@{Studentas}!setEgzaminas@{setEgzaminas}}
+\index{setEgzaminas@{setEgzaminas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{setEgzaminas()}{setEgzaminas()}}
+{\footnotesize\ttfamily \label{class_studentas_ac7fa2f1df9d544ac1fc050689d1928bc} 
+void Studentas::\+set\+Egzaminas (\begin{DoxyParamCaption}\item[{int}]{egzaminas}{}\end{DoxyParamCaption})}
+
+
+
+Nustato studento egzamino pazymi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em egzaminas} & Studento egzamino pazymys. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_studentas_af68c4e292bc857598670ee686001855d}\index{Studentas@{Studentas}!setPazymiai@{setPazymiai}}
+\index{setPazymiai@{setPazymiai}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{setPazymiai()}{setPazymiai()}}
+{\footnotesize\ttfamily \label{class_studentas_af68c4e292bc857598670ee686001855d} 
+void Studentas::\+set\+Pazymiai (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ int $>$ \&}]{namu\+Darbai}{}\end{DoxyParamCaption})}
+
+
+
+Nustato studento namu darbu pazymius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em namu\+Darbai} & Studento namu darbu pazymiai. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_studentas_a234e45225606bee167aee7a323e13857}\index{Studentas@{Studentas}!setRezultatas@{setRezultatas}}
+\index{setRezultatas@{setRezultatas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{setRezultatas()}{setRezultatas()}}
+{\footnotesize\ttfamily \label{class_studentas_a234e45225606bee167aee7a323e13857} 
+void Studentas::\+set\+Rezultatas (\begin{DoxyParamCaption}\item[{double}]{rezultatas}{}\end{DoxyParamCaption})}
+
+
+
+Nustato studento galutini rezultata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rezultatas} & Studento galutinis rezultatas. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_studentas_doc-related-members}
+\Hypertarget{class_studentas_doc-related-members}
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_studentas_a9201792d00afa48c63cd2e4f1ea41bb2}\index{Studentas@{Studentas}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{class_studentas_a9201792d00afa48c63cd2e4f1ea41bb2} 
+std::\+ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{out}{, }\item[{const \doxymbox{\hyperlink{class_studentas}{Studentas}} \&}]{studentas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Isvesties operatorius, kuris leidzia isvesti studento duomenis i srauta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Isvesties srautas, i kuri bus isvedami studento duomenys. \\
+\hline
+{\em studentas} & \doxylink{class_studentas}{Studentas} objektas, kurio duomenys bus isvedami. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i isvesties srauta. 
+\end{DoxyReturn}
+\Hypertarget{class_studentas_ae33769c156dd94d4cea9cdba0c136194}\index{Studentas@{Studentas}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily \label{class_studentas_ae33769c156dd94d4cea9cdba0c136194} 
+std::\+istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std::\+istream \&}]{in}{, }\item[{\doxymbox{\hyperlink{class_studentas}{Studentas}} \&}]{studentas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Ivesties operatorius, kuris leidzia nuskaityti studento duomenis is srauto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Ivesties srautas, is kurio bus nuskaitomi studento duomenys. \\
+\hline
+{\em studentas} & \doxylink{class_studentas}{Studentas} objektas, i kuri bus saugomi nuskaitomi duomenys. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i ivesties srauta. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Objektinis/\+\doxymbox{\hyperlink{_studentas_8h}{Studentas.\+h}}\end{DoxyCompactItemize}

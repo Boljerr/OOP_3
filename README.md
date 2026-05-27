@@ -1,113 +1,236 @@
-# v0.4 Programos spartos tyrimas
+# Studentų pažymių skaičiavimo programa
 
-## 1 Tyrimas – Failų kūrimo sparta
+## Apie programą
 
-Šio tyrimo tikslas – išmatuoti, kiek laiko užtrunka sugeneruoti studentų duomenų failus su skirtingu įrašų kiekiu.
+Ši programa skirta studentų duomenims apdoroti.
 
-Testavimas atliktas naudojant programos **Release** versiją.  
-Kiekvienas failas buvo generuojamas **3 kartus**, o galutinis rezultatas pateikiamas kaip **laikų vidurkis**.
+Programa gali nuskaityti studentų vardus, pavardes, namų darbų pažymius ir egzamino rezultatą. Pagal šiuos duomenis yra apskaičiuojamas galutinis balas.
 
-Failuose generuojami studentai su šabloniniais vardais ir pavardėmis:
+Galutinis balas gali būti skaičiuojamas pagal:
 
-Kiekvienam studentui sugeneruojama **15 namų darbų pažymių** ir **egzamino pažymys**.
-
----
-
-## Testavimo rezultatai
-
-| Failas | Studentų skaičius | 1 bandymas (s) | 2 bandymas (s) | 3 bandymas (s) | Vidurkis (s) |
-|------|------|------|------|------|------|
-| studentai1000.txt | 1 000 | 0.0067418 | 0.0064339 | 0.0066288 | 0.00660 |
-| studentai10000.txt | 10 000 | 0.0561453 | 0.0487378 | 0.0497423 | 0.0515 |
-| studentai100000.txt | 100 000 | 0.45929 | 0.44882 | 0.440447 | 0.4495 |
-| studentai1000000.txt | 1 000 000 | 4.40415 | 4.39807 | 4.48562 | 4.429 |
-| studentai10000000.txt | 10 000 000 | 44.0179 | 44.0862 | 44.4223 | 44.176 |
+- namų darbų vidurkį;
+- namų darbų medianą.
 
 ---
 
-## Išvados
+## Programos funkcijos
 
-Didėjant studentų įrašų skaičiui, failų generavimo laikas didėja beveik proporcingai.  
-Tai rodo, kad failų generavimo algoritmas turi **linijinę laiko sudėtingumo priklausomybę O(n)**.
+Programa leidžia:
 
-## 2 Tyrimas – Duomenų apdorojimo sparta
+- rankiniu būdu įvesti studentų duomenis;
+- generuoti pažymius;
+- generuoti studentus ir jų pažymius;
+- nuskaityti studentų duomenis iš failo;
+- generuoti studentų failus;
+- skaičiuoti galutinį balą pagal vidurkį arba medianą;
+- rūšiuoti studentus pagal vardą, pavardę arba rezultatą;
+- skirstyti studentus į dvi grupes;
+- atlikti veikimo spartos tyrimus;
+- testuoti `Studentas` klasę;
+- peržiūrėti sugeneruotą Doxygen dokumentaciją.
 
-### studentai100.txt (100 įrašų)
+---
 
-Testas kartotas 10 kartų.
+## Reikalavimai
 
-| Operacija | Vidutinis laikas (s) |
+Norint paleisti programą, reikia turėti:
+
+- C++ kompiliatorių su C++17 palaikymu;
+- CMake;
+- Git;
+- Visual Studio, jeigu norima paleisti unit testus per `Test Explorer`.
+
+---
+
+## Programos atsisiuntimas
+
+Projektą galima atsisiųsti iš GitHub:
+
+```bash
+git clone https://github.com/Boljerr/OOP_2.git
+cd OOP_2
+```
+
+---
+
+## Programos kompiliavimas su CMake
+
+Projektas kompiliuojamas naudojant CMake.
+
+Pirmiausia reikia sukurti `build` aplanką:
+
+```bash
+mkdir build
+cd build
+```
+
+Tada paleisti CMake:
+
+```bash
+cmake ..
+```
+
+Kompiliavimas `Release` režimu:
+
+```bash
+cmake --build . --config Release
+```
+
+## Programos paleidimas
+
+
+```bash
+.\Release\Studentai.exe
+```
+
+---
+
+## Programos meniu
+
+```text
+1 - Rankinis ivedimas
+2 - Generuoti tik pazymius
+3 - Generuoti studentus ir pazymius
+4 - Nuskaityti is failo
+5 - Generuoti studentu faila
+6 - Atlikti failo kurimo tyrima
+7 - Atlikti v0.4 duomenu apdorojimo tyrima(vector)
+8 - Atlikti v1.1 konteineriu tyrima
+9 - Atlikti v1.1 skirstymo strategiju tyrima
+10 - Testuoti Studentas klase
+11 - Baigti
+```
+
+---
+
+## Unit testai
+
+v2.0 versijoje buvo pridėti unit testai.
+
+Juos pridėjau tam, kad būtų galima patikrinti, ar pagrindiniai `Studentas` klasės metodai veikia teisingai.
+
+Testams naudojau **Visual Studio C++ Unit Test Framework**, nes projektą darau su Visual Studio ir testus patogu paleisti per `Test Explorer`.
+
+### Testuojami metodai
+
+| Testas | Ką tikrina |
 |---|---|
-| Duomenų nuskaitymas iš failo | 0.000761 |
-| Studentų skirstymas į kategorijas | 0.000016 |
-| Studentų rūšiavimas | 0.000010 |
-| Rezultatų išvedimas į failus | 0.002423 |
-| **Bendras programos laikas** | **0.00321** |
+| `DefaultConstructorCreatesObject` | Patikrina, ar galima sukurti tuščią `Studentas` objektą |
+| `CopyConstructorWorks` | Patikrina kopijavimo konstruktorių |
+| `CopyAssignmentWorks` | Patikrina kopijavimo priskyrimo operatorių |
+| `MoveConstructorWorks` | Patikrina perkėlimo konstruktorių |
+| `MoveAssignmentWorks` | Patikrina perkėlimo priskyrimo operatorių |
+| `InputOperatorWorks` | Patikrina įvesties operatorių `>>` |
+| `OutputOperatorWorks` | Patikrina išvesties operatorių `<<` |
 
-### studentai1000.txt (1000 irasu)  
-Programa vykdyta **10 kartų**, pateikiami vidutiniai laikai.
+Svarbiausia buvo patikrinti Rule of Five metodus, nes jie parodo, ar `Studentas` objektai teisingai kopijuojami, priskiriami ir perkeliami.
 
-| Operacija | Vidutinis laikas (s) |
+### Unit testų paleidimas
+
+Testai paleidžiami per Visual Studio:
+
+1. Atidaryti projektą su Visual Studio.
+2. Viršutiniame meniu pasirinkti `Test`.
+3. Atidaryti `Test Explorer`.
+4. Paspausti `Run All Tests`.
+
+Jeigu visi testai žali, reiškia testuojami metodai veikia gerai.
+
+---
+
+## Doxygen dokumentacija
+
+v2.0 versijoje projektui buvo sugeneruota dokumentacija naudojant **Doxygen**.
+
+Dokumentacijoje aprašyta `Studentas` klasė, jos konstruktoriai, Rule of Five metodai, įvesties ir išvesties operatoriai bei kiti pagrindiniai metodai.
+
+Dokumentacija pateikta šiais formatais:
+
+| Dokumentacijos tipas | Vieta projekte |
 |---|---|
-| Duomenų nuskaitymas iš failo | 0.00594 |
-| Studentų skirstymas į kategorijas | 0.000162 |
-| Studentų rūšiavimas | 0.000202 |
-| Rezultatų išvedimas į failus | 0.00515 |
-| **Bendras programos laikas** | **0.0115** |
+| HTML | `docs/html/index.html` |
+| LaTeX | `docs/latex/` |
+| PDF | `docs/refman.pdf` |
 
-### studentai10000.txt (10 000 įrašų)
+HTML dokumentaciją galima atidaryti naršyklėje:
 
-Testas kartotas 10 kartų, pateikiamas vidurkis.
+```text
+docs/html/index.html
+```
 
-| Operacija | Vidutinis laikas (s) |
-|---|---|
-| Duomenų nuskaitymas iš failo | 0.05467 |
-| Studentų skirstymas į kategorijas | 0.002189 |
-| Studentų rūšiavimas | 0.002575 |
-| Rezultatų išvedimas į failus | 0.01127 |
-| **Bendras programos laikas** | **0.07089** |
+PDF dokumentacija pateikta faile:
 
-### studentai100000.txt (100 000 įrašų)
+```text
+docs/refman.pdf
+```
 
-Testas kartotas 10 kartų, pateikiamas vidurkis.
+PDF failas buvo sukompiliuotas naudojant Overleaf.
 
-| Operacija | Vidutinis laikas (s) |
-|---|---|
-| Duomenų nuskaitymas iš failo | 0.575736 |
-| Studentų skirstymas į kategorijas | 0.019338 |
-| Studentų rūšiavimas | 0.035469 |
-| Rezultatų išvedimas į failus | 0.091561 |
-| **Bendras programos laikas** | **0.744990** |
+---
 
-### studentai1000000.txt (1 000 000 įrašų)
+## Relizų aprašas
 
-Testas kartotas 10 kartų, pateikiamas vidurkis.
+### v2.0
 
-| Operacija | Vidutinis laikas (s) |
-|---|---|
-| Duomenų nuskaitymas iš failo | 5.52820 |
-| Studentų skirstymas į kategorijas | 0.21710 |
-| Studentų rūšiavimas | 0.43468 |
-| Rezultatų išvedimas į failus | 0.79904 |
-| **Bendras programos laikas** | **6.99734** |
+Šioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.
 
+Pagrindiniai pakeitimai:
 
-### studentai10000000.txt (10 000 000 įrašų)
+- pridėti unit testai `Studentas` klasei;
+- patikrinti Rule of Five metodai;
+- patikrinti įvesties ir išvesties operatoriai `>>` ir `<<`;
+- sugeneruota Doxygen HTML dokumentacija;
+- sugeneruota Doxygen LaTeX dokumentacija;
+- paruoštas dokumentacijos PDF failas;
+- atnaujintas `README.md` failas;
+- patikrintas projekto kompiliavimas su CMake.
 
-Testas kartotas 5 kartus, pateikiamas vidurkis.
+---
 
-| Operacija | Vidutinis laikas (s) |
-|---|---|
-| Duomenų nuskaitymas iš failo | 56.15856 |
-| Studentų skirstymas į kategorijas | 2.39562 |
-| Studentų rūšiavimas | 1.48498 |
-| Rezultatų išvedimas į failus | 7.32110 |
-| **Bendras programos laikas** | **67.56386** |
+### v1.5
 
-## Tyrimo išvados
+Šioje versijoje programa papildyta paveldėjimu.
 
-Didėjant studentų įrašų kiekiui, programos vykdymo laikas didėja beveik proporcingai. 
-Didžiausią laiko dalį užima duomenų nuskaitymas iš failo ir rezultatų išvedimas į naujus failus.
+Buvo sukurta abstrakti bazinė klasė `Zmogus`, iš kurios paveldi `Studentas` klasė.
+
+Programa išlaiko v1.2 versijos logiką: veikia Rule of Five, įvesties ir išvesties operatoriai bei ankstesni testai.
+
+---
+
+### v1.2
+
+Šioje versijoje `Studentas` klasė papildyta Rule of Five realizacija.
+
+Pridėta:
+
+- destruktorius;
+- kopijavimo konstruktorius;
+- kopijavimo priskyrimo operatorius;
+- perkėlimo konstruktorius;
+- perkėlimo priskyrimo operatorius.
+
+Taip pat realizuoti įvesties ir išvesties operatoriai `>>` ir `<<`.
+
+---
+
+### v1.1
+
+Šioje versijoje `Studentas` struktūra pakeista į klasę.
+
+Pagrindiniai pakeitimai:
+
+- `Studentas` struktūra pakeista į klasę;
+- studentų duomenys perkelti į privačius laukus;
+- pridėti getteriai ir setteriai;
+- realizuoti konstruktoriai ir destruktorius;
+- atnaujintos funkcijos, kurios dirba su `Studentas` objektais;
+- atliktas `struct` ir `class` versijų palyginimas;
+- atlikta analizė su `O1`, `O2` ir `O3` optimizavimo flag'ais.
+
+---
+
+### v1.0
 
 ![Rezultatai](Screenshot.png)
 
+Sukurta pradinė studento duomenų struktūra ir realizuotas pradinis vidurkio bei medianos skaičiavimas.

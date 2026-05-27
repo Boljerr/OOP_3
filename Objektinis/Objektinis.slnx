@@ -1,7 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="Objektinis/Objektinis.vcxproj" Id="0a21a854-7b0e-4ca2-ba45-a8463497c68b" />
-</Solution>
