@@ -314,5 +314,18 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[2] == "Petras");
 			Assert::IsTrue(*it == "xxx");
 		}
+
+		TEST_METHOD(VectorInitializerListAssignmentWorks)
+		{
+			Vector<int> v;
+			v.push_back(10);
+
+			v = { 1, 2, 3 };
+
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+		}
 	};
 }

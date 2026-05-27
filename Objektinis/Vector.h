@@ -789,6 +789,27 @@ public:
 		}
 		return *this;
 	}
+
+	Vector& operator=(std::initializer_list<T> sarasas)
+	{
+		if (sarasas.size() > talpa_);
+		{
+			delete[] duomenys_;
+			duomenys_ = new T[sarasas.size()];
+			talpa_ = sarasas.size();
+		}
+
+		std::size_t i = 0;
+		for (const T& reiksme : sarasas)
+		{
+			duomenys_[i] = reiksme;
+			i++;
+		}
+
+		dydis_ = sarasas.size();
+		return *this;
+
+	}
 };
 
 #endif
