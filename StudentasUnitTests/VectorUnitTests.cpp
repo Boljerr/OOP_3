@@ -334,5 +334,14 @@ namespace VectorUnitTests
 			Assert::IsTrue(v.max_size() > 0);
 			Assert::IsTrue(v.max_size() >= v.capacity());
 		}
+		TEST_METHOD(VectorReserveTooLargeThrows)
+		{
+			Vector<int> v;
+
+			Assert::ExpectException<std::length_error>([&v]()
+				{
+					v.reserve(v.max_size() + 1);
+				});
+		}
 	};
 }

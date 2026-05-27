@@ -92,6 +92,11 @@ public:
 		return dydis_;
 	}
 
+	/**
+	 * @brief Grazina teorini didziausia elementu kieki.
+	 * 
+	 * @return Didziausias galimas elementu kiekis.
+	 */
 	std::size_t max_size() const
 	{
 		return std::numeric_limits<std::size_t>::max() / sizeof(T);
@@ -263,10 +268,15 @@ public:
 	 */
 	void reserve(std::size_t naujaTalpa)
 	{
+		if (naujaTalpa > max_size())
+		{
+			throw std::length_error("Vector talpa per didele");
+		}
 		if (naujaTalpa <= talpa_)
 		{
 			return;
 		}
+
 		T* naujiDuomenys = new T[naujaTalpa];
 
 		for (std::size_t i = 0; i < dydis_; ++i)
