@@ -48,26 +48,53 @@ namespace VectorUnitTests
 
 			Assert::IsTrue(v.capacity() == 10);
 		}
-		TEST_METHOD(PushBackMethodWorks)
+		TEST_METHOD(VectorPushBackWorks)
 		{
 			Vector<int> v;
-			v.push_back(5);
-			Assert::IsTrue(v.size() == 1);
-			Assert::IsTrue(v[0] == 5);
+
+			v.push_back(1);
+			v.push_back(2);
+			v.push_back(3);
+
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+			Assert::IsTrue(v.capacity() >= v.size());
 		}
-		TEST_METHOD(PopBackMethodWorks)
+
+		TEST_METHOD(VectorPopBackWorks)
 		{
-			Vector<int> v;
-			v.push_back(5);
+			Vector<int> v = { 1, 2, 3 };
+
 			v.pop_back();
-			Assert::IsTrue(v.size() == 0);
+
+			Assert::IsTrue(v.size() == 2);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v.back() == 2);
 		}
-		TEST_METHOD(ClearMethodWorks)
+
+		TEST_METHOD(VectorPopBackThrowsWhenEmpty)
 		{
 			Vector<int> v;
-			v.push_back(5);
+
+			Assert::ExpectException<std::out_of_range>([&v]()
+				{
+					v.pop_back();
+				});
+		}
+
+		TEST_METHOD(VectorClearWorks)
+		{
+			Vector<int> v = { 1, 2, 3 };
+			std::size_t senaTalpa = v.capacity();
+
 			v.clear();
+
 			Assert::IsTrue(v.size() == 0);
+			Assert::IsTrue(v.capacity() == senaTalpa);
+			Assert::IsTrue(v.empty());
 		}
 
 		TEST_METHOD(VectorEmptyWorks)
