@@ -164,5 +164,19 @@ namespace VectorUnitTests
 
 			Assert::IsTrue(v.capacity() == 2);
 		}
+		
+		TEST_METHOD(VectorInsertMethodWorks)
+		{
+			Vector<int> v;
+			v.push_back(5);
+			v.push_back(10);
+			v.push_back(15);
+
+			auto pozicija = v.insert(v.begin() + 1, 7);
+
+			Assert::IsTrue(*pozicija == 7);
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v[1] == 7);
+		}
 	};
 }

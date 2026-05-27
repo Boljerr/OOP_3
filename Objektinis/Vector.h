@@ -358,6 +358,32 @@ public:
 		}
 		--dydis_;
 	}
+	
+	T* insert(T* pozicija, const T& reiksme)
+	{
+		std::size_t indeksas = pozicija - duomenys_;
+
+		if (indeksas > dydis_)
+		{
+			throw std::out_of_range("Insert position out of range");
+		}
+
+		if (dydis_ >= talpa_)
+		{
+			reserve(talpa_ == 0 ? 1 : talpa_ * 2);
+		}
+
+		for (std::size_t i = dydis_; i > indeksas; --i)
+		{
+			duomenys_[i] = duomenys_[i - 1];
+		}
+		duomenys_[indeksas] = reiksme;
+		++dydis_;
+
+		return duomenys_ + indeksas;
+	}
+
+
 	/**
 	 * @brief Pasalina visus elementus, bet palieka rezervuota talpa.
 	 */
