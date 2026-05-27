@@ -307,6 +307,33 @@ public:
 		}
 		dydis_ = naujasDydis;
 	}
+
+
+	void shrink_to_fit()
+	{
+		if (talpa_ == dydis_)
+		{
+			return;
+		}
+		if (dydis_ == 0)
+		{
+			delete[] duomenys_;
+			duomenys_ = nullptr;
+			talpa_ = 0;
+			return;
+		}
+
+		T* naujiDuomenys = new T[dydis_];
+
+		for (std::size_t i = 0; i < dydis_; ++i)
+		{
+			naujiDuomenys[i] = duomenys_[i];
+		}
+
+		delete[] duomenys_;
+		duomenys_ = naujiDuomenys;
+		talpa_ = dydis_;
+	}
 	/**
 	 * @brief Prideda elementa i konteinerio pabaiga.
 	 */

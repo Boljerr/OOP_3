@@ -151,5 +151,18 @@ namespace VectorUnitTests
 				Assert::IsTrue(v[i] == 10);
 			}
 		}
+		TEST_METHOD(VectorShrinkToFitMethodWorks)
+		{
+			Vector<int> v;
+
+			v.reserve(10);
+
+			v.push_back(5);
+			v.push_back(10);
+
+			v.shrink_to_fit();
+
+			Assert::IsTrue(v.capacity() == 2);
+		}
 	};
 }
