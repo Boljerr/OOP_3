@@ -41,6 +41,35 @@ namespace VectorUnitTests
 			v.clear();
 			Assert::IsTrue(v.size() == 0);
 		}
+
+		TEST_METHOD(VectorEmptyWorks)
+		{
+			Vector<int> v;
+
+			Assert::IsTrue(v.empty());
+			Assert::IsTrue(v.size() == 0);
+
+			v.push_back(5);
+
+			Assert::IsFalse(v.empty());
+			Assert::IsTrue(v.size() == 1);
+		}
+
+		TEST_METHOD(VectorDataWorks)
+		{
+			Vector<int> v;
+			v.push_back(10);
+			v.push_back(20);
+
+			int* duomenys = v.data();
+
+			Assert::IsTrue(duomenys[0] == 10);
+			Assert::IsTrue(duomenys[1] == 20);
+
+			duomenys[0] = 99;
+
+			Assert::IsTrue(v[0] == 99);
+		}
 		TEST_METHOD(VectorCopyConstructorWorks)
 		{
 			Vector<int> pirmas;
@@ -343,5 +372,6 @@ namespace VectorUnitTests
 					v.reserve(v.max_size() + 1);
 				});
 		}
+
 	};
 }
