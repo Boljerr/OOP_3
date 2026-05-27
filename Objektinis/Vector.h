@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <stdexcept>
 #include <initializer_list>
+#include <utility>
 
 /**
  * @brief Paprastas dinaminio masyvo konteineris, panasus i std::vector.
@@ -345,6 +346,18 @@ public:
 			reserve(talpa_ == 0 ? 1 : talpa_ * 2);
 		}
 		duomenys_[dydis_] = reiksme;
+		++dydis_;
+	}
+
+	void push_back(T&& reiksme)
+	{
+		if (dydis_ == talpa_)
+		{
+			std::size_t naujaTalpa = (talpa_ == 0) ? 1 : talpa_ * 2;
+			reserve(naujaTalpa);
+		}
+
+		duomenys_[dydis_] = std::move(reiksme);
 		++dydis_;
 	}
 	/**

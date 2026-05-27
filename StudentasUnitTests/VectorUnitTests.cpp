@@ -280,5 +280,15 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[3] == 4);
 			Assert::IsTrue(*it == 2);
 		}
+		TEST_METHOD(VectorPushBackMoveWorks)
+		{
+			Vector<std::string> v;
+			std::string tekstas = "Jonas";
+
+			v.push_back(std::move(tekstas));
+
+			Assert::IsTrue(v.size() == 1);
+			Assert::IsTrue(v[0] == "Jonas");
+		}
 	};
 }
