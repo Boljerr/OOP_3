@@ -383,7 +383,54 @@ public:
 		return duomenys_ + indeksas;
 	}
 
+	/**
+	 * @brief Pasalina elementa is nurodytos pozicijos.
+	 * @param pozicija Iteratoriaus i salinama elementa
+	 * @return Iteratorius i elementa po pasalinto elemento
+	 */
+	T* erase(T* pozicija)
+	{
+		std::size_t indeksas = pozicija - duomenys_;
+		
+		if (indeksas >= dydis_)
+		{
+			throw std::out_of_range("Erase position out of range");
+		}
 
+		for (std::size_t i = indeksas; i < dydis_ - 1; ++i)
+		{
+			duomenys_[i] = duomenys_[i + 1];
+		}
+
+		--dydis_;
+		return duomenys_ + indeksas;
+	}
+
+	/**
+	 * @brief Pasalina elementus is nurodytos pozicijos intervalo.
+	 * @param pirma Iteratorius i pirma salinama elementa
+	 * @param paskutine Iteratorius uz paskutinio salinamo elemento
+	 * @return Iteratorius i vieta, kurioje prasideda pasalintas intervalas
+	 */
+	T* erase(T* pirma, T* paskutine)
+	{
+		std::size_t pradzia = pirma - duomenys_;
+		std::size_t pabaiga = paskutine - duomenys_;
+
+		if (pradzia > pabaiga || pabaiga > dydis_)
+		{
+			throw std::out_of_range("Erase range out of range");
+		}
+
+		std::size_t kiekSalinti = pabaiga - pradzia;
+
+		for (std::size_t i = pradzia; i + kiekSalinti < dydis_; ++i)
+		{
+			duomenys_[i] = duomenys_[i + kiekSalinti];
+		}
+		dydis_ -= kiekSalinti;
+		return duomenys_ + pradzia;
+	}
 	/**
 	 * @brief Pasalina visus elementus, bet palieka rezervuota talpa.
 	 */

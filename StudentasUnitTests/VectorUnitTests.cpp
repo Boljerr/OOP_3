@@ -178,5 +178,30 @@ namespace VectorUnitTests
 			Assert::IsTrue(v.size() == 4);
 			Assert::IsTrue(v[1] == 7);
 		}
+
+		TEST_METHOD(VectorEraseOneElementWorks)
+		{
+			Vector<int> v = { 1, 2, 3, 4 };
+
+			auto it = v.erase(v.begin() + 1);
+
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 3);
+			Assert::IsTrue(v[2] == 4);
+			Assert::IsTrue(*it == 3);
+		}
+
+		TEST_METHOD(VectorEraseRangeWorks)
+		{
+			Vector<int> v = { 1, 2, 3, 4, 5 };
+
+			auto it = v.erase(v.begin() + 1, v.begin() + 4);
+
+			Assert::IsTrue(v.size() == 2);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 5);
+			Assert::IsTrue(*it == 5);
+		}
 	};
 }
