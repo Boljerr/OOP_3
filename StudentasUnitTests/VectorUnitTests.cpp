@@ -344,19 +344,19 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[0] == 1);
 			Assert::IsTrue(v[1] == 2);
 		}
-		TEST_METHOD(VectorInsertMethodWorks)
+		TEST_METHOD(VectorInsertOneElementWorks)
 		{
-			Vector<int> v;
-			v.push_back(5);
-			v.push_back(10);
-			v.push_back(15);
+			Vector<int> v = { 1, 3 };
 
-			auto pozicija = v.insert(v.begin() + 1, 7);
+			auto it = v.insert(v.begin() + 1, 2);
 
-			Assert::IsTrue(*pozicija == 7);
-			Assert::IsTrue(v.size() == 4);
-			Assert::IsTrue(v[1] == 7);
+			Assert::IsTrue(v.size() == 3);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+			Assert::IsTrue(it == v.begin() + 1);
 		}
+
 		TEST_METHOD(VectorInsertMultipleElementsWorks)
 		{
 			Vector<int> v = { 1, 4 };
@@ -368,7 +368,21 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 9);
 			Assert::IsTrue(v[2] == 9);
 			Assert::IsTrue(v[3] == 4);
-			Assert::IsTrue(*it == 9);
+			Assert::IsTrue(it == v.begin() + 1);
+		}
+
+		TEST_METHOD(VectorInsertInitializerListWorks)
+		{
+			Vector<int> v = { 1, 4 };
+
+			auto it = v.insert(v.begin() + 1, { 2, 3 });
+
+			Assert::IsTrue(v.size() == 4);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+			Assert::IsTrue(v[3] == 4);
+			Assert::IsTrue(it == v.begin() + 1);
 		}
 		TEST_METHOD(VectorEraseOneElementWorks)
 		{
@@ -446,19 +460,7 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[0] == 5);
 			Assert::IsTrue(v[1] == 6);
 		}
-		TEST_METHOD(VectorInsertInitializerListWorks)
-		{
-			Vector<int> v = { 1, 4 };
 
-			auto it = v.insert(v.begin() + 1, { 2, 3 });
-
-			Assert::IsTrue(v.size() == 4);
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 2);
-			Assert::IsTrue(v[2] == 3);
-			Assert::IsTrue(v[3] == 4);
-			Assert::IsTrue(*it == 2);
-		}
 		TEST_METHOD(VectorPushBackMoveWorks)
 		{
 			Vector<std::string> v;
