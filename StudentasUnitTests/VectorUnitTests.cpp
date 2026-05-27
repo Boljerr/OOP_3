@@ -5,7 +5,7 @@
 #include <sstream>
 #include <string>
 #include <algorithm>
-
+#include <vector>
 #include "Vector.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -559,4 +559,90 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[2] == 3);
 		}
 	};	
+
+	TEST_CLASS(VectorAndStdVectorTests)
+	{
+		TEST_METHOD(VectorAndStdVectorPushBackGiveSameResult)
+		{
+			std::vector<int> stdV;
+			Vector<int> manoV;
+
+			for (int i = 1; i <= 5; ++i)
+			{
+				stdV.push_back(i);
+				manoV.push_back(i);
+			}
+
+			Assert::IsTrue(manoV.size() == stdV.size());
+
+			for (std::size_t i = 0; i < stdV.size(); ++i)
+			{
+				Assert::IsTrue(manoV[i] == stdV[i]);
+			}
+		}
+
+		TEST_METHOD(VectorAndStdVectorInsertGiveSameResult)
+		{
+			std::vector<int> stdV = { 1, 4 };
+			Vector<int> manoV = { 1, 4 };
+
+			stdV.insert(stdV.begin() + 1, { 2, 3 });
+			manoV.insert(manoV.begin() + 1, { 2, 3 });
+
+			Assert::IsTrue(manoV.size() == stdV.size());
+
+			for (std::size_t i = 0; i < stdV.size(); ++i)
+			{
+				Assert::IsTrue(manoV[i] == stdV[i]);
+			}
+		}
+
+		TEST_METHOD(VectorAndStdVectorEraseGiveSameResult)
+		{
+			std::vector<int> stdV = { 1, 2, 3, 4, 5 };
+			Vector<int> manoV = { 1, 2, 3, 4, 5 };
+
+			stdV.erase(stdV.begin() + 1, stdV.begin() + 4);
+			manoV.erase(manoV.begin() + 1, manoV.begin() + 4);
+
+			Assert::IsTrue(manoV.size() == stdV.size());
+
+			for (std::size_t i = 0; i < stdV.size(); ++i)
+			{
+				Assert::IsTrue(manoV[i] == stdV[i]);
+			}
+		}
+
+		TEST_METHOD(VectorAndStdVectorResizeGiveSameResult)
+		{
+			std::vector<int> stdV = { 1, 2 };
+			Vector<int> manoV = { 1, 2 };
+
+			stdV.resize(5, 9);
+			manoV.resize(5, 9);
+
+			Assert::IsTrue(manoV.size() == stdV.size());
+
+			for (std::size_t i = 0; i < stdV.size(); ++i)
+			{
+				Assert::IsTrue(manoV[i] == stdV[i]);
+			}
+		}
+
+		TEST_METHOD(VectorAndStdVectorSortGiveSameResult)
+		{
+			std::vector<int> stdV = { 3, 1, 2 };
+			Vector<int> manoV = { 3, 1, 2 };
+
+			std::sort(stdV.begin(), stdV.end());
+			std::sort(manoV.begin(), manoV.end());
+
+			Assert::IsTrue(manoV.size() == stdV.size());
+
+			for (std::size_t i = 0; i < stdV.size(); ++i)
+			{
+				Assert::IsTrue(manoV[i] == stdV[i]);
+			}
+		}
+	};
 }
