@@ -27,6 +27,38 @@ public:
 	{}
 
 	/**
+	 * @brief Sukuria Vector konteineri su nurodytu elementu kiekiu.
+	 * @param kiekis Pradinis elementu kiekis.
+	 */
+	Vector(std::size_t kiekis)
+		: duomenys_(nullptr), dydis_(kiekis), talpa_(kiekis)
+	{
+		if (talpa_ > 0)
+		{
+			duomenys_ = new T[talpa_];
+		}
+	}
+
+	/**
+	 * @brief Sukuria Vector konteineri su nurodytu elementu kiekiu ir pradiniu elementu reiksme.
+	 * @param kiekis Pradinis elementu kiekis.
+	 * @param reiksme Pradine elementu reiksme.
+	 */
+	Vector(std::size_t kiekis, const T& reiksme)
+		: duomenys_(nullptr), dydis_(kiekis), talpa_(kiekis)
+	{
+		if (talpa_ > 0)
+		{
+			duomenys_ = new T[talpa_];
+
+			for (std::size_t i = 0; i < dydis_; ++i)
+			{
+				duomenys_[i] = reiksme;
+			}
+		}
+	}
+
+	/**
 	 * @brief Atlaisvina konteinerio naudojama atminti.
 	 */
 	~Vector()
@@ -168,7 +200,6 @@ public:
 	}
 
 	/**
-	 *
 	 * @brief Grazina pirma elementa.
 	 */
 	const T& front() const

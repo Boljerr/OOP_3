@@ -93,5 +93,29 @@ namespace VectorUnitTests
 
 			Assert::IsTrue(pirmas.size() == 0);
 		}
+		TEST_METHOD(VectorDefaultConstructorWorks)
+		{
+			Vector<int> v;
+			Assert::IsTrue(v.size() == 0);
+			Assert::IsTrue(v.capacity() == 0);
+		}
+		TEST_METHOD(VectorSizeConstructorWorks)
+		{
+			Vector<int> v(5);
+			Assert::IsTrue(v.size() == 5);
+			Assert::IsTrue(v.capacity() == 5);
+		}
+
+		TEST_METHOD(VectorSizeAndValueConstructorWorks)
+		{
+			Vector<int> v(5, 10);
+			Assert::IsTrue(v.size() == 5);
+			Assert::IsTrue(v.capacity() == 5);
+
+			for (std::size_t i = 0; i < v.size(); ++i)
+			{
+				Assert::IsTrue(v[i] == 10);
+			}
+		}
 	};
 }
