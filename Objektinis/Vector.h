@@ -71,6 +71,49 @@ public:
 	{
 		return duomenys_;
 	}
+	/**
+	 * @brief Grazina iteratoriu i pirma elementa.
+	 */
+    T* begin()
+    {
+        return duomenys_;
+    }
+	/**
+	 * @brief Grazina const iteratoriu i pirma elementa.
+	 */
+    const T* begin() const
+    {
+        return duomenys_;
+    }
+	/**
+	 * @brief Grazina iteratoriu uz paskutinio elemento.
+	 */
+    T* end()
+    {
+        return duomenys_ + dydis_;
+    }
+	/**
+	 * @brief Grazina const iteratoriuuz paskutinio elemento.
+	 */
+	const T* end() const
+	{
+		return duomenys_ + dydis_;
+	}
+	/**
+	 * @brief Grazina const iteratoriu i pirma elementa.
+	 */
+	const T* cbegin() const
+	{
+		return duomenys_;
+	}
+	/**
+	 * @brief Grazina const iteratoriu uz paskutinio elemento.
+	 */
+	const T* cend() const
+    {
+		return duomenys_ + dydis_;
+    }
+
 
     /**
      * @brief Grazina elementa pagal indeksa be ribu tikrinimo.  
@@ -126,7 +169,7 @@ public:
 
     /**
      * 
-     * @brief Grazina pirma elementa.
+     * @brief Grazina pirma elementa. 
      */
     const T& front() const
 	{
