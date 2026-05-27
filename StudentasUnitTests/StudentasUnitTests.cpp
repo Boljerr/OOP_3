@@ -139,5 +139,17 @@ namespace StudentasUnitTests
 			v.clear();
 			Assert::IsTrue(v.size() == 0);
 		}
+		TEST_METHOD(VectorCopyConstructorWorks)
+		{
+			Vector<int> pirmas;
+			pirmas.push_back(4);
+			pirmas.push_back(7);
+
+			Vector<int> antras(pirmas);
+
+			Assert::IsTrue(antras.size() == 2);
+			Assert::IsTrue(antras[0] == 4);
+			Assert::IsTrue(antras[1] == 7);
+		}
 	};
 }
