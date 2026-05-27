@@ -474,13 +474,14 @@ namespace VectorUnitTests
 		TEST_METHOD(VectorEmplaceBackWorks)
 		{
 			Vector<std::string> v;
-			
+
 			std::string& tekstas = v.emplace_back(5, 'a');
 
 			Assert::IsTrue(v.size() == 1);
 			Assert::IsTrue(v[0] == "aaaaa");
 			Assert::IsTrue(tekstas == "aaaaa");
 		}
+
 		TEST_METHOD(VectorEmplaceWorks)
 		{
 			Vector<std::string> v;
@@ -493,7 +494,7 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[0] == "Jonas");
 			Assert::IsTrue(v[1] == "xxx");
 			Assert::IsTrue(v[2] == "Petras");
-			Assert::IsTrue(*it == "xxx");
+			Assert::IsTrue(it == v.begin() + 1);
 		}
 		TEST_METHOD(VectorMaxSizeWorks)
 		{
