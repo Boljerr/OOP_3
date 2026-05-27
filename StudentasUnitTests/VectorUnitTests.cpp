@@ -408,35 +408,6 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 5);
 			Assert::IsTrue(*it == 5);
 		}
-		TEST_METHOD(VectorSwapMethodWorks)
-		{
-			Vector<int> v1 = { 1, 2, 3 };
-			Vector<int> v2 = { 4, 5, 6 };
-
-			v1.swap(v2);
-
-			Assert::IsTrue(v1.size() == 3);
-			Assert::IsTrue(v1[0] == 4);
-			Assert::IsTrue(v1[1] == 5);
-			Assert::IsTrue(v1[2] == 6);
-
-			Assert::IsTrue(v2.size() == 3);
-			Assert::IsTrue(v2[0] == 1);
-			Assert::IsTrue(v2[1] == 2);
-			Assert::IsTrue(v2[2] == 3);
-		}
-		TEST_METHOD(VectorComparisonOperatorsWork)
-		{
-			Vector<int> pirmas = { 1, 2, 3 };
-			Vector<int> antras = { 1, 2, 3 };
-			Vector<int> trecias = { 1, 2, 4 };
-
-			Assert::IsTrue(pirmas == antras);
-			Assert::IsFalse(pirmas != antras);
-
-			Assert::IsTrue(pirmas != trecias);
-			Assert::IsFalse(pirmas == trecias);
-		}
 		TEST_METHOD(VectorAssignCountValueWorks)
 		{
 			Vector<int> v = { 1, 2, 3 };
@@ -461,6 +432,35 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 6);
 		}
 
+		TEST_METHOD(VectorSwapWorks)
+		{
+			Vector<int> pirmas = { 1, 2 };
+			Vector<int> antras = { 7, 8, 9 };
+
+			pirmas.swap(antras);
+
+			Assert::IsTrue(pirmas.size() == 3);
+			Assert::IsTrue(pirmas[0] == 7);
+			Assert::IsTrue(pirmas[1] == 8);
+			Assert::IsTrue(pirmas[2] == 9);
+
+			Assert::IsTrue(antras.size() == 2);
+			Assert::IsTrue(antras[0] == 1);
+			Assert::IsTrue(antras[1] == 2);
+		}
+
+		TEST_METHOD(VectorComparisonOperatorsWork)
+		{
+			Vector<int> pirmas = { 1, 2, 3 };
+			Vector<int> antras = { 1, 2, 3 };
+			Vector<int> trecias = { 1, 2, 4 };
+
+			Assert::IsTrue(pirmas == antras);
+			Assert::IsFalse(pirmas != antras);
+
+			Assert::IsTrue(pirmas != trecias);
+			Assert::IsFalse(pirmas == trecias);
+		}
 		TEST_METHOD(VectorPushBackMoveWorks)
 		{
 			Vector<std::string> v;
