@@ -4,6 +4,7 @@
 #include <utility>
 #include <sstream>
 #include <string>
+#include <algorithm>
 
 #include "Vector.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -464,6 +465,51 @@ namespace VectorUnitTests
 					v.reserve(v.max_size() + 1);
 				});
 		}
+		TEST_METHOD(VectorBeginEndWork)
+		{
+			Vector<int> v = { 1, 2, 3 };
 
+			auto it = v.begin();
+
+			Assert::IsTrue(*it == 1);
+
+			++it;
+			Assert::IsTrue(*it == 2);
+
+			++it;
+			Assert::IsTrue(*it == 3);
+
+			++it;
+			Assert::IsTrue(it == v.end());
+		}
+
+		TEST_METHOD(VectorConstBeginEndWork)
+		{
+			const Vector<int> v = { 4, 5, 6 };
+
+			auto it = v.cbegin();
+
+			Assert::IsTrue(*it == 4);
+
+			++it;
+			Assert::IsTrue(*it == 5);
+
+			++it;
+			Assert::IsTrue(*it == 6);
+
+			++it;
+			Assert::IsTrue(it == v.cend());
+		}
+
+		TEST_METHOD(VectorWorksWithStdSort)
+		{
+			Vector<int> v = { 3, 1, 2 };
+
+			std::sort(v.begin(), v.end());
+
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+		}
 	};
 }
