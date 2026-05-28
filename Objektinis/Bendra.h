@@ -1,10 +1,13 @@
-#pragma once
+	#pragma once
 #include "Studentas.h"
 #include <string>
 #include <vector>
+#include "Vector.h"
 
 double calculateAverage(const std::vector<int>& grade);
+double calculateAverage(const Vector<int>& grade);
 double calculateMedian(std::vector<int> grade);
+double calculateMedian(Vector<int> grade);
 double calculateFinal(double ndReiksme, int egzaminas);
 
 

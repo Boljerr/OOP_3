@@ -16,6 +16,19 @@ double calculateAverage(const std::vector<int>& grade)
 	return (double)suma / grade.size();
 }
 
+double calculateAverage(const Vector<int>& grade)
+{
+	if (grade.empty()) return 0.0;
+
+	double suma = 0.0;
+
+	for (std::size_t i = 0; i < grade.size(); i++)
+	{
+		suma += grade[i];
+	}
+	return suma / grade.size();
+}
+
 double calculateMedian(std::vector<int> grade) // cia kopija nes tipo sortini
 {
 	if (grade.empty()) return 0.0;
@@ -32,6 +45,22 @@ double calculateMedian(std::vector<int> grade) // cia kopija nes tipo sortini
 	{
 		return (grade[n / 2 - 1] + grade[n / 2]) / 2.0;
 	}
+}
+
+double calculateMedian(Vector<int> grade)
+{
+	if (grade.empty()) return 0.0;
+	
+	std::sort(grade.begin(), grade.end());
+
+	std::size_t dydis = grade.size();
+
+	if (dydis % 2 == 0)
+	{
+		return grade[dydis / 2 - 1] + grade[dydis / 2] / 2.0;
+	}
+	return grade[dydis / 2];
+
 }
 
 double calculateFinal(double ndReiksme, int egzaminas)
