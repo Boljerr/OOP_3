@@ -36,7 +36,8 @@ int main()
 		std::cout << "9 - Atlikti v1.1 skirstymo strategiju tyrima\n";
 		std::cout << "10 - Testuoti Studentas klase\n";
 		std::cout << "11 - Atlikti V3.0 duomenu  apdorojimo tyrima (mano Vector)\n";
-		std::cout << "12 - Baigti\n";
+		std::cout << "12 - atlikti std::vector ir Vector push_back tyrima\n";
+		std::cout << "13 - Baigti\n";
 		std::cin >> pasirinkimas;
 		if (std::cin.fail())
 		{
@@ -356,6 +357,20 @@ int main()
 			break;
 		}
 		case 12:
+		{
+			try
+			{
+				atliktiPushBackTyrimus();
+				skaiciuotiPerskirstymus(100000000);
+			}
+			catch (const std::exception& ex)
+			{
+				std::cout << "Klaida: " << ex.what() << "\n";
+			}
+
+			break;
+		}
+		case 13:
 			{
 			std::cout << "Programa baige darba.\n";
 			break;
@@ -367,7 +382,7 @@ int main()
 		}
 		}
 
-	} while (pasirinkimas != 12);
+	} while (pasirinkimas != 13);
 	
 	return 0;
 }
