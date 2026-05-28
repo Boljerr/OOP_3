@@ -11,10 +11,76 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace VectorUnitTests
 {
-	TEST_CLASS(VectorUnitTests)
+
+	TEST_CLASS(VectorConstructorTests)
+	{
+		public:
+			TEST_METHOD(VectorDefaultConstructorWorks)
+			{
+				Vector<int> v;
+
+				Assert::IsTrue(v.size() == 0);
+				Assert::IsTrue(v.capacity() == 0);
+				Assert::IsTrue(v.empty());
+			}
+
+			TEST_METHOD(VectorSizeConstructorWorks)
+			{
+				Vector<int> v(3);
+
+				Assert::IsTrue(v.size() == 3);
+				Assert::IsTrue(v.capacity() == 3);
+			}
+
+			TEST_METHOD(VectorSizeValueConstructorWorks)
+			{
+				Vector<int> v(4, 7);
+
+				Assert::IsTrue(v.size() == 4);
+				Assert::IsTrue(v.capacity() == 4);
+				Assert::IsTrue(v[0] == 7);
+				Assert::IsTrue(v[1] == 7);
+				Assert::IsTrue(v[2] == 7);
+				Assert::IsTrue(v[3] == 7);
+			}
+
+			TEST_METHOD(VectorInitializerListConstructorWorks)
+			{
+				Vector<int> v = { 8, 9, 10 };
+
+				Assert::IsTrue(v.size() == 3);
+				Assert::IsTrue(v[0] == 8);
+				Assert::IsTrue(v[1] == 9);
+				Assert::IsTrue(v[2] == 10);
+			}
+
+			TEST_METHOD(VectorInitializerListAssignmentWorks)
+			{
+				Vector<int> v;
+
+				v = { 1, 2, 3 };
+
+				Assert::IsTrue(v.size() == 3);
+				Assert::IsTrue(v[0] == 1);
+				Assert::IsTrue(v[1] == 2);
+				Assert::IsTrue(v[2] == 3);
+			}
+	};
+	TEST_CLASS(VectorCapacityTests)
 	{
 	public:
+		TEST_METHOD(VectorEmptyWorks)
+		{
+			Vector<int> v;
 
+			Assert::IsTrue(v.empty());
+			Assert::IsTrue(v.size() == 0);
+
+			v.push_back(5);
+
+			Assert::IsFalse(v.empty());
+			Assert::IsTrue(v.size() == 1);
+		}
 		TEST_METHOD(VectorReserveIncreasesCapacity)
 		{
 			Vector<int> v;
@@ -48,82 +114,80 @@ namespace VectorUnitTests
 
 			Assert::IsTrue(v.capacity() == 10);
 		}
-		TEST_METHOD(VectorPushBackWorks)
+		TEST_METHOD(VectorMaxSizeWorks)
 		{
 			Vector<int> v;
 
-			v.push_back(1);
-			v.push_back(2);
-			v.push_back(3);
-
-			Assert::IsTrue(v.size() == 3);
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 2);
-			Assert::IsTrue(v[2] == 3);
-			Assert::IsTrue(v.capacity() >= v.size());
+			Assert::IsTrue(v.max_size() > 0);
+			Assert::IsTrue(v.max_size() >= v.capacity());
 		}
 
-		TEST_METHOD(VectorPopBackWorks)
-		{
-			Vector<int> v = { 1, 2, 3 };
-
-			v.pop_back();
-
-			Assert::IsTrue(v.size() == 2);
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 2);
-			Assert::IsTrue(v.back() == 2);
-		}
-
-		TEST_METHOD(VectorPopBackThrowsWhenEmpty)
+		TEST_METHOD(VectorReserveTooLargeThrows)
 		{
 			Vector<int> v;
 
-			Assert::ExpectException<std::out_of_range>([&v]()
+			Assert::ExpectException<std::length_error>([&v]()
 				{
-					v.pop_back();
+					v.reserve(v.max_size() + 1);
 				});
 		}
 
-		TEST_METHOD(VectorClearWorks)
+		TEST_METHOD(VectorShrinkToFitWorks)
+		{
+			Vector<int> v = { 1, 2 };
+
+			v.reserve(10);
+			Assert::IsTrue(v.capacity() >= 10);
+
+			v.shrink_to_fit();
+
+			Assert::IsTrue(v.size() == 2);
+			Assert::IsTrue(v.capacity() == 2);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+		}
+
+
+	};
+	TEST_CLASS(VectorElementAccessTests)
+	{
+	public:
+		TEST_METHOD(VectorIndexOperatorWorks)
 		{
 			Vector<int> v = { 1, 2, 3 };
-			std::size_t senaTalpa = v.capacity();
 
-			v.clear();
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
 
-			Assert::IsTrue(v.size() == 0);
-			Assert::IsTrue(v.capacity() == senaTalpa);
-			Assert::IsTrue(v.empty());
+			v[1] = 20;
+
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 20);
+			Assert::IsTrue(v[2] == 3);
 		}
 
-		TEST_METHOD(VectorEmptyWorks)
+		TEST_METHOD(VectorAtWorks)
 		{
-			Vector<int> v;
+			Vector<int> v = { 4, 5, 6 };
 
-			Assert::IsTrue(v.empty());
-			Assert::IsTrue(v.size() == 0);
+			Assert::IsTrue(v.at(0) == 4);
+			Assert::IsTrue(v.at(1) == 5);
+			Assert::IsTrue(v.at(2) == 6);
 
-			v.push_back(5);
+			v.at(1) = 50;
 
-			Assert::IsFalse(v.empty());
-			Assert::IsTrue(v.size() == 1);
+			Assert::IsTrue(v[1] == 50);
 		}
 
-		TEST_METHOD(VectorDataWorks)
+		TEST_METHOD(VectorAtThrowsWhenIndexInvalid)
 		{
-			Vector<int> v;
-			v.push_back(10);
-			v.push_back(20);
+			Vector<int> v = { 4, 5, 6 };
 
-			int* duomenys = v.data();
-
-			Assert::IsTrue(duomenys[0] == 10);
-			Assert::IsTrue(duomenys[1] == 20);
-
-			duomenys[0] = 99;
-
-			Assert::IsTrue(v[0] == 99);
+			Assert::ExpectException<std::out_of_range>([&v]()
+				{
+					v.at(3);
+				});
 		}
 
 		TEST_METHOD(VectorFrontBackWork)
@@ -158,21 +222,6 @@ namespace VectorUnitTests
 				});
 		}
 
-		TEST_METHOD(VectorIndexOperatorWorks)
-		{
-			Vector<int> v = { 1, 2, 3 };
-
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 2);
-			Assert::IsTrue(v[2] == 3);
-
-			v[1] = 20;
-
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 20);
-			Assert::IsTrue(v[2] == 3);
-		}
-
 		TEST_METHOD(VectorConstAccessWorks)
 		{
 			const Vector<int> v = { 4, 5, 6 };
@@ -188,28 +237,28 @@ namespace VectorUnitTests
 			Assert::IsTrue(duomenys[1] == 5);
 			Assert::IsTrue(duomenys[2] == 6);
 		}
-		TEST_METHOD(VectorAtWorks)
+
+		TEST_METHOD(VectorDataWorks)
 		{
-			Vector<int> v = { 4, 5, 6 };
+			Vector<int> v;
+			v.push_back(10);
+			v.push_back(20);
 
-			Assert::IsTrue(v.at(0) == 4);
-			Assert::IsTrue(v.at(1) == 5);
-			Assert::IsTrue(v.at(2) == 6);
+			int* duomenys = v.data();
 
-			v.at(1) = 50;
+			Assert::IsTrue(duomenys[0] == 10);
+			Assert::IsTrue(duomenys[1] == 20);
 
-			Assert::IsTrue(v[1] == 50);
+			duomenys[0] = 99;
+
+			Assert::IsTrue(v[0] == 99);
 		}
 
-		TEST_METHOD(VectorAtThrowsWhenIndexInvalid)
-		{
-			Vector<int> v = { 4, 5, 6 };
+	};
 
-			Assert::ExpectException<std::out_of_range>([&v]()
-				{
-					v.at(3);
-				});
-		}
+	TEST_CLASS(VectorRuleOfFiveTests)
+	{
+	public:
 		TEST_METHOD(VectorCopyConstructorWorks)
 		{
 			Vector<int> pirmas = { 1, 2, 3 };
@@ -260,6 +309,7 @@ namespace VectorUnitTests
 
 		TEST_METHOD(VectorMoveAssignmentWorks)
 		{
+
 			Vector<int> pirmas = { 10, 11, 12 };
 			Vector<int> antras;
 
@@ -273,55 +323,69 @@ namespace VectorUnitTests
 			Assert::IsTrue(pirmas.size() == 0);
 			Assert::IsTrue(pirmas.capacity() == 0);
 		}
-		TEST_METHOD(VectorDefaultConstructorWorks)
+	};
+
+	TEST_CLASS(VectorModifierTests)
+	{
+	public:
+		TEST_METHOD(VectorPushBackWorks)
 		{
 			Vector<int> v;
 
-			Assert::IsTrue(v.size() == 0);
-			Assert::IsTrue(v.capacity() == 0);
-			Assert::IsTrue(v.empty());
-		}
-
-		TEST_METHOD(VectorSizeConstructorWorks)
-		{
-			Vector<int> v(3);
-
-			Assert::IsTrue(v.size() == 3);
-			Assert::IsTrue(v.capacity() == 3);
-		}
-
-		TEST_METHOD(VectorSizeValueConstructorWorks)
-		{
-			Vector<int> v(4, 7);
-
-			Assert::IsTrue(v.size() == 4);
-			Assert::IsTrue(v.capacity() == 4);
-			Assert::IsTrue(v[0] == 7);
-			Assert::IsTrue(v[1] == 7);
-			Assert::IsTrue(v[2] == 7);
-			Assert::IsTrue(v[3] == 7);
-		}
-
-		TEST_METHOD(VectorInitializerListConstructorWorks)
-		{
-			Vector<int> v = { 8, 9, 10 };
-
-			Assert::IsTrue(v.size() == 3);
-			Assert::IsTrue(v[0] == 8);
-			Assert::IsTrue(v[1] == 9);
-			Assert::IsTrue(v[2] == 10);
-		}
-
-		TEST_METHOD(VectorInitializerListAssignmentWorks)
-		{
-			Vector<int> v;
-
-			v = { 1, 2, 3 };
+			v.push_back(1);
+			v.push_back(2);
+			v.push_back(3);
 
 			Assert::IsTrue(v.size() == 3);
 			Assert::IsTrue(v[0] == 1);
 			Assert::IsTrue(v[1] == 2);
 			Assert::IsTrue(v[2] == 3);
+			Assert::IsTrue(v.capacity() >= v.size());
+		}
+
+		TEST_METHOD(VectorPushBackMoveWorks)
+		{
+			Vector<std::string> v;
+			std::string tekstas = "Jonas";
+
+			v.push_back(std::move(tekstas));
+
+			Assert::IsTrue(v.size() == 1);
+			Assert::IsTrue(v[0] == "Jonas");
+
+		}
+		TEST_METHOD(VectorPopBackWorks)
+		{
+			Vector<int> v = { 1, 2, 3 };
+
+			v.pop_back();
+
+			Assert::IsTrue(v.size() == 2);
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v.back() == 2);
+		}
+
+		TEST_METHOD(VectorPopBackThrowsWhenEmpty)
+		{
+			Vector<int> v;
+
+			Assert::ExpectException<std::out_of_range>([&v]()
+				{
+					v.pop_back();
+				});
+		}
+
+		TEST_METHOD(VectorClearWorks)
+		{
+			Vector<int> v = { 1, 2, 3 };
+			std::size_t senaTalpa = v.capacity();
+
+			v.clear();
+
+			Assert::IsTrue(v.size() == 0);
+			Assert::IsTrue(v.capacity() == senaTalpa);
+			Assert::IsTrue(v.empty());
 		}
 		TEST_METHOD(VectorResizeBiggerWithDefaultValueWorks)
 		{
@@ -361,20 +425,6 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 2);
 		}
 
-		TEST_METHOD(VectorShrinkToFitWorks)
-		{
-			Vector<int> v = { 1, 2 };
-
-			v.reserve(10);
-			Assert::IsTrue(v.capacity() >= 10);
-
-			v.shrink_to_fit();
-
-			Assert::IsTrue(v.size() == 2);
-			Assert::IsTrue(v.capacity() == 2);
-			Assert::IsTrue(v[0] == 1);
-			Assert::IsTrue(v[1] == 2);
-		}
 		TEST_METHOD(VectorInsertOneElementWorks)
 		{
 			Vector<int> v = { 1, 3 };
@@ -479,29 +529,6 @@ namespace VectorUnitTests
 			Assert::IsTrue(antras[0] == 1);
 			Assert::IsTrue(antras[1] == 2);
 		}
-
-		TEST_METHOD(VectorComparisonOperatorsWork)
-		{
-			Vector<int> pirmas = { 1, 2, 3 };
-			Vector<int> antras = { 1, 2, 3 };
-			Vector<int> trecias = { 1, 2, 4 };
-
-			Assert::IsTrue(pirmas == antras);
-			Assert::IsFalse(pirmas != antras);
-
-			Assert::IsTrue(pirmas != trecias);
-			Assert::IsFalse(pirmas == trecias);
-		}
-		TEST_METHOD(VectorPushBackMoveWorks)
-		{
-			Vector<std::string> v;
-			std::string tekstas = "Jonas";
-
-			v.push_back(std::move(tekstas));
-
-			Assert::IsTrue(v.size() == 1);
-			Assert::IsTrue(v[0] == "Jonas");
-		}
 		TEST_METHOD(VectorEmplaceBackWorks)
 		{
 			Vector<std::string> v;
@@ -527,22 +554,11 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[2] == "Petras");
 			Assert::IsTrue(it == v.begin() + 1);
 		}
-		TEST_METHOD(VectorMaxSizeWorks)
-		{
-			Vector<int> v;
+	};
 
-			Assert::IsTrue(v.max_size() > 0);
-			Assert::IsTrue(v.max_size() >= v.capacity());
-		}
-		TEST_METHOD(VectorReserveTooLargeThrows)
-		{
-			Vector<int> v;
-
-			Assert::ExpectException<std::length_error>([&v]()
-				{
-					v.reserve(v.max_size() + 1);
-				});
-		}
+	TEST_CLASS(VectorIteratorAlgorithmTests)
+	{
+	public:
 		TEST_METHOD(VectorBeginEndWork)
 		{
 			Vector<int> v = { 1, 2, 3 };
@@ -589,9 +605,26 @@ namespace VectorUnitTests
 			Assert::IsTrue(v[1] == 2);
 			Assert::IsTrue(v[2] == 3);
 		}
-	};	
+	};
+	;
+	TEST_CLASS(VectorComparisonTests)
+	{
+	public:
+		TEST_METHOD(VectorComparisonOperatorsWork)
+		{
+			Vector<int> pirmas = { 1, 2, 3 };
+			Vector<int> antras = { 1, 2, 3 };
+			Vector<int> trecias = { 1, 2, 4 };
 
-	TEST_CLASS(VectorAndStdVectorTests)
+			Assert::IsTrue(pirmas == antras);
+			Assert::IsFalse(pirmas != antras);
+
+			Assert::IsTrue(pirmas != trecias);
+			Assert::IsFalse(pirmas == trecias);
+		}
+
+	};
+	TEST_CLASS(VectorStdVectorComparisonTests)
 	{
 		TEST_METHOD(VectorAndStdVectorPushBackGiveSameResult)
 		{

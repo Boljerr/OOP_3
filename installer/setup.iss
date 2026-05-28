@@ -18,8 +18,8 @@ PrivilegesRequired=admin
 
 [Files]
 Source: "..\build\Release\Studentai.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\test_files\studentai10000.txt"; DestDir: "{app}\test_files"; Flags: ignoreversion
-Source: "..\test_files\studentai100000.txt"; DestDir: "{app}\test_files"; Flags: ignoreversion
+Source: "..\test_files\studentai10000.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\test_files\studentai100000.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
