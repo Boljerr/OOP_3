@@ -157,6 +157,37 @@ namespace VectorUnitTests
 					v.back();
 				});
 		}
+
+		TEST_METHOD(VectorIndexOperatorWorks)
+		{
+			Vector<int> v = { 1, 2, 3 };
+
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 2);
+			Assert::IsTrue(v[2] == 3);
+
+			v[1] = 20;
+
+			Assert::IsTrue(v[0] == 1);
+			Assert::IsTrue(v[1] == 20);
+			Assert::IsTrue(v[2] == 3);
+		}
+
+		TEST_METHOD(VectorConstAccessWorks)
+		{
+			const Vector<int> v = { 4, 5, 6 };
+
+			Assert::IsTrue(v[0] == 4);
+			Assert::IsTrue(v.at(1) == 5);
+			Assert::IsTrue(v.front() == 4);
+			Assert::IsTrue(v.back() == 6);
+
+			const int* duomenys = v.data();
+
+			Assert::IsTrue(duomenys[0] == 4);
+			Assert::IsTrue(duomenys[1] == 5);
+			Assert::IsTrue(duomenys[2] == 6);
+		}
 		TEST_METHOD(VectorAtWorks)
 		{
 			Vector<int> v = { 4, 5, 6 };
