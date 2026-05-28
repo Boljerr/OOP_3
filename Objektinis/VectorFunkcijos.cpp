@@ -406,3 +406,83 @@ void isvestiRezultatusManoVector(const Vector<Studentas>& studentai, int skaicia
 			<< studentai[i].getRezultatas() << "\n";
 	}
 }
+void isvestiRezultatusIFailaManoVector(const Vector<Studentas>& studentai, int skaiciavimoTipas, const std::string& failoPavadinimas)
+{
+	std::ofstream out(failoPavadinimas);
+
+	if (!out.is_open())
+	{
+		std::cout << " Nepavyko sukurti rezultatu failo.\n";
+		return;
+	}
+
+	std::string rez = (skaiciavimoTipas == 1) ? "Galutinis (Vid.)" : "Galutinis (Med.)";
+
+	out << std::left << std::setw(15) << "Pavarde"
+		<< std::setw(15) << "Vardas"
+		<< std::setw(20) << rez << "\n";
+
+	out << "--------------------------------------------------\n";
+
+	for (std::size_t i = 0; i < studentai.size(); ++i)
+	{
+		out << std::setw(15) << studentai[i].getPavarde()
+			<< std::setw(15) << studentai[i].getVardas()
+			<< std::fixed << std::setprecision(2)
+			<< studentai[i].getRezultatas() << "\n";
+	}
+
+	out.close();
+
+	std::cout << "Rezultatai issaugoti faile: " << failoPavadinimas << "\n";
+}
+
+void padalintiStudentus1ManoVector(const Vector<Studentas>& studentai, Vector<Studentas>& nuskriaustieji, Vector<Studentas>& kietiakiai)
+{
+	nuskriaustieji.clear();
+	kietiakiai.clear();
+
+	for (std::size_t i = 0; i < studentai.size(); ++i)
+	{
+		if (studentai[i].getRezultatas() < 5)
+		{
+			nuskriaustieji.push_back(studentai[i]);
+		}
+		else
+		{
+			kietiakiai.push_back(studentai[i]);
+		}
+	}
+}
+
+void padalintiStudentus2ManoVector(Vector<Studentas>& studentai, Vector<Studentas>& nuskriaustieji)
+{
+	nuskriaustieji.clear();
+
+	for (auto it = studentai.begin(); it != studentai.end();)
+	{
+		if (it->getRezultatas() < 5)
+		{
+			nuskriaustieji.push_back(*it);
+			it = studentai.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
+}
+
+void padalintiStudentus3ManoVector(Vector<Studentas>& studentai, Vector<Studentas>& nuskriaustieji)
+{
+	nuskriaustieji.clear();
+
+	auto riba = std::stable_partition(studentai.begin(), studentai.end(), arKietiakas);
+
+	for (auto it = riba; it != studentai.end(); ++it)
+	{
+		nuskriaustieji.push_back(*it);
+	}
+
+	studentai.erase(riba, studentai.end());
+}
