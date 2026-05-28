@@ -75,6 +75,11 @@ public:
 			}
 		}
 	}
+	/**
+	 * @brief Sukuria Vector konteineri is inicializavimo saraso.
+	 *
+	 * @param sarasas Pradines elementu reiksmes.
+	 */
 
 	Vector(std::initializer_list<T> sarasas)
 		: duomenys_(nullptr), dydis_(sarasas.size()), talpa_(sarasas.size())
@@ -169,7 +174,7 @@ public:
 		return duomenys_ + dydis_;
 	}
 	/**
-	 * @brief Grazina const iteratoriuuz paskutinio elemento.
+	 * @brief Grazina konstantini iteratoriu uz paskutinio elemento.
 	 */
 	const T* end() const
 	{
@@ -304,7 +309,11 @@ public:
 		talpa_ = naujaTalpa;
 	}
 	/**
-	 * @brief Keicia konteinerio dydį. Jei naujas dydis yra didesnis už dabartinį, rezervuoja papildomą vietą ir inicializuoja naujus elementus numatytosiomis reikšmėmis.
+	 * @brief Pakeicia konteinerio dydi.
+	 *
+	 * Jei naujas dydis yra didesnis uz dabartini, nauji elementai
+	 * inicializuojami numatytaja reiksme.
+	 *
 	 * @param naujasDydis Naujas konteinerio dydis.
 	 */
 	void resize(std::size_t naujasDydis)
@@ -322,9 +331,10 @@ public:
 	}
 	
 	/**
-	 * @brief Keicia konteinerio dydį. Jei naujas dydis yra didesnis už dabartinį, rezervuoja papildomą vietą ir inicializuoja naujus elementus nurodyta reikšme.
+	 * @brief Pakeicia konteinerio dydi ir naujiems elementams priskiria reiksme.
+	 *
 	 * @param naujasDydis Naujas konteinerio dydis.
-	 * @param reiksme Reikšmė, su kuria bus inicializuoti nauji elementai,
+	 * @param reiksme Reiksme, kuria uzpildomi nauji elementai.
 	 */
 	void resize(std::size_t naujasDydis, const T& reiksme)
 	{
@@ -340,7 +350,9 @@ public:
 		dydis_ = naujasDydis;
 	}
 
-
+	/**
+	  * @brief Sumazina talpa iki dabartinio elementu kiekio.
+	  */
 	void shrink_to_fit()
 	{
 		if (talpa_ == dydis_)
@@ -465,6 +477,13 @@ public:
 		}
 		--dydis_;
 	}
+	/**
+	 * @brief Iterpia viena elementa pries nurodyta pozicija.
+	 *
+	 * @param pozicija Iteratorius i vieta, pries kuria iterpiama.
+	 * @param reiksme Iterpiama reiksme.
+	 * @return Iteratorius i iterpta elementa.
+	 */
 	
 	T* insert(T* pozicija, const T& reiksme)
 	{
@@ -709,8 +728,9 @@ public:
 	}
 
 	/**
-	 * @brief Pakeicia Vector turini inicializavimo list
-	 * @param sarasas Naujos elementu reiksmes
+	 * @brief Pakeicia Vector turini inicializavimo sarasu.
+	 *
+	 * @param sarasas Naujos elementu reiksmes.
 	 */
 	void assign(std::initializer_list<T> sarasas)
 	{
@@ -739,9 +759,11 @@ public:
 	{
 		dydis_ = 0;
 	}
+
 	/**
-	 * @brief Kopijuoja vieno Vector objekto duomenis i kita Vector objektas.
-	 * @param kitas Kopijuojamas Vector objektas
+	 * @brief Sukuria Vector kopija is kito Vector objekto.
+	 *
+	 * @param kitas Kopijuojamas Vector objektas.
 	 */
 	Vector(const Vector& kitas)
 		: duomenys_(nullptr), dydis_(kitas.dydis_), talpa_(kitas.talpa_)
@@ -758,9 +780,10 @@ public:
 	}
 
 	/**
-	 * @brief Priskiria vieno Vector objekto duomenis kitam Vector objektui.
-	 * @param kitas Kopijuojamas Vector objektas
-	 * @return nuoroda si Vector objekta.
+	 * @brief Priskiria kito Vector objekto kopija.
+	 *
+	 * @param kitas Kopijuojamas Vector objektas.
+	 * @return Nuoroda i si Vector objekta.
 	 */
 	Vector& operator=(const Vector& kitas)
 	{
@@ -787,8 +810,9 @@ public:
 		return *this;
 	}
 	/**
-	 * @brief Perkelia vieno Vector objekto duomenis i kita Vector objektas.
-	 * @param kitas Vector objektas, kurio duomenys bus perkelti.
+	 * @brief Sukuria Vector perimant kito Vector objekto duomenis.
+	 *
+	 * @param kitas Vector objektas, is kurio duomenys perkeliami.
 	 */
 	Vector(Vector&& kitas) noexcept
 		: duomenys_(kitas.duomenys_), dydis_(kitas.dydis_), talpa_(kitas.talpa_)
@@ -799,10 +823,10 @@ public:
 	}
 
 	/**
-	 * @brief Perkelia vieno Vector objekto duomenis i kita Vector objektas.
-	 * 
-	 * @param kitas Vector objektas, kurio duomenys bus perkelti.
-	 * @return nuoroda si Vector objekta.
+	 * @brief Priskiria Vector turini is inicializavimo saraso.
+	 *
+	 * @param sarasas Naujos elementu reiksmes.
+	 * @return Nuoroda i si Vector objekta.
 	 */
 	Vector& operator=(Vector&& kitas) noexcept
 	{
