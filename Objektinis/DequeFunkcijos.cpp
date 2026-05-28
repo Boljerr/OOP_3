@@ -31,7 +31,7 @@ void skaitytiIsFailoDeque(const std::string& failoPavadinimas, std::deque<Studen
 		studentas.setVardas(vardas);
 		studentas.setPavarde(pavarde);
 		int paz;
-		std::vector<int> visiPaz;
+		Vector<int> visiPaz;
 		while (ss >> paz)
 		{
 			if (paz < 0 || paz > 10)

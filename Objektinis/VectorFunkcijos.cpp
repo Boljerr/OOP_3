@@ -40,7 +40,7 @@ void skaitytiIsFailoVector(const std::string& failoPavadinimas, std::vector<Stud
 
 
 		int paz;
-		std::vector<int> visiPaz;
+		Vector<int> visiPaz;
 
 		while (ss >> paz)
 		{

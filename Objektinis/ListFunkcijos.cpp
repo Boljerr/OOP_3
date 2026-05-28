@@ -37,7 +37,7 @@ void skaitytiIsFailoList(const std::string& failoPavadinimas, std::list<Studenta
 		studentas.setPavarde(pavarde);
 
 		int paz;
-		std::vector<int> visiPaz;
+		Vector<int> visiPaz;
 
 		while (ss >> paz)
 		{

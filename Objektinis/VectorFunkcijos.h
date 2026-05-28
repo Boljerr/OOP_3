@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "Studentas.h"
+#include "Vector.h"
 
 void skaitytiIsFailoVector(const std::string& failoPavadinimas, std::vector<Studentas>& studentai);
 void skaiciuotiRezultatusVector(std::vector<Studentas>& studentai, int skaiciavimoTipas);
