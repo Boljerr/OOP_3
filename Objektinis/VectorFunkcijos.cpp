@@ -486,3 +486,61 @@ void padalintiStudentus3ManoVector(Vector<Studentas>& studentai, Vector<Studenta
 
 	studentai.erase(riba, studentai.end());
 }
+
+void atliktiDuomenuApdorojimoTyrimaManoVector(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas)
+{
+	Vector<Studentas> studentai;
+	Vector<Studentas> nuskriaustieji;
+	Vector<Studentas> kietiakiai;
+
+	std::string pagrindinisVardas = gautiFailoVardaBePletinio(failoPavadinimas);
+	std::string bloguFailas = pagrindinisVardas + "_mano_vector_nuskriaustieji.txt";
+	std::string geruFailas = pagrindinisVardas + "_mano_vector_kietiakiai.txt";
+
+	auto visoStart = std::chrono::high_resolution_clock::now();
+
+	auto skaitymoStart = std::chrono::high_resolution_clock::now();
+	skaitytiIsFailoManoVector(failoPavadinimas, studentai);
+	auto skaitymoEnd = std::chrono::high_resolution_clock::now();
+
+	skaiciuotiRezultatusManoVector(studentai, skaiciavimoTipas);
+
+	auto skirstymoStart = std::chrono::high_resolution_clock::now();
+	padalintiStudentus1ManoVector(studentai, nuskriaustieji, kietiakiai);
+	auto skirstymoEnd = std::chrono::high_resolution_clock::now();
+
+	auto rusiavimoStart = std::chrono::high_resolution_clock::now();
+	rusiuotiStudentusManoVector(nuskriaustieji, rusiavimoTipas);
+	rusiuotiStudentusManoVector(kietiakiai, rusiavimoTipas);
+	auto rusiavimoEnd = std::chrono::high_resolution_clock::now();
+
+	auto isvedimoStart = std::chrono::high_resolution_clock::now();
+	isvestiRezultatusIFailaManoVector(nuskriaustieji, skaiciavimoTipas, bloguFailas);
+	isvestiRezultatusIFailaManoVector(kietiakiai, skaiciavimoTipas, geruFailas);
+	auto isvedimoEnd = std::chrono::high_resolution_clock::now();
+
+	auto visoEnd = std::chrono::high_resolution_clock::now();
+
+	std::chrono::duration<double> skaitymas = skaitymoEnd - skaitymoStart;
+	std::chrono::duration<double> skirstymas = skirstymoEnd - skirstymoStart;
+	std::chrono::duration<double> rusiavimas = rusiavimoEnd - rusiavimoStart;
+	std::chrono::duration<double> isvedimas = isvedimoEnd - isvedimoStart;
+	std::chrono::duration<double> visasLaikas = visoEnd - visoStart;
+
+	std::cout << "\nFailas: " << failoPavadinimas << '\n';
+	std::cout << "Konteineris: Mano Vector\n";
+	std::cout << "Nuskaitymas: " << skaitymas.count() << " s\n";
+	std::cout << "Skirstymas: " << skirstymas.count() << " s\n";
+	std::cout << "Rusiavimas: " << rusiavimas.count() << " s\n";
+	std::cout << "Isvedimas: " << isvedimas.count() << " s\n";
+	std::cout << "Bendras laikas: " << visasLaikas.count() << " s\n";
+}
+
+void atliktiDuomenuApdorojimoTyrimoVidurkiManoVector(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, int kartu)
+{
+	for (int i = 0; i < kartu; ++i)
+	{
+		std::cout << "\n Bandymas Nr." << i + 1 << "\n";
+		atliktiDuomenuApdorojimoTyrimaManoVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
+	}
+}
