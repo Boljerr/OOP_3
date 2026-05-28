@@ -112,5 +112,28 @@ namespace StudentasUnitTests
 
 
 		}
+
+		TEST_METHOD(VectorCanStoreStudentasObjects)
+		{
+			Vector<Studentas> studentai;
+
+			Studentas pirmas("Jonas", "Jonaitis", { 8, 9, 10 }, 9);
+			Studentas antras("Petras", "Petraitis", { 7, 8, 9 }, 8);
+
+			studentai.push_back(pirmas);
+			studentai.push_back(antras);
+
+			Assert::IsTrue(studentai.size() == 2);
+
+			Assert::IsTrue(studentai[0].getVardas() == "Jonas");
+			Assert::IsTrue(studentai[0].getPavarde() == "Jonaitis");
+			Assert::IsTrue(studentai[0].getPazymiai().size() == 3);
+			Assert::IsTrue(studentai[0].getPazymiai()[0] == 8);
+
+			Assert::IsTrue(studentai[1].getVardas() == "Petras");
+			Assert::IsTrue(studentai[1].getPavarde() == "Petraitis");
+			Assert::IsTrue(studentai[1].getPazymiai().size() == 3);
+			Assert::IsTrue(studentai[1].getPazymiai()[0] == 7);
+		}
 	};
 }
