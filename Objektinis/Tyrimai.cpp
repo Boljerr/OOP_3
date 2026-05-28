@@ -469,3 +469,37 @@ void atliktiPushBackTyrimus()
     atliktiPushBackTyrima(10000000);
     atliktiPushBackTyrima(100000000);
 }
+
+void skaiciuotiPerskirstymus(unsigned int dydis)
+{
+    unsigned int stdPerskirstymai = 0;
+    unsigned int manoPerskirstymai = 0;
+
+    std::vector<int> v1;
+
+    for (unsigned int i = 1; i <= dydis; ++i)
+    {
+        if (v1.capacity() == v1.size())
+        {
+            ++stdPerskirstymai;
+        }
+
+        v1.push_back(i);
+    }
+
+    Vector<int> v2;
+
+    for (unsigned int i = 1; i <= dydis; ++i)
+    {
+        if (v2.capacity() == v2.size())
+        {
+            ++manoPerskirstymai;
+        }
+
+        v2.push_back(i);
+    }
+
+    std::cout << "\nPerskirstymu skaicius uzpildant " << dydis << " elementu:\n";
+    std::cout << "std::vector: " << stdPerskirstymai << "\n";
+    std::cout << "Vector: " << manoPerskirstymai << "\n";
+}
