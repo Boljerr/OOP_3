@@ -452,3 +452,20 @@ void atliktiPushBackTyrima(unsigned int dydis)
         << std::setw(20) << manoLaikas.count()
         << "\n";
 }
+
+void atliktiPushBackTyrimus()
+{
+    std::cout << "\nstd::vector<int> ir Vector<int> push_back tyrimas\n";
+    std::cout << std::left << std::setw(15) << "Dydis"
+        << std::setw(20) << "std::vector"
+        << std::setw(20) << "Vector"
+        << "\n";
+
+    std::cout << "-------------------------------------------------------\n";
+
+    atliktiPushBackTyrima(10000);
+    atliktiPushBackTyrima(100000);
+    atliktiPushBackTyrima(1000000);
+    atliktiPushBackTyrima(10000000);
+    atliktiPushBackTyrima(100000000);
+}
