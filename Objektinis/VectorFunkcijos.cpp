@@ -1,5 +1,6 @@
 #include "VectorFunkcijos.h"
 #include "Bendra.h"
+#include "Vector.h"
 #include <algorithm>
 #include <iomanip>
 #include <iostream>
@@ -63,6 +64,8 @@ void skaitytiIsFailoVector(const std::string& failoPavadinimas, std::vector<Stud
 	}
 	in.close();
 }
+
+
 
 void skaiciuotiRezultatusVector(std::vector<Studentas>& studentai, int skaiciavimoTipas)
 {
@@ -284,5 +287,122 @@ void atliktiDuomenuApdorojimoTyrimoVidurkiVector(const std::string& failoPavadin
 	{
 		std::cout << "\n Bandymas Nr." << i + 1 << "\n";
 		atliktiDuomenuApdorojimoTyrimaVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
+	}
+}
+
+
+//V3.0
+void skaitytiIsFailoManoVector(const std::string& failoPavadinimas, Vector<Studentas>& studentai)
+{
+	studentai.clear();
+	std::ifstream in(failoPavadinimas);
+
+	if (!in.is_open())
+	{
+		throw std::runtime_error("Nepavyko atidaryti failo: " + failoPavadinimas);
+	}
+
+	std::string eilute;
+
+	std::getline(in, eilute);
+
+	while (std::getline(in, eilute))
+	{
+		std::stringstream ss(eilute);
+		Studentas studentas;
+
+		std::string vardas;
+		std::string pavarde;
+
+		if (!(ss >> vardas >> pavarde))
+		{
+			throw std::runtime_error("Netinkamas duomenu formatas");
+		}
+
+		studentas.setVardas(vardas);
+		studentas.setPavarde(pavarde);
+
+		int paz;
+		Vector<int> visiPaz;
+
+		while (ss >> paz)
+		{
+			if (paz < 0 || paz > 10)
+			{
+				throw std::runtime_error("Faile rastas netinkamas pazymys");
+			}
+
+			visiPaz.push_back(paz);
+		}
+
+		if (visiPaz.empty())
+		{
+			throw std::runtime_error("Studentui nerastas nei vienas pazymys ar egzamino rezultatas");
+		}
+
+		studentas.setEgzaminas(visiPaz.back());
+		visiPaz.pop_back();
+		studentas.setPazymiai(visiPaz);
+
+		studentai.push_back(studentas);
+	}
+
+	in.close();
+}
+
+void skaiciuotiRezultatusManoVector(Vector<Studentas>& studentai, int skaiciavimoTipas)
+{
+	for (std::size_t i = 0; i < studentai.size(); ++i)
+	{
+		double nd;
+
+		if (skaiciavimoTipas == 1)
+		{
+			nd = calculateAverage(studentai[i].getPazymiai());
+		}
+		else
+		{
+			nd = calculateMedian(studentai[i].getPazymiai());
+		}
+
+		double galutinis = calculateFinal(nd, studentai[i].getEgzaminas());
+		studentai[i].setRezultatas(galutinis);
+	}
+}
+
+void rusiuotiStudentusManoVector(Vector<Studentas>& studentai, int pasirinkimas)
+{
+	switch (pasirinkimas)
+	{
+	case 1:
+		std::sort(studentai.begin(), studentai.end(), compareByVardas);
+		break;
+	case 2:
+		std::sort(studentai.begin(), studentai.end(), compareByPavarde);
+		break;
+	case 3:
+		std::sort(studentai.begin(), studentai.end(), compareByRezultatas);
+		break;
+	default:
+		break;
+	}
+}
+
+void isvestiRezultatusManoVector(const Vector<Studentas>& studentai, int skaiciavimoTipas)
+{
+	std::string rez = (skaiciavimoTipas == 1) ? "Galutinis (Vid.)" : "Galutinis (Med.)";
+
+	std::cout << std::left << std::setw(15) << "Pavarde"
+		<< std::setw(15) << "Vardas"
+		<< std::setw(20) << rez << "\n";
+
+	std::cout << "--------------------------------------------------\n";
+
+	for (std::size_t i = 0; i < studentai.size(); ++i)
+	{
+		std::cout << std::setw(15) << studentai[i].getPavarde()
+			<< std::setw(15) << studentai[i].getVardas()
+			<< std::fixed << std::setprecision(2)
+			<< studentai[i].getRezultatas() << "\n";
 	}
 }
