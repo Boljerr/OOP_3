@@ -200,5 +200,26 @@ namespace StudentasUnitTests
 			Assert::IsTrue(studentai[1].getRezultatas() >= 5.0);
 			Assert::IsTrue(studentai[2].getRezultatas() < 5.0);
 		}
+
+		TEST_METHOD(VectorStudentasCopyWorks)
+		{
+			Vector<Studentas> pirmas;
+
+			Studentas jonas("Jonas", "Jonaitis", { 8, 9, 10 }, 9);
+			Studentas petras("Petras", "Petraitis", { 7, 8, 9 }, 8);
+
+			pirmas.push_back(jonas);
+			pirmas.push_back(petras);
+
+			Vector<Studentas> antras = pirmas;
+
+			Assert::IsTrue(antras.size() == 2);
+			Assert::IsTrue(antras[0].getVardas() == "Jonas");
+			Assert::IsTrue(antras[1].getVardas() == "Petras");
+
+			pirmas[0].setVardas("Pakeistas");
+
+			Assert::IsTrue(antras[0].getVardas() == "Jonas");
+		}
 	};
 }

@@ -16,8 +16,19 @@ template <typename T>
 class Vector
 {
 private:
+	/**
+	 * @brief Rodykle i dinamini masyva, kuriame saugomi elementai.
+	 */
 	T* duomenys_;
+
+	/**
+	 * @brief Dabartinis elementu skaicius konteineryje.
+	 */
 	std::size_t dydis_;
+
+	/**
+	 * @brief Rezervuota vieta elementams.
+	 */
 	std::size_t talpa_;
 
 public:
