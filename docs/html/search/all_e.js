@@ -1,16 +1,7 @@
 var searchData=
 [
-  ['pažymių_20skaičiavimo_20programa_0',['Studentų pažymių skaičiavimo programa',['../index.html',1,'']]],
-  ['paleidimas_1',['paleidimas',['../index.html#autotoc_md10',1,'Programos paleidimas'],['../index.html#autotoc_md16',1,'Unit testų paleidimas']]],
-  ['pavarde_5f_2',['pavarde_',['../class_zmogus.html#a85cd6103a5f887059263d15413a3f081',1,'Zmogus']]],
-  ['pradinė_3',['v.pradinė',['../index.html#autotoc_md39',1,'']]],
-  ['pridetipazymi_4',['pridetiPazymi',['../class_studentas.html#a72aa804d9cd252698b20e84a0ee82429',1,'Studentas']]],
-  ['print_5',['print',['../class_studentas.html#a3117ca77bca476330eed0bd632f1115e',1,'Studentas::print()'],['../class_zmogus.html#a352531099db952e52228c06290c7e717',1,'Zmogus::print()']]],
-  ['programą_6',['Apie programą',['../index.html#autotoc_md1',1,'']]],
-  ['programa_7',['Studentų pažymių skaičiavimo programa',['../index.html',1,'']]],
-  ['programos_20atsisiuntimas_8',['Programos atsisiuntimas',['../index.html#autotoc_md7',1,'']]],
-  ['programos_20funkcijos_9',['Programos funkcijos',['../index.html#autotoc_md3',1,'']]],
-  ['programos_20kompiliavimas_20su_20cmake_10',['Programos kompiliavimas su CMake',['../index.html#autotoc_md9',1,'']]],
-  ['programos_20meniu_11',['Programos meniu',['../index.html#autotoc_md12',1,'']]],
-  ['programos_20paleidimas_12',['Programos paleidimas',['../index.html#autotoc_md10',1,'']]]
+  ['insert_0',['insert',['../index.html#autotoc_md18',1,'3. &lt;span class=&quot;tt&quot;&gt;insert()&lt;/span&gt;'],['../class_vector.html#a361731a6926299359d3f42ae4ae93a3d',1,'Vector::insert(T *pozicija, const T &amp;reiksme)'],['../class_vector.html#ad2d29c0ffe3727d4c7603d942cda3011',1,'Vector::insert(T *pozicija, std::size_t kiekis, const T &amp;reiksme)'],['../class_vector.html#a5d8fb63c6a7e2f2b4479b01508f24093',1,'Vector::insert(T *pozicija, std::initializer_list&lt; T &gt; sarasas)']]],
+  ['ir_20std_3a_3asort_1',['6. Iteratoriai ir &lt;span class=&quot;tt&quot;&gt;std::sort()&lt;/span&gt;',['../index.html#autotoc_md21',1,'']]],
+  ['ir_20vector_2',['Studentu programos tyrimas su std::vector ir Vector',['../index.html#autotoc_md27',1,'']]],
+  ['iteratoriai_20ir_20std_3a_3asort_3',['6. Iteratoriai ir &lt;span class=&quot;tt&quot;&gt;std::sort()&lt;/span&gt;',['../index.html#autotoc_md21',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Studentu pazymiu skaiciavimo programa: Studentų pažymių skaičiavimo programa</title>
+<title>Studentu pazymiu skaiciavimo programa: Studentu pazymiu skaiciavimo programa</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -115,68 +115,45 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Studentų pažymių skaičiavimo programa </div></div>
+  <div class="headertitle"><div class="title">Studentu pazymiu skaiciavimo programa </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Apie programą</h1>
-<p>Ši programa skirta studentų duomenims apdoroti.</p>
-<p>Programa gali nuskaityti studentų vardus, pavardes, namų darbų pažymius ir egzamino rezultatą. Pagal šiuos duomenis yra apskaičiuojamas galutinis balas.</p>
-<p>Galutinis balas gali būti skaičiuojamas pagal:</p>
+Reikalavimai</h1>
+<p>Norint paleisti programa, reikia tureti:</p>
 <ul>
-<li>namų darbų vidurkį;</li>
-<li>namų darbų medianą.</li>
+<li>C++ kompiliatoriu su C++17 palaikymu;</li>
+<li>CMake;</li>
+<li>Git;</li>
+<li>Visual Studio, jeigu norima paleisti unit testus per <span class="tt">Test Explorer</span>;</li>
+<li>Doxygen, jeigu norima sugeneruoti dokumentacija;</li>
+<li>Inno Setup, jeigu norima sugeneruoti diegimo faila.</li>
 </ul>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Programos funkcijos</h1>
-<p>Programa leidžia:</p>
-<ul>
-<li>rankiniu būdu įvesti studentų duomenis;</li>
-<li>generuoti pažymius;</li>
-<li>generuoti studentus ir jų pažymius;</li>
-<li>nuskaityti studentų duomenis iš failo;</li>
-<li>generuoti studentų failus;</li>
-<li>skaičiuoti galutinį balą pagal vidurkį arba medianą;</li>
-<li>rūšiuoti studentus pagal vardą, pavardę arba rezultatą;</li>
-<li>skirstyti studentus į dvi grupes;</li>
-<li>atlikti veikimo spartos tyrimus;</li>
-<li>testuoti <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasę;</li>
-<li>peržiūrėti sugeneruotą Doxygen dokumentaciją.</li>
-</ul>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
-Reikalavimai</h1>
-<p>Norint paleisti programą, reikia turėti:</p>
-<ul>
-<li>C++ kompiliatorių su C++17 palaikymu;</li>
-<li>CMake;</li>
-<li>Git;</li>
-<li>Visual Studio, jeigu norima paleisti unit testus per <span class="tt">Test Explorer</span>.</li>
-</ul>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 Programos atsisiuntimas</h1>
-<p>Projektą galima atsisiųsti iš GitHub:</p>
-<div class="fragment"><div class="line">git clone https://github.com/Boljerr/OOP_2.git</div>
-<div class="line">cd OOP_2</div>
+<p>Projektas atsisiunciamas is GitHub:</p>
+<div class="fragment"><div class="line">git clone https://github.com/Boljerr/OOP_3.git</div>
+<div class="line">cd OOP_3</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 Programos kompiliavimas su CMake</h1>
 <p>Projektas kompiliuojamas naudojant CMake.</p>
-<p>Pirmiausia reikia sukurti <span class="tt">build</span> aplanką:</p>
 <div class="fragment"><div class="line">mkdir build</div>
 <div class="line">cd build</div>
-</div><!-- fragment --><p>Tada paleisti CMake:</p>
-<div class="fragment"><div class="line">cmake ..</div>
-</div><!-- fragment --><p>Kompiliavimas <span class="tt">Release</span> režimu:</p>
-<div class="fragment"><div class="line">cmake --build . --config Release</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
-Programos paleidimas</h1>
-<div class="fragment"><div class="line">.\Release\Studentai.exe</div>
+<div class="line">cmake ..</div>
+<div class="line">cmake --build . --config Release</div>
+</div><!-- fragment --><p>Paleidziamas failas paprastai sukuriamas:</p>
+<div class="fragment"><div class="line">build/Release/Studentai.exe</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Programos paleidimas</h1>
+<p>Is <span class="tt">build</span> aplanko:</p>
+<div class="fragment"><div class="line">./Release/Studentai.exe</div>
+</div><!-- fragment --><p>Windows aplinkoje programa taip pat galima paleisti per Visual Studio arba tiesiog atidaryti sugeneruota <span class="tt">.exe</span> faila.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Programos meniu</h1>
 <div class="fragment"><div class="line">1 - Rankinis ivedimas</div>
 <div class="line">2 - Generuoti tik pazymius</div>
@@ -188,50 +165,248 @@ Programos meniu</h1>
 <div class="line">8 - Atlikti v1.1 konteineriu tyrima</div>
 <div class="line">9 - Atlikti v1.1 skirstymo strategiju tyrima</div>
 <div class="line">10 - Testuoti Studentas klase</div>
-<div class="line">11 - Baigti</div>
+<div class="line">11 - Atlikti v3.0 duomenu apdorojimo tyrima(mano Vector)</div>
+<div class="line">12 - Atlikti std::vector ir Vector push_back tyrima</div>
+<div class="line">13 - Palyginti std::vector ir mano Vector su studentu failu</div>
+<div class="line">14 - Baigti</div>
+</div><!-- fragment --> <hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+v3.0 nuosavas Vector konteineris</h1>
+<p>v3.0 versijoje sukurtas nuosavas sabloninis konteineris <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;T&gt;</span>, kuris veikia panasiai kaip <span class="tt">std::vector</span>.</p>
+<p>Konteineris realizuotas naudojant dinamini masyva. Viduje saugomi trys pagrindiniai laukai:</p>
+<ul>
+<li><span class="tt">T* duomenys_</span> - rodykle i dinamini masyva;</li>
+<li><span class="tt">std::size_t dydis_</span> - dabartinis elementu kiekis;</li>
+<li><span class="tt">std::size_t talpa_</span> - rezervuota vieta elementams.</li>
+</ul>
+<p>Kai <span class="tt">push_back()</span> metu nebelieka vietos naujam elementui, konteinerio talpa padidinama ir seni elementai perkeliami i nauja masyva.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+Realizuotos Vector funkcijos</h1>
+<p>Realizuotos pagrindines <span class="tt">std::vector</span> tipo funkcijos:</p>
+<ul>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector()</a></span></li>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector(size_t kiekis)</a></span></li>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>(size_t kiekis, const T&amp; reiksme)</span></li>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>(std::initializer_list&lt;T&gt;)</span></li>
+<li>kopijavimo konstruktorius</li>
+<li>kopijavimo priskyrimo operatorius</li>
+<li>perkelimo konstruktorius</li>
+<li>perkelimo priskyrimo operatorius</li>
+<li>destruktorius</li>
+<li><span class="tt">size()</span></li>
+<li><span class="tt">capacity()</span></li>
+<li><span class="tt">empty()</span></li>
+<li><span class="tt">max_size()</span></li>
+<li><span class="tt">operator[]</span></li>
+<li><span class="tt">at()</span></li>
+<li><span class="tt">front()</span></li>
+<li><span class="tt">back()</span></li>
+<li><span class="tt">data()</span></li>
+<li><span class="tt">begin()</span></li>
+<li><span class="tt">end()</span></li>
+<li><span class="tt">cbegin()</span></li>
+<li><span class="tt">cend()</span></li>
+<li><span class="tt">reserve()</span></li>
+<li><span class="tt">resize()</span></li>
+<li><span class="tt">shrink_to_fit()</span></li>
+<li><span class="tt">push_back()</span></li>
+<li><span class="tt">pop_back()</span></li>
+<li><span class="tt">clear()</span></li>
+<li><span class="tt">insert()</span></li>
+<li><span class="tt">erase()</span></li>
+<li><span class="tt">assign()</span></li>
+<li><span class="tt">swap()</span></li>
+<li><span class="tt">emplace_back()</span></li>
+<li><span class="tt">emplace()</span></li>
+<li><span class="tt">operator==</span></li>
+<li><span class="tt">operator!=</span></li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Vector funkciju pavyzdziai</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+1. <span class="tt">push_back()</span></h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> v;</div>
+<div class="line"> </div>
+<div class="line">v.<a class="code hl_function" href="class_vector.html#ae455e0529fc174d97812a21a9ab39b2e">push_back</a>(1);</div>
+<div class="line">v.<a class="code hl_function" href="class_vector.html#ae455e0529fc174d97812a21a9ab39b2e">push_back</a>(2);</div>
+<div class="line">v.<a class="code hl_function" href="class_vector.html#ae455e0529fc174d97812a21a9ab39b2e">push_back</a>(3);</div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">Paprastas dinaminio masyvo konteineris, panasus i std::vector.</div><div class="ttdef"><b>Definition</b> Vector.h:22</div></div>
+<div class="ttc" id="aclass_vector_html_ae455e0529fc174d97812a21a9ab39b2e"><div class="ttname"><a href="class_vector.html#ae455e0529fc174d97812a21a9ab39b2e">Vector::push_back</a></div><div class="ttdeci">void push_back(const T &amp;reiksme)</div><div class="ttdoc">Prideda elementa i konteinerio pabaiga.</div><div class="ttdef"><b>Definition</b> Vector.h:385</div></div>
+</div><!-- fragment --><p>Rezultatas:</p>
+<div class="fragment"><div class="line">1 2 3</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+2. <span class="tt">at()</span></h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> v = { 4, 5, 6 };</div>
+<div class="line"> </div>
+<div class="line">std::cout &lt;&lt; v.<a class="code hl_function" href="class_vector.html#a6138895f39699ab24cb66314c53cac0b">at</a>(1);</div>
+<div class="ttc" id="aclass_vector_html_a6138895f39699ab24cb66314c53cac0b"><div class="ttname"><a href="class_vector.html#a6138895f39699ab24cb66314c53cac0b">Vector::at</a></div><div class="ttdeci">T &amp; at(std::size_t index)</div><div class="ttdoc">Grazina elementa pagal indeksa su ribu tikrinimu.</div><div class="ttdef"><b>Definition</b> Vector.h:218</div></div>
+</div><!-- fragment --><p>Rezultatas:</p>
+<div class="fragment"><div class="line">5</div>
+</div><!-- fragment --><p>Jeigu indeksas yra uz ribu, <span class="tt">at()</span> meta <span class="tt">std::out_of_range</span> isimti.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+3. <span class="tt">insert()</span></h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> v = { 1, 4 };</div>
+<div class="line"> </div>
+<div class="line">v.<a class="code hl_function" href="class_vector.html#a361731a6926299359d3f42ae4ae93a3d">insert</a>(v.<a class="code hl_function" href="class_vector.html#a48330adb902d17d3fbed6e83fd58976f">begin</a>() + 1, { 2, 3 });</div>
+<div class="ttc" id="aclass_vector_html_a361731a6926299359d3f42ae4ae93a3d"><div class="ttname"><a href="class_vector.html#a361731a6926299359d3f42ae4ae93a3d">Vector::insert</a></div><div class="ttdeci">T * insert(T *pozicija, const T &amp;reiksme)</div><div class="ttdoc">Iterpia viena elementa pries nurodyta pozicija.</div><div class="ttdef"><b>Definition</b> Vector.h:488</div></div>
+<div class="ttc" id="aclass_vector_html_a48330adb902d17d3fbed6e83fd58976f"><div class="ttname"><a href="class_vector.html#a48330adb902d17d3fbed6e83fd58976f">Vector::begin</a></div><div class="ttdeci">T * begin()</div><div class="ttdoc">Grazina iteratoriu i pirma elementa.</div><div class="ttdef"><b>Definition</b> Vector.h:158</div></div>
+</div><!-- fragment --><p>Rezultatas:</p>
+<div class="fragment"><div class="line">1 2 3 4</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+4. <span class="tt">erase()</span></h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> v = { 1, 2, 3, 4 };</div>
+<div class="line"> </div>
+<div class="line">v.<a class="code hl_function" href="class_vector.html#a983c5f1192137787a4e0b8807461d436">erase</a>(v.<a class="code hl_function" href="class_vector.html#a48330adb902d17d3fbed6e83fd58976f">begin</a>() + 1);</div>
+<div class="ttc" id="aclass_vector_html_a983c5f1192137787a4e0b8807461d436"><div class="ttname"><a href="class_vector.html#a983c5f1192137787a4e0b8807461d436">Vector::erase</a></div><div class="ttdeci">T * erase(T *pozicija)</div><div class="ttdoc">Pasalina elementa is nurodytos pozicijos.</div><div class="ttdef"><b>Definition</b> Vector.h:615</div></div>
+</div><!-- fragment --><p>Rezultatas:</p>
+<div class="fragment"><div class="line">1 3 4</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+5. <span class="tt">resize()</span></h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> v = { 1, 2 };</div>
+<div class="line"> </div>
+<div class="line">v.<a class="code hl_function" href="class_vector.html#a9b70f3e73b39fc813ee463799e71c1f8">resize</a>(5, 9);</div>
+<div class="ttc" id="aclass_vector_html_a9b70f3e73b39fc813ee463799e71c1f8"><div class="ttname"><a href="class_vector.html#a9b70f3e73b39fc813ee463799e71c1f8">Vector::resize</a></div><div class="ttdeci">void resize(std::size_t naujasDydis)</div><div class="ttdoc">Pakeicia konteinerio dydi.</div><div class="ttdef"><b>Definition</b> Vector.h:319</div></div>
+</div><!-- fragment --><p>Rezultatas:</p>
+<div class="fragment"><div class="line">1 2 9 9 9</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+6. Iteratoriai ir <span class="tt">std::sort()</span></h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> v = { 3, 1, 2 };</div>
+<div class="line"> </div>
+<div class="line">std::sort(v.<a class="code hl_function" href="class_vector.html#a48330adb902d17d3fbed6e83fd58976f">begin</a>(), v.<a class="code hl_function" href="class_vector.html#aa8958aac9b8931d471cdd99428c2d535">end</a>());</div>
+<div class="ttc" id="aclass_vector_html_aa8958aac9b8931d471cdd99428c2d535"><div class="ttname"><a href="class_vector.html#aa8958aac9b8931d471cdd99428c2d535">Vector::end</a></div><div class="ttdeci">T * end()</div><div class="ttdoc">Grazina iteratoriu uz paskutinio elemento.</div><div class="ttdef"><b>Definition</b> Vector.h:172</div></div>
+</div><!-- fragment --><p>Rezultatas:</p>
+<div class="fragment"><div class="line">1 2 3</div>
 </div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
-Unit testai</h1>
-<p>v2.0 versijoje buvo pridėti unit testai.</p>
-<p>Juos pridėjau tam, kad būtų galima patikrinti, ar pagrindiniai <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasės metodai veikia teisingai.</p>
-<p>Testams naudojau <b>Visual Studio C++ Unit Test Framework</b>, nes projektą darau su Visual Studio ir testus patogu paleisti per <span class="tt">Test Explorer</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
-Testuojami metodai</h2>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<span class="tt">push_back()</span> spartos tyrimas</h1>
+<p>Buvo matuojama, kiek vidutiniskai laiko uztrunka tuscia <span class="tt">std::vector&lt;int&gt;</span> ir tuscia <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;int&gt;</span> uzpildyti naudojant <span class="tt">push_back()</span>.</p>
+<p>Buvo atlikta 10 bandymu. Lenteleje pateikiamas vidurkis.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Testas  </th><th class="markdownTableHeadNone">Ką tikrina  </th></tr>
+<th class="markdownTableHeadRight">Elementu kiekis  </th><th class="markdownTableHeadRight">std::vector vid. laikas, s  </th><th class="markdownTableHeadRight"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a> vid. laikas, s  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">DefaultConstructorCreatesObject</span>  </td><td class="markdownTableBodyNone">Patikrina, ar galima sukurti tuščią <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> objektą  </td></tr>
+<td class="markdownTableBodyRight">10 000  </td><td class="markdownTableBodyRight">0.000178740  </td><td class="markdownTableBodyRight">0.000053870  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">CopyConstructorWorks</span>  </td><td class="markdownTableBodyNone">Patikrina kopijavimo konstruktorių  </td></tr>
+<td class="markdownTableBodyRight">100 000  </td><td class="markdownTableBodyRight">0.000558310  </td><td class="markdownTableBodyRight">0.000396890  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">CopyAssignmentWorks</span>  </td><td class="markdownTableBodyNone">Patikrina kopijavimo priskyrimo operatorių  </td></tr>
+<td class="markdownTableBodyRight">1 000 000  </td><td class="markdownTableBodyRight">0.004688730  </td><td class="markdownTableBodyRight">0.003114310  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">MoveConstructorWorks</span>  </td><td class="markdownTableBodyNone">Patikrina perkėlimo konstruktorių  </td></tr>
+<td class="markdownTableBodyRight">10 000 000  </td><td class="markdownTableBodyRight">0.042939080  </td><td class="markdownTableBodyRight">0.034631990  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">MoveAssignmentWorks</span>  </td><td class="markdownTableBodyNone">Patikrina perkėlimo priskyrimo operatorių  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">InputOperatorWorks</span>  </td><td class="markdownTableBodyNone">Patikrina įvesties operatorių <span class="tt">&gt;&gt;</span>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">OutputOperatorWorks</span>  </td><td class="markdownTableBodyNone">Patikrina išvesties operatorių <span class="tt">&lt;&lt;</span>  </td></tr>
+<td class="markdownTableBodyRight">100 000 000  </td><td class="markdownTableBodyRight">0.451623300  </td><td class="markdownTableBodyRight">0.313787700  </td></tr>
 </table>
-<p>Svarbiausia buvo patikrinti Rule of Five metodus, nes jie parodo, ar <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> objektai teisingai kopijuojami, priskiriami ir perkeliami.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
-Unit testų paleidimas</h2>
-<p>Testai paleidžiami per Visual Studio:</p>
+<p>Siame teste mano <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> buvo greitesnis uz <span class="tt">std::vector</span>, nes mano realizacijoje talpa didinama dvigubinant, todel buvo maziau atminties perskirstymu. <span class="tt">std::vector</span> talpos didinimo strategija priklauso nuo konkrecios STL realizacijos.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+Atminties perskirstymu skaicius</h1>
+<p>Perskirstymas buvo skaiciuojamas tada, kai pries <span class="tt">push_back()</span> buvo tenkinama salyga:</p>
+<div class="fragment"><div class="line">capacity() == size()</div>
+</div><!-- fragment --><p>Buvo uzpildoma 100 000 000 <span class="tt">int</span> elementu.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Konteineris  </th><th class="markdownTableHeadRight">Perskirstymu skaicius  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">std::vector  </td><td class="markdownTableBodyRight">47  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>  </td><td class="markdownTableBodyRight">28  </td></tr>
+</table>
+<p>Mano <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> perskirstymu atliko maziau, nes talpa buvo didinama dvigubinant.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+Studentu programos tyrimas su std::vector ir Vector</h1>
+<p>Buvo palygintas studentu programos veikimas naudojant <span class="tt">std::vector</span> ir mano <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span>.</p>
+<p>Naudoti nustatymai:</p>
+<ul>
+<li>galutinis balas skaiciuotas pagal vidurki;</li>
+<li>studentai rusiuoti pagal galutini rezultata;</li>
+<li>naudotas skirstymas su <span class="tt">std::stable_partition</span>;</li>
+<li>kiekvienam failui atlikti 3 bandymai;</li>
+<li>lenteleje pateikiami laiku vidurkiai.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Studentu kiekis  </th><th class="markdownTableHeadNone">Konteineris  </th><th class="markdownTableHeadRight">Nuskaitymas, s  </th><th class="markdownTableHeadRight">Skirstymas, s  </th><th class="markdownTableHeadRight">Rusiavimas, s  </th><th class="markdownTableHeadRight">Isvedimas, s  </th><th class="markdownTableHeadRight">Bendras laikas, s  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">100 000  </td><td class="markdownTableBodyNone"><span class="tt">std::vector</span>  </td><td class="markdownTableBodyRight">0.499839  </td><td class="markdownTableBodyRight">0.015915  </td><td class="markdownTableBodyRight">0.021947  </td><td class="markdownTableBodyRight">0.094470  </td><td class="markdownTableBodyRight">0.633464  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">100 000  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span>  </td><td class="markdownTableBodyRight">0.530764  </td><td class="markdownTableBodyRight">0.018053  </td><td class="markdownTableBodyRight">0.022191  </td><td class="markdownTableBodyRight">0.093264  </td><td class="markdownTableBodyRight">0.665642  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">1 000 000  </td><td class="markdownTableBodyNone"><span class="tt">std::vector</span>  </td><td class="markdownTableBodyRight">4.841230  </td><td class="markdownTableBodyRight">0.152808  </td><td class="markdownTableBodyRight">0.225936  </td><td class="markdownTableBodyRight">0.856493  </td><td class="markdownTableBodyRight">6.091330  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">1 000 000  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span>  </td><td class="markdownTableBodyRight">4.954550  </td><td class="markdownTableBodyRight">0.173366  </td><td class="markdownTableBodyRight">0.223980  </td><td class="markdownTableBodyRight">0.831624  </td><td class="markdownTableBodyRight">6.199703  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">10 000 000  </td><td class="markdownTableBodyNone"><span class="tt">std::vector</span>  </td><td class="markdownTableBodyRight">49.436967  </td><td class="markdownTableBodyRight">1.674317  </td><td class="markdownTableBodyRight">2.427917  </td><td class="markdownTableBodyRight">9.419157  </td><td class="markdownTableBodyRight">63.118733  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">10 000 000  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span>  </td><td class="markdownTableBodyRight">51.044167  </td><td class="markdownTableBodyRight">1.422003  </td><td class="markdownTableBodyRight">2.283997  </td><td class="markdownTableBodyRight">8.322230  </td><td class="markdownTableBodyRight">63.281300  </td></tr>
+</table>
+<p>Rezultatai rodo, kad studentu programoje <span class="tt">std::vector</span> ir mano <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> veike labai panasiai. <span class="tt">std::vector</span> buvo siek tiek greitesnis bendrame rezultate, nes tai standartines bibliotekos optimizuotas konteineris. Mano <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> veikia teisingai su tais paciais duomenimis, bet jo realizacija yra paprastesne.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+Unit testai</h1>
+<p>Testams naudojamas <b>Visual Studio C++ Unit Test Framework</b>.</p>
+<p>Testai pateikti faile:</p>
+<div class="fragment"><div class="line">StudentasUnitTests/VectorUnitTests.cpp</div>
+</div><!-- fragment --><p>Testai suskirstyti i kelias grupes:</p>
+<ul>
+<li><span class="tt">VectorConstructorTests</span>;</li>
+<li><span class="tt">VectorCapacityTests</span>;</li>
+<li><span class="tt">VectorElementAccessTests</span>;</li>
+<li><span class="tt">VectorRuleOfFiveTests</span>;</li>
+<li><span class="tt">VectorModifierTests</span>;</li>
+<li><span class="tt">VectorIteratorAlgorithmTests</span>;</li>
+<li><span class="tt">VectorComparisonTests</span>;</li>
+<li><span class="tt">VectorStdVectorComparisonTests</span>.</li>
+</ul>
+<p>Testais patikrinta:</p>
+<ul>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> konstruktoriai;</li>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> kopijavimas;</li>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> perkelimas;</li>
+<li><span class="tt">push_back()</span>;</li>
+<li><span class="tt">pop_back()</span>;</li>
+<li><span class="tt">clear()</span>;</li>
+<li><span class="tt">reserve()</span>;</li>
+<li><span class="tt">resize()</span>;</li>
+<li><span class="tt">shrink_to_fit()</span>;</li>
+<li><span class="tt">insert()</span>;</li>
+<li><span class="tt">erase()</span>;</li>
+<li><span class="tt">assign()</span>;</li>
+<li><span class="tt">swap()</span>;</li>
+<li>palyginimo operatoriai;</li>
+<li>iteratoriai;</li>
+<li>veikimas su <span class="tt">std::sort()</span>;</li>
+<li>veikimas su <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> objektais;</li>
+<li>keliu <span class="tt">std::vector</span> ir <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> funkciju rezultatu palyginimas.</li>
+</ul>
+<p>Visi unit testai praejo sekmingai.</p>
+<p>Unit testu rezultatu ekrano nuotrauka:</p>
+<p><img src="images/v3.0_Unit_tests.png" alt="v3.0 unit tests" class="inline"/></p>
+<p>Testai paleidziami per Visual Studio:</p>
 <ol type="1">
-<li>Atidaryti projektą su Visual Studio.</li>
-<li>Viršutiniame meniu pasirinkti <span class="tt">Test</span>.</li>
+<li>Atidaryti projekta su Visual Studio.</li>
+<li>Virsutiniame meniu pasirinkti <span class="tt">Test</span>.</li>
 <li>Atidaryti <span class="tt">Test Explorer</span>.</li>
 <li>Paspausti <span class="tt">Run All Tests</span>.</li>
 </ol>
-<p>Jeigu visi testai žali, reiškia testuojami metodai veikia gerai.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+Testavimo failai</h1>
+<p>Installerio testavimui pateikiami failai:</p>
+<div class="fragment"><div class="line">test_files/studentai10000.txt</div>
+<div class="line">test_files/studentai100000.txt</div>
+</div><!-- fragment --><hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
 Doxygen dokumentacija</h1>
-<p>v2.0 versijoje projektui buvo sugeneruota dokumentacija naudojant <b>Doxygen</b>.</p>
-<p>Dokumentacijoje aprašyta <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasė, jos konstruktoriai, Rule of Five metodai, įvesties ir išvesties operatoriai bei kiti pagrindiniai metodai.</p>
-<p>Dokumentacija pateikta šiais formatais:</p>
+<p>Projektas dokumentuotas naudojant <b>Doxygen</b>.</p>
+<p>Dokumentacijoje aprasytos klases:</p>
+<ul>
+<li><span class="tt"><a class="el" href="class_zmogus.html" title="Abstrakti bazine klase, skirta saugoti bendrus duomenis apie zmogu.">Zmogus</a></span>;</li>
+<li><span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span>;</li>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;T&gt;</span>.</li>
+</ul>
+<p>Sugeneruota dokumentacija pateikiama:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Dokumentacijos tipas  </th><th class="markdownTableHeadNone">Vieta projekte  </th></tr>
@@ -242,91 +417,116 @@ Doxygen dokumentacija</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">PDF  </td><td class="markdownTableBodyNone"><span class="tt">docs/refman.pdf</span>  </td></tr>
 </table>
-<p>HTML dokumentaciją galima atidaryti naršyklėje:</p>
-<div class="fragment"><div class="line">docs/html/index.html</div>
-</div><!-- fragment --><p>PDF dokumentacija pateikta faile:</p>
-<div class="fragment"><div class="line">docs/refman.pdf</div>
-</div><!-- fragment --><p>PDF failas buvo sukompiliuotas naudojant Overleaf.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
-Relizų aprašas</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
-v2.0</h2>
-<p>Šioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+Diegimo failas</h1>
+<p>Programos diegimui parengtas Inno Setup scenarijus:</p>
+<div class="fragment"><div class="line">installer/setup.iss</div>
+</div><!-- fragment --><p>Diegimo failas idiegia programa i:</p>
+<div class="fragment"><div class="line">C:/Program Files/VU/Ignas-Simaitis</div>
+</div><!-- fragment --><p>Diegimo failo kurimas:</p>
+<ol type="1">
+<li>Sukompiliuoti programa <span class="tt">Release</span> rezimu.</li>
+<li>Atidaryti <span class="tt">installer/setup.iss</span> su Inno Setup.</li>
+<li>Paspausti <span class="tt">Compile</span>.</li>
+<li>Sugeneruojamas <span class="tt">Setup.exe</span>.</li>
+</ol>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+Versiju aprasas</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+v3.0</h2>
+<p>Sukurta nuosava <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;T&gt;</span> klase ir pritaikyta studentu programai.</p>
 <p>Pagrindiniai pakeitimai:</p>
 <ul>
-<li>pridėti unit testai <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasei;</li>
+<li>sukurta sablonine <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;T&gt;</span> klase;</li>
+<li>realizuota dauguma pagrindiniu <span class="tt">std::vector</span> funkciju;</li>
+<li><span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> namu darbu pazymiams naudoja <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;int&gt;</span>;</li>
+<li>sukurta programos versija su <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a>&lt;<a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a>&gt;</span>;</li>
+<li>atlikti <span class="tt">std::vector</span> ir <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> spartos tyrimai;</li>
+<li>suskaiciuoti atminties perskirstymai;</li>
+<li>prideti <span class="tt"><a class="el" href="class_vector.html" title="Paprastas dinaminio masyvo konteineris, panasus i std::vector.">Vector</a></span> unit testai;</li>
+<li><span class="tt"><a class="el" href="_vector_8h.html">Vector.h</a></span> itrauktas i Doxygen dokumentacija;</li>
+<li>parengtas Inno Setup diegimo scenarijus.</li>
+</ul>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+v2.0</h2>
+<p>Sioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.</p>
+<p>Pagrindiniai pakeitimai:</p>
+<ul>
+<li>prideti unit testai <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasei;</li>
 <li>patikrinti Rule of Five metodai;</li>
-<li>patikrinti įvesties ir išvesties operatoriai <span class="tt">&gt;&gt;</span> ir <span class="tt">&lt;&lt;</span>;</li>
+<li>patikrinti ivesties ir isvesties operatoriai <span class="tt">&gt;&gt;</span> ir <span class="tt">&lt;&lt;</span>;</li>
 <li>sugeneruota Doxygen HTML dokumentacija;</li>
 <li>sugeneruota Doxygen LaTeX dokumentacija;</li>
-<li>paruoštas dokumentacijos PDF failas;</li>
+<li>parengtas dokumentacijos PDF failas;</li>
 <li>atnaujintas <span class="tt"><a class="el" href="_r_e_a_d_m_e_8md.html">README.md</a></span> failas;</li>
 <li>patikrintas projekto kompiliavimas su CMake.</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
 v1.5</h2>
-<p>Šioje versijoje programa papildyta paveldėjimu.</p>
-<p>Buvo sukurta abstrakti bazinė klasė <span class="tt"><a class="el" href="class_zmogus.html" title="Abstrakti bazine klase, skirta saugoti bendrus duomenis apie zmogu.">Zmogus</a></span>, iš kurios paveldi <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasė.</p>
-<p>Programa išlaiko v1.2 versijos logiką: veikia Rule of Five, įvesties ir išvesties operatoriai bei ankstesni testai.</p>
+<p>Sioje versijoje programa papildyta paveldejimu.</p>
+<p>Buvo sukurta abstrakti bazine klase <span class="tt"><a class="el" href="class_zmogus.html" title="Abstrakti bazine klase, skirta saugoti bendrus duomenis apie zmogu.">Zmogus</a></span>, is kurios paveldi <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klase.</p>
+<p>Programa islaiko v1.2 versijos logika: veikia Rule of Five, ivesties ir isvesties operatoriai bei ankstesni testai.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
 v1.2</h2>
-<p>Šioje versijoje <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klasė papildyta Rule of Five realizacija.</p>
-<p>Pridėta:</p>
+<p>Sioje versijoje <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> klase papildyta Rule of Five realizacija.</p>
+<p>Prideta:</p>
 <ul>
 <li>destruktorius;</li>
 <li>kopijavimo konstruktorius;</li>
 <li>kopijavimo priskyrimo operatorius;</li>
-<li>perkėlimo konstruktorius;</li>
-<li>perkėlimo priskyrimo operatorius.</li>
+<li>perkelimo konstruktorius;</li>
+<li>perkelimo priskyrimo operatorius.</li>
 </ul>
-<p>Taip pat realizuoti įvesties ir išvesties operatoriai <span class="tt">&gt;&gt;</span> ir <span class="tt">&lt;&lt;</span>.</p>
+<p>Taip pat realizuoti ivesties ir isvesties operatoriai <span class="tt">&gt;&gt;</span> ir <span class="tt">&lt;&lt;</span>.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
 v1.1</h2>
-<p>Šioje versijoje <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> struktūra pakeista į klasę.</p>
+<p>Sioje versijoje <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> struktura pakeista i klase.</p>
 <p>Pagrindiniai pakeitimai:</p>
 <ul>
-<li><span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> struktūra pakeista į klasę;</li>
-<li>studentų duomenys perkelti į privačius laukus;</li>
-<li>pridėti getteriai ir setteriai;</li>
+<li><span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> struktura pakeista i klase;</li>
+<li>studentu duomenys perkelti i privacius laukus;</li>
+<li>prideti getteriai ir setteriai;</li>
 <li>realizuoti konstruktoriai ir destruktorius;</li>
 <li>atnaujintos funkcijos, kurios dirba su <span class="tt"><a class="el" href="class_studentas.html" title="Klase skirta saugoti studento duomenis.">Studentas</a></span> objektais;</li>
-<li>atliktas <span class="tt">struct</span> ir <span class="tt">class</span> versijų palyginimas;</li>
-<li>atlikta analizė su <span class="tt">O1</span>, <span class="tt">O2</span> ir <span class="tt">O3</span> optimizavimo flag'ais.</li>
+<li>atliktas <span class="tt">struct</span> ir <span class="tt">class</span> versiju palyginimas;</li>
+<li>atlikta analize su <span class="tt">O1</span>, <span class="tt">O2</span> ir <span class="tt">O3</span> optimizavimo flag'ais.</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 v1.0</h2>
-<p>Šioje versijoje pridėtas darbas su trimis konteineriais:</p>
+<p>Sioje versijoje pridetas darbas su trimis konteineriais:</p>
 <ul>
 <li><span class="tt">std::vector</span>;</li>
 <li><span class="tt">std::list</span>;</li>
 <li><span class="tt">std::deque</span>.</li>
 </ul>
-<p>Taip pat buvo pridėtos trys studentų skirstymo strategijos, atliktas konteinerių tyrimas ir paruoštas <span class="tt">CMakeLists.txt</span>.</p>
+<p>Taip pat buvo pridetas studentu skirstymas i dvi grupes, atliktas konteineriu tyrimas ir paruostas <span class="tt">CMakeLists.txt</span>.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
 v0.4</h2>
-<p>Šioje versijoje pridėtas studentų failų generavimas, studentų skirstymas į dvi grupes ir pradinis veikimo spartos tyrimas su <span class="tt">std::vector</span>.</p>
+<p>Sioje versijoje pridetas studentu failu generavimas, studentu skirstymas i dvi grupes ir pradinis veikimo spartos tyrimas su <span class="tt">std::vector</span>.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
 v0.3</h2>
-<p>Šioje versijoje patobulinta įvesties validacija, pridėtas klaidų tikrinimas ir kodas išskaidytas į <span class="tt">.h</span> ir <span class="tt">.cpp</span> failus.</p>
+<p>Sioje versijoje patobulinta ivesties validacija, pridetas klaidu tikrinimas ir kodas isskaidytas i <span class="tt">.h</span> ir <span class="tt">.cpp</span> failus.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md54"></a>
 v0.2</h2>
-<p>Šioje versijoje pridėtas duomenų nuskaitymas iš failo ir studentų rūšiavimas.</p>
+<p>Sioje versijoje pridetas duomenu nuskaitymas is failo ir studentu rusiavimas.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md56"></a>
 v0.1</h2>
-<p>Šioje versijoje realizuotas rankinis studentų duomenų įvedimas ir galutinio balo skaičiavimas pagal vidurkį arba medianą.</p>
+<p>Sioje versijoje realizuotas rankinis studentu duomenu ivedimas ir galutinio balo skaiciavimas pagal vidurki arba mediana.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
-v.pradinė</h2>
-<p>Sukurta pradinė studento duomenų struktūra ir realizuotas pradinis vidurkio bei medianos skaičiavimas. </p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md58"></a>
+v.pradine</h2>
+<p>Sukurta pradine studento duomenu struktura ir realizuotas pradinis vidurkio bei medianos skaiciavimas. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

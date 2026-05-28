@@ -1,0 +1,643 @@
+\doxysection{Vector.\+h}
+\hypertarget{_vector_8h_source}{}\label{_vector_8h_source}\index{Objektinis/Vector.h@{Objektinis/Vector.h}}
+\doxymbox{\hyperlink{_vector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ VECTOR\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ VECTOR\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ T*\ duomenys\_;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::size\_t\ dydis\_;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::size\_t\ talpa\_;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}()}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ :\ duomenys\_(nullptr),\ dydis\_(0),\ talpa\_(0)}
+\DoxyCodeLine{00045\ \ \ \ \ \{\}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a63bb30ab8b847f3c5c25d00ce4e858f8}{Vector}}(std::size\_t\ kiekis)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ :\ duomenys\_(nullptr),\ dydis\_(kiekis),\ talpa\_(kiekis)}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (talpa\_\ >\ 0)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{new}\ T[talpa\_];}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a620a8b31264c7b2b7fb899260bbb536c}{Vector}}(std::size\_t\ kiekis,\ \textcolor{keyword}{const}\ T\&\ reiksme)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ :\ duomenys\_(nullptr),\ dydis\_(kiekis),\ talpa\_(kiekis)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (talpa\_\ >\ 0)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{new}\ T[talpa\_];}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ dydis\_;\ ++i)}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ reiksme;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \doxymbox{\hyperlink{class_vector_ac31fbf5e42bcde776da928d544f1a0da}{Vector}}(std::initializer\_list<T>\ sarasas)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ :\ duomenys\_(nullptr),\ dydis\_(sarasas.\doxymbox{\hyperlink{class_vector_a4915b749279bc88b82d22c8dd3b834cc}{size}}()),\ talpa\_(sarasas.\doxymbox{\hyperlink{class_vector_a4915b749279bc88b82d22c8dd3b834cc}{size}}())}
+\DoxyCodeLine{00086\ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (talpa\_\ >\ 0)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{new}\ T[talpa\_];}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ i\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ T\&\ item\ :\ sarasas)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ item;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \doxymbox{\hyperlink{class_vector_afd524fac19e6d3d69db5198ffe2952b0}{\string~Vector}}()}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::size\_t\ \doxymbox{\hyperlink{class_vector_a4915b749279bc88b82d22c8dd3b834cc}{size}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00112\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dydis\_;}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00121\ \ \ \ \ std::size\_t\ \doxymbox{\hyperlink{class_vector_a370394494c6d183478f86413007fd412}{max\_size}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00122\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::numeric\_limits<std::size\_t>::max()\ /\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00129\ \ \ \ \ std::size\_t\ \doxymbox{\hyperlink{class_vector_ab7e262b8d43dbdf11f3eefcba6c0ba36}{capacity}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00130\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ talpa\_;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00138\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dydis\_\ ==\ 0;}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_a641a765cb13d9e9ff8f9bc4e5a375c9b}{data}}()}
+\DoxyCodeLine{00145\ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_;}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \doxymbox{\hyperlink{class_vector_adf2019fbfec16aeea3150a48e0c773ee}{data}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_a48330adb902d17d3fbed6e83fd58976f}{begin}}()}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_;}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \doxymbox{\hyperlink{class_vector_a43e6d258af863820f74ac2134381b086}{begin}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00166\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_;}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_aa8958aac9b8931d471cdd99428c2d535}{end}}()}
+\DoxyCodeLine{00173\ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ dydis\_;}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \doxymbox{\hyperlink{class_vector_a69a6c13a449947d56543f022020de1f1}{end}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00180\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ dydis\_;}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \doxymbox{\hyperlink{class_vector_a0aec5a86319470f0178ee6740819fd49}{cbegin}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00187\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_;}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \doxymbox{\hyperlink{class_vector_af3ed5edac9bb41b6cbf9e970828a05f6}{cend}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00194\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ dydis\_;}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00202\ \ \ \ \ T\&\ \doxymbox{\hyperlink{class_vector_a08f3452a0fb3e8c67017ef9fb8e3405d}{operator[]}}(std::size\_t\ index)}
+\DoxyCodeLine{00203\ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[index];}
+\DoxyCodeLine{00205\ \ \ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \doxymbox{\hyperlink{class_vector_a151ca5e89eeffc181869ebf5d35cca83}{operator[]}}(std::size\_t\ index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00211\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[index];}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00218\ \ \ \ \ T\&\ \doxymbox{\hyperlink{class_vector_a6138895f39699ab24cb66314c53cac0b}{at}}(std::size\_t\ index)}
+\DoxyCodeLine{00219\ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ dydis\_)}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[index];}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \doxymbox{\hyperlink{class_vector_a1d1e40672db6fa62e612e58a702969d6}{at}}(std::size\_t\ index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00231\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ dydis\_)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[index];}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00242\ \ \ \ \ T\&\ \doxymbox{\hyperlink{class_vector_a0061cc9127a9cbf541439121998a1fdd}{front}}()}
+\DoxyCodeLine{00243\ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}}())}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Vector\ is\ empty"{}});}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[0];}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \doxymbox{\hyperlink{class_vector_ae891494a5654af2db2a00d162c50985a}{front}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00255\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}}())}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Vector\ is\ empty"{}});}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[0];}
+\DoxyCodeLine{00261\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ T\&\ \doxymbox{\hyperlink{class_vector_a6decf0bdeb6849bfcc151b2c514f639f}{back}}()}
+\DoxyCodeLine{00266\ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}}())}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Vector\ is\ empty"{}});}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[dydis\_\ -\/\ 1];}
+\DoxyCodeLine{00272\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \doxymbox{\hyperlink{class_vector_ae2094e298cbe0394557b9213942a31d1}{back}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00277\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}}())}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Vector\ is\ empty"{}});}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[dydis\_\ -\/\ 1];}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(std::size\_t\ naujaTalpa)}
+\DoxyCodeLine{00291\ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (naujaTalpa\ >\ \doxymbox{\hyperlink{class_vector_a370394494c6d183478f86413007fd412}{max\_size}}())}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::length\_error(\textcolor{stringliteral}{"{}Vector\ talpa\ per\ didele"{}});}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (naujaTalpa\ <=\ talpa\_)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ T*\ naujiDuomenys\ =\ \textcolor{keyword}{new}\ T[naujaTalpa];}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ dydis\_;\ ++i)}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ naujiDuomenys[i]\ =\ duomenys\_[i];}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ duomenys\_\ =\ naujiDuomenys;}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ talpa\_\ =\ naujaTalpa;}
+\DoxyCodeLine{00310\ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_a9b70f3e73b39fc813ee463799e71c1f8}{resize}}(std::size\_t\ naujasDydis)}
+\DoxyCodeLine{00320\ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (naujasDydis\ >\ talpa\_)}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujasDydis);}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ dydis\_;\ i\ <\ naujasDydis;\ ++i)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ T();}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ dydis\_\ =\ naujasDydis;}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ \ \ \ \ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_ad878c594f405c717a6b0554cb59f2c2d}{resize}}(std::size\_t\ naujasDydis,\ \textcolor{keyword}{const}\ T\&\ reiksme)}
+\DoxyCodeLine{00340\ \ \ \ \ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (naujasDydis\ >\ talpa\_)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujasDydis);}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ dydis\_;\ i\ <\ naujasDydis;\ ++i)}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ reiksme;}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ dydis\_\ =\ naujasDydis;}
+\DoxyCodeLine{00351\ \ \ \ \ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_ad6454ce193263b8000d4c18cb0c3a0c8}{shrink\_to\_fit}}()}
+\DoxyCodeLine{00357\ \ \ \ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (talpa\_\ ==\ dydis\_)}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ ==\ 0)}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ talpa\_\ =\ 0;}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ T*\ naujiDuomenys\ =\ \textcolor{keyword}{new}\ T[dydis\_];}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ dydis\_;\ ++i)}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ naujiDuomenys[i]\ =\ duomenys\_[i];}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ duomenys\_\ =\ naujiDuomenys;}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ talpa\_\ =\ dydis\_;}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_ae455e0529fc174d97812a21a9ab39b2e}{push\_back}}(\textcolor{keyword}{const}\ T\&\ reiksme)}
+\DoxyCodeLine{00386\ \ \ \ \ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ >=\ talpa\_)}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(talpa\_\ ==\ 0\ ?\ 1\ :\ talpa\_\ *\ 2);}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ duomenys\_[dydis\_]\ =\ reiksme;}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ ++dydis\_;}
+\DoxyCodeLine{00393\ \ \ \ \ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_ace17eace7edf4dfc0c1b798c1814f961}{push\_back}}(T\&\&\ reiksme)}
+\DoxyCodeLine{00401\ \ \ \ \ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ ==\ talpa\_)}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ naujaTalpa\ =\ (talpa\_\ ==\ 0)\ ?\ 1\ :\ talpa\_\ *\ 2;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujaTalpa);}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ duomenys\_[dydis\_]\ =\ std::move(reiksme);}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ ++dydis\_;}
+\DoxyCodeLine{00410\ \ \ \ \ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00421\ \ \ \ \ T\&\ \doxymbox{\hyperlink{class_vector_a6904d0d8d6f33208a69c696817c3aa85}{emplace\_back}}(Args\&\&...\ args)}
+\DoxyCodeLine{00422\ \ \ \ \ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ ==\ talpa\_)}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ naujaTalpa\ =\ (talpa\_\ ==\ 0)\ ?\ 1\ :\ talpa\_\ *\ 2;}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujaTalpa);}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ duomenys\_[dydis\_]\ =\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ ++dydis\_;}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_[dydis\_\ -\/\ 1];}
+\DoxyCodeLine{00433\ \ \ \ \ \}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00444\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_a519001c30209b9bd611fb85e84b5e237}{emplace}}(T*\ pozicija,\ Args\&\&...\ args)}
+\DoxyCodeLine{00445\ \ \ \ \ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ std::size\_t\ indeksas\ =\ pozicija\ -\/\ duomenys\_;}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indeksas\ >\ dydis\_)}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Vector\ emplace\ pozicija\ uz\ ribu"{}});}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ ==\ talpa\_\ )}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ naujaTalpa\ =\ (talpa\_\ ==\ 0)\ ?\ 1\ :\ talpa\_\ *\ 2;}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujaTalpa);}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ dydis\_;\ i\ >\ indeksas;\ -\/-\/i)}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ std::move(duomenys\_[i\ -\/\ 1]);}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ duomenys\_[indeksas]\ =\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ ++dydis\_;}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ \}}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_adcba035109febbe55cba2a25f8483ba6}{pop\_back}}()}
+\DoxyCodeLine{00473\ \ \ \ \ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}}())}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Vector\ is\ empty"{}});}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ -\/-\/dydis\_;}
+\DoxyCodeLine{00479\ \ \ \ \ \}}
+\DoxyCodeLine{00487\ \ \ \ \ }
+\DoxyCodeLine{00488\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_a361731a6926299359d3f42ae4ae93a3d}{insert}}(T*\ pozicija,\ \textcolor{keyword}{const}\ T\&\ reiksme)}
+\DoxyCodeLine{00489\ \ \ \ \ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ std::size\_t\ indeksas\ =\ pozicija\ -\/\ duomenys\_;}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indeksas\ >\ dydis\_)}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Insert\ position\ out\ of\ range"{}});}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ >=\ talpa\_)}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(talpa\_\ ==\ 0\ ?\ 1\ :\ talpa\_\ *\ 2);}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ dydis\_;\ i\ >\ indeksas;\ -\/-\/i)}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ duomenys\_[i\ -\/\ 1];}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ duomenys\_[indeksas]\ =\ reiksme;}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ ++dydis\_;}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00510\ \ \ \ \ \}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00520\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_ad2d29c0ffe3727d4c7603d942cda3011}{insert}}(T*\ pozicija,\ std::size\_t\ kiekis,\ \textcolor{keyword}{const}\ T\&\ reiksme)}
+\DoxyCodeLine{00521\ \ \ \ \ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ std::size\_t\ indeksas\ =\ pozicija\ -\/\ duomenys\_;}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indeksas\ >\ dydis\_)}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Insert\ position\ out\ of\ range"{}});}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kiekis\ ==\ 0)}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ +\ kiekis\ >\ talpa\_)}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ naujaTalpa\ =\ (talpa\_\ ==\ 0)\ ?\ 1\ :\ talpa\_;}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (naujaTalpa\ <\ dydis\_\ +\ kiekis)}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ naujaTalpa\ *=\ 2;}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujaTalpa);}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ dydis\_;\ i\ >\ indeksas;\ -\/-\/i)}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i\ +\ kiekis\ -\/\ 1]\ =\ duomenys\_[i\ -\/\ 1];}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ kiekis;\ i++)}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[indeksas\ +\ i]\ =\ reiksme;}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ dydis\_\ +=\ kiekis;}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00559\ \ \ \ \ \}}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00568\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_a5d8fb63c6a7e2f2b4479b01508f24093}{insert}}(T*\ pozicija,\ std::initializer\_list<T>\ sarasas)}
+\DoxyCodeLine{00569\ \ \ \ \ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ std::size\_t\ indeksas\ =\ pozicija\ -\/\ duomenys\_;}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ std::size\_t\ kiekis\ =\ sarasas.size();}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indeksas\ >\ dydis\_)}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Insert\ position\ out\ of\ range"{}});}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kiekis\ ==\ 0)}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ +\ kiekis\ >\ talpa\_)}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ naujaTalpa\ =\ (talpa\_\ ==\ 0)\ ?\ 1\ :\ talpa\_;}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (naujaTalpa\ <\ dydis\_\ +\ kiekis)}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ naujaTalpa\ *=\ 2;}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}}(naujaTalpa);}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ dydis\_\ ;\ i\ >\ indeksas;\ -\/-\/i\ )}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i\ +\ kiekis\ -\/\ 1]\ =\ duomenys\_[i\ -\/\ 1];}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ std::size\_t\ i\ =\ 0;}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ T\&\ reiksme\ :\ sarasas)}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[indeksas\ +\ i]\ =\ reiksme;}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ dydis\_\ +=\ kiekis;}
+\DoxyCodeLine{00606\ }
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00608\ \ \ \ \ \}}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00615\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_a983c5f1192137787a4e0b8807461d436}{erase}}(T*\ pozicija)}
+\DoxyCodeLine{00616\ \ \ \ \ \{}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ std::size\_t\ indeksas\ =\ pozicija\ -\/\ duomenys\_;}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indeksas\ >=\ dydis\_)}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Erase\ position\ out\ of\ range"{}});}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ indeksas;\ i\ <\ dydis\_\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ duomenys\_[i\ +\ 1];}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ -\/-\/dydis\_;}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ indeksas;}
+\DoxyCodeLine{00631\ \ \ \ \ \}}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00639\ \ \ \ \ T*\ \doxymbox{\hyperlink{class_vector_ac41a9d537ad27e3eea5bf8ae1341c890}{erase}}(T*\ pirma,\ T*\ paskutine)}
+\DoxyCodeLine{00640\ \ \ \ \ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ std::size\_t\ pradzia\ =\ pirma\ -\/\ duomenys\_;}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ std::size\_t\ pabaiga\ =\ paskutine\ -\/\ duomenys\_;}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pradzia\ >\ pabaiga\ ||\ pabaiga\ >\ dydis\_)}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Erase\ range\ out\ of\ range"{}});}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ std::size\_t\ kiekSalinti\ =\ pabaiga\ -\/\ pradzia;}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ pradzia;\ i\ +\ kiekSalinti\ <\ dydis\_;\ ++i)}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ duomenys\_[i\ +\ kiekSalinti];}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ dydis\_\ -\/=\ kiekSalinti;}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ duomenys\_\ +\ pradzia;}
+\DoxyCodeLine{00657\ \ \ \ \ \}}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_a41d289d3ce9bddcc4908768b928fe010}{swap}}(\doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ kitas)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00664\ \ \ \ \ \{}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ T*\ laikiniDuomenys\ =\ duomenys\_;}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ duomenys\_\ =\ kitas.duomenys\_;}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ kitas.duomenys\_\ =\ laikiniDuomenys;}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ std::size\_t\ laikinasDydis\ =\ dydis\_;}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ dydis\_\ =\ kitas.dydis\_;}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ kitas.dydis\_\ =\ laikinasDydis;}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ std::size\_t\ laikinaTalpa\ =\ talpa\_;}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ talpa\_\ =\ kitas.talpa\_;}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ kitas.talpa\_\ =\ laikinaTalpa;}
+\DoxyCodeLine{00676\ \ \ \ \ \}}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_vector_adbb7740392a2dfeeddb2e3ebd3395b7d}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ kitas)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00684\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\_\ !=\ kitas.dydis\_)}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ dydis\_;\ ++i)}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (duomenys\_[i]\ !=\ kitas.duomenys\_[i])}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00698\ \ \ \ \ \}}
+\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_vector_acc42da0f1b12b6c56ac73c595689f66c}{operator!=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ kitas)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00705\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ kitas);}
+\DoxyCodeLine{00707\ \ \ \ \ \}}
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00715\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_a92e8b81199bea2552fa4ce3c792c9195}{assign}}(std::size\_t\ kiekis,\ \textcolor{keyword}{const}\ T\&\ reiksme)}
+\DoxyCodeLine{00716\ \ \ \ \ \{}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kiekis\ >\ talpa\_)}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{new}\ T[kiekis];}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ talpa\_\ =\ kiekis;}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ kiekis;\ ++i)}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ reiksme;}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ dydis\_\ =\ kiekis;}
+\DoxyCodeLine{00728\ \ \ \ \ \}}
+\DoxyCodeLine{00729\ }
+\DoxyCodeLine{00735\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_a8035b4d33c1ab35486d4a923a8c88da6}{assign}}(std::initializer\_list<T>\ sarasas)}
+\DoxyCodeLine{00736\ \ \ \ \ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sarasas.size()\ >\ talpa\_)}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{new}\ T[sarasas.size()];}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ talpa\_\ =\ sarasas.size();}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00743\ }
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ std::size\_t\ i\ =\ 0;}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ T\&\ reiksme\ :\ sarasas)}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ reiksme;}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ dydis\_\ =\ sarasas.size();}
+\DoxyCodeLine{00751\ }
+\DoxyCodeLine{00752\ \ \ \ \ \}}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00758\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_vector_a32ad98b135472b0ebc5d6cb3ae5d0085}{clear}}()}
+\DoxyCodeLine{00759\ \ \ \ \ \{}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ dydis\_\ =\ 0;}
+\DoxyCodeLine{00761\ \ \ \ \ \}}
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00768\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a8c703865780f633231837f1f1c14f584}{Vector}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ kitas)}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ :\ duomenys\_(nullptr),\ dydis\_(kitas.dydis\_),\ talpa\_(kitas.talpa\_)}
+\DoxyCodeLine{00770\ \ \ \ \ \{}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kitas.talpa\_\ >\ 0)}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ new\ T[talpa\_];}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \ \ \ \ for\ (std::size\_t\ i\ =\ 0;\ i\ <\ kitas.dydis\_;\ ++i)}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ kitas.duomenys\_[i];}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00780\ \ \ \ \ \}}
+\DoxyCodeLine{00781\ }
+\DoxyCodeLine{00788\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ \doxymbox{\hyperlink{class_vector_ac4f801bbb3e61b10345f9a3721953c7f}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ kitas)}
+\DoxyCodeLine{00789\ \ \ \ \ \{}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&kitas)}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ naujiDuomenys\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00793\ }
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (kitas.talpa\_\ >\ 0)}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ naujiDuomenys\ =\ \textcolor{keyword}{new}\ T[kitas.talpa\_];}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ kitas.dydis\_;\ ++i)}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ naujiDuomenys[i]\ =\ kitas.duomenys\_[i];}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00803\ }
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ naujiDuomenys;}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ dydis\_\ =\ kitas.dydis\_;}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ talpa\_\ =\ kitas.talpa\_;}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00811\ \ \ \ \ \}}
+\DoxyCodeLine{00817\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a77dbfa103aa7f9f57a5f8b2c87dea1cd}{Vector}}(\doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\&\ kitas)\ noexcept}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ :\ duomenys\_(kitas.duomenys\_),\ dydis\_(kitas.dydis\_),\ talpa\_(kitas.talpa\_)}
+\DoxyCodeLine{00819\ \ \ \ \ \{}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ kitas.duomenys\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ kitas.dydis\_\ =\ 0;}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ kitas.talpa\_\ =\ 0;}
+\DoxyCodeLine{00823\ \ \ \ \ \}}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00831\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ \doxymbox{\hyperlink{class_vector_aec8713c44289a3fe741c4eae0cea2f61}{operator=}}(\doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\&\ kitas)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00832\ \ \ \ \ \{}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&kitas)}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ kitas.duomenys\_;}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \ \ \ \ dydis\_\ =\ kitas.dydis\_;}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \ \ \ \ talpa\_\ =\ kitas.talpa\_;}
+\DoxyCodeLine{00840\ }
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \ \ \ \ kitas.duomenys\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \ \ \ \ kitas.dydis\_\ =\ 0;}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ kitas.talpa\_\ =\ 0;}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00846\ \ \ \ \ \}}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00854\ \ \ \ \ \doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}}\&\ \doxymbox{\hyperlink{class_vector_ac0967b26cf159c0f61177005ce105f26}{operator=}}(std::initializer\_list<T>\ sarasas)}
+\DoxyCodeLine{00855\ \ \ \ \ \{}
+\DoxyCodeLine{00856\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sarasas.size()\ >\ talpa\_)}
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00858\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ duomenys\_;}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_\ =\ \textcolor{keyword}{new}\ T[sarasas.size()];}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ \ \ \ \ talpa\_\ =\ sarasas.size();}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ std::size\_t\ i\ =\ 0;}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ T\&\ reiksme\ :\ sarasas)}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ \ \ \ \ duomenys\_[i]\ =\ reiksme;}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00869\ }
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ dydis\_\ =\ sarasas.\doxymbox{\hyperlink{class_vector_a4915b749279bc88b82d22c8dd3b834cc}{size}}();}
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00872\ }
+\DoxyCodeLine{00873\ \ \ \ \ \}}
+\DoxyCodeLine{00874\ \};}
+\DoxyCodeLine{00875\ }
+\DoxyCodeLine{00876\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

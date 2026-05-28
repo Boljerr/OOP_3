@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['apie_20programą_0',['Apie programą',['../index.html#autotoc_md1',1,'']]],
-  ['aprašas_1',['Relizų aprašas',['../index.html#autotoc_md20',1,'']]],
-  ['atsisiuntimas_2',['Programos atsisiuntimas',['../index.html#autotoc_md7',1,'']]]
+  ['6_20iteratoriai_20ir_20std_3a_3asort_0',['6. Iteratoriai ir &lt;span class=&quot;tt&quot;&gt;std::sort()&lt;/span&gt;',['../index.html#autotoc_md21',1,'']]]
 ];

@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['_7estudentas_0',['~Studentas',['../class_studentas.html#a63e449e0f51a0b14340d02ee71b4be23',1,'Studentas']]],
-  ['_7ezmogus_1',['~Zmogus',['../class_zmogus.html#ac5615bf607a8f2f1b303ffa04328d24d',1,'Zmogus']]]
+  ['getegzaminas_0',['getEgzaminas',['../class_studentas.html#abe38c118e8e899b4de681f1d12adceab',1,'Studentas']]],
+  ['getpavarde_1',['getPavarde',['../class_zmogus.html#ac50d1e325af387bb385eb88bb7ff42b7',1,'Zmogus']]],
+  ['getpazymiai_2',['getPazymiai',['../class_studentas.html#ae2d08cdfbc6d0f435110c09eaa2f9342',1,'Studentas']]],
+  ['getrezultatas_3',['getRezultatas',['../class_studentas.html#a539f117ad6e1ab339be103475c05a277',1,'Studentas']]],
+  ['getsunaikintuobjektukiekis_4',['getSunaikintuObjektuKiekis',['../class_studentas.html#a8a1b411d320d067b79f416a9dd69ea16',1,'Studentas']]],
+  ['getvardas_5',['getVardas',['../class_zmogus.html#a4a580af3507a2d27efe978d5be0075ab',1,'Zmogus']]]
 ];

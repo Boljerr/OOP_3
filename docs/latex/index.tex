@@ -1,103 +1,70 @@
-\chapter{Studentų pažymių skaičiavimo programa }
-\hypertarget{index}{}\label{index}\index{Studentų pažymių skaičiavimo programa@{Studentų pažymių skaičiavimo programa}}
+\chapter{Studentu pazymiu skaiciavimo programa }
+\hypertarget{index}{}\label{index}\index{Studentu pazymiu skaiciavimo programa@{Studentu pazymiu skaiciavimo programa}}
 \label{index_md__r_e_a_d_m_e}%
 \Hypertarget{index_md__r_e_a_d_m_e}%
-\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Apie programą}{Apie programą}}\label{index_autotoc_md1}
-Ši programa skirta studentų duomenims apdoroti.
-
-Programa gali nuskaityti studentų vardus, pavardes, namų darbų pažymius ir egzamino rezultatą. Pagal šiuos duomenis yra apskaičiuojamas galutinis balas.
-
-Galutinis balas gali būti skaičiuojamas pagal:\+
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Reikalavimai}{Reikalavimai}}\label{index_autotoc_md1}
+Norint paleisti programa, reikia tureti:\+
 
 
 \begin{DoxyItemize}
-\item namų darbų vidurkį;
-\item namų darbų medianą.
-\end{DoxyItemize}
-
-\DoxyHorRuler{0}
-\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Programos funkcijos}{Programos funkcijos}}\label{index_autotoc_md3}
-Programa leidžia:\+
-
-
-\begin{DoxyItemize}
-\item rankiniu būdu įvesti studentų duomenis;
-\item generuoti pažymius;
-\item generuoti studentus ir jų pažymius;
-\item nuskaityti studentų duomenis iš failo;
-\item generuoti studentų failus;
-\item skaičiuoti galutinį balą pagal vidurkį arba medianą;
-\item rūšiuoti studentus pagal vardą, pavardę arba rezultatą;
-\item skirstyti studentus į dvi grupes;
-\item atlikti veikimo spartos tyrimus;
-\item testuoti {\ttfamily \doxylink{class_studentas}{Studentas}} klasę;
-\item peržiūrėti sugeneruotą Doxygen dokumentaciją.
-\end{DoxyItemize}
-
-\DoxyHorRuler{0}
-\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Reikalavimai}{Reikalavimai}}\label{index_autotoc_md5}
-Norint paleisti programą, reikia turėti:\+
-
-
-\begin{DoxyItemize}
-\item C++ kompiliatorių su C++17 palaikymu;
+\item C++ kompiliatoriu su C++17 palaikymu;
 \item CMake;
 \item Git;
-\item Visual Studio, jeigu norima paleisti unit testus per {\ttfamily Test Explorer}.
+\item Visual Studio, jeigu norima paleisti unit testus per {\ttfamily Test Explorer};
+\item Doxygen, jeigu norima sugeneruoti dokumentacija;
+\item Inno Setup, jeigu norima sugeneruoti diegimo faila.
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Programos atsisiuntimas}{Programos atsisiuntimas}}\label{index_autotoc_md7}
-Projektą galima atsisiųsti iš Git\+Hub:\+
+\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Programos atsisiuntimas}{Programos atsisiuntimas}}\label{index_autotoc_md3}
+Projektas atsisiunciamas is Git\+Hub:\+
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{git\ clone\ https://github.com/Boljerr/OOP\_2.git}
-\DoxyCodeLine{cd\ OOP\_2}
+\DoxyCodeLine{git\ clone\ https://github.com/Boljerr/OOP\_3.git}
+\DoxyCodeLine{cd\ OOP\_3}
 
 \end{DoxyCode}
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Programos kompiliavimas su CMake}{Programos kompiliavimas su CMake}}\label{index_autotoc_md9}
+\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Programos kompiliavimas su CMake}{Programos kompiliavimas su CMake}}\label{index_autotoc_md5}
 Projektas kompiliuojamas naudojant CMake.
-
-Pirmiausia reikia sukurti {\ttfamily build} aplanką:\+
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{mkdir\ build}
 \DoxyCodeLine{cd\ build}
-
-\end{DoxyCode}
-
-
-Tada paleisti CMake:\+
-
-
-\begin{DoxyCode}{0}
 \DoxyCodeLine{cmake\ ..}
-
-\end{DoxyCode}
-
-
-Kompiliavimas {\ttfamily Release} režimu:\+
-
-
-\begin{DoxyCode}{0}
 \DoxyCodeLine{cmake\ -\/-\/build\ .\ -\/-\/config\ Release}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Programos paleidimas}{Programos paleidimas}}\label{index_autotoc_md10}
+
+
+Paleidziamas failas paprastai sukuriamas:\+
+
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{.\(\backslash\)Release\(\backslash\)Studentai.exe}
+\DoxyCodeLine{build/Release/Studentai.exe}
 
 \end{DoxyCode}
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md12}{}\doxysection{\texorpdfstring{Programos meniu}{Programos meniu}}\label{index_autotoc_md12}
+\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Programos paleidimas}{Programos paleidimas}}\label{index_autotoc_md7}
+Is {\ttfamily build} aplanko:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./Release/Studentai.exe}
+
+\end{DoxyCode}
+
+
+Windows aplinkoje programa taip pat galima paleisti per Visual Studio arba tiesiog atidaryti sugeneruota {\ttfamily .exe} faila.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Programos meniu}{Programos meniu}}\label{index_autotoc_md9}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1\ -\/\ Rankinis\ ivedimas}
@@ -110,51 +77,345 @@ Kompiliavimas {\ttfamily Release} režimu:\+
 \DoxyCodeLine{8\ -\/\ Atlikti\ v1.1\ konteineriu\ tyrima}
 \DoxyCodeLine{9\ -\/\ Atlikti\ v1.1\ skirstymo\ strategiju\ tyrima}
 \DoxyCodeLine{10\ -\/\ Testuoti\ Studentas\ klase}
-\DoxyCodeLine{11\ -\/\ Baigti}
+\DoxyCodeLine{11\ -\/\ Atlikti\ v3.0\ duomenu\ apdorojimo\ tyrima(mano\ Vector)}
+\DoxyCodeLine{12\ -\/\ Atlikti\ std::vector\ ir\ Vector\ push\_back\ tyrima}
+\DoxyCodeLine{13\ -\/\ Palyginti\ std::vector\ ir\ mano\ Vector\ su\ studentu\ failu}
+\DoxyCodeLine{14\ -\/\ Baigti}
+
+\end{DoxyCode}
+ \DoxyHorRuler{0}
+\hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{v3.\+0 nuosavas Vector konteineris}{v3.\+0 nuosavas Vector konteineris}}\label{index_autotoc_md11}
+v3.\+0 versijoje sukurtas nuosavas sabloninis konteineris {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}, kuris veikia panasiai kaip {\ttfamily std::\+vector}.
+
+Konteineris realizuotas naudojant dinamini masyva. Viduje saugomi trys pagrindiniai laukai:\+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily T\texorpdfstring{$\ast$}{*} duomenys\+\_\+} -\/ rodykle i dinamini masyva;
+\item {\ttfamily std::\+size\+\_\+t dydis\+\_\+} -\/ dabartinis elementu kiekis;
+\item {\ttfamily std::\+size\+\_\+t talpa\+\_\+} -\/ rezervuota vieta elementams.
+\end{DoxyItemize}
+
+Kai {\ttfamily push\+\_\+back()} metu nebelieka vietos naujam elementui, konteinerio talpa padidinama ir seni elementai perkeliami i nauja masyva.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md13}{}\doxysection{\texorpdfstring{Realizuotos Vector funkcijos}{Realizuotos Vector funkcijos}}\label{index_autotoc_md13}
+Realizuotos pagrindines {\ttfamily std::\+vector} tipo funkcijos:\+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{class_vector}{Vector()}}
+\item {\ttfamily \doxylink{class_vector}{Vector(size\+\_\+t kiekis)}}
+\item {\ttfamily \doxylink{class_vector}{Vector}(size\+\_\+t kiekis, const T\& reiksme)}
+\item {\ttfamily \doxylink{class_vector}{Vector}(std::\+initializer\+\_\+list\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>})}
+\item kopijavimo konstruktorius
+\item kopijavimo priskyrimo operatorius
+\item perkelimo konstruktorius
+\item perkelimo priskyrimo operatorius
+\item destruktorius
+\item {\ttfamily size()}
+\item {\ttfamily capacity()}
+\item {\ttfamily empty()}
+\item {\ttfamily max\+\_\+size()}
+\item {\ttfamily operator\+[]\+}
+\item {\ttfamily at()}
+\item {\ttfamily front()}
+\item {\ttfamily back()}
+\item {\ttfamily data()}
+\item {\ttfamily begin()}
+\item {\ttfamily end()}
+\item {\ttfamily cbegin()}
+\item {\ttfamily cend()}
+\item {\ttfamily reserve()}
+\item {\ttfamily resize()}
+\item {\ttfamily shrink\+\_\+to\+\_\+fit()}
+\item {\ttfamily push\+\_\+back()}
+\item {\ttfamily pop\+\_\+back()}
+\item {\ttfamily clear()}
+\item {\ttfamily insert()}
+\item {\ttfamily erase()}
+\item {\ttfamily assign()}
+\item {\ttfamily swap()}
+\item {\ttfamily emplace\+\_\+back()}
+\item {\ttfamily emplace()}
+\item {\ttfamily operator==}
+\item {\ttfamily operator!=}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md15}{}\doxysection{\texorpdfstring{Vector funkciju pavyzdziai}{Vector funkciju pavyzdziai}}\label{index_autotoc_md15}
+\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{1. {\ttfamily push\+\_\+back()}}{1. {\ttfamily push\+\_\+back()}}}\label{index_autotoc_md16}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v;}
+\DoxyCodeLine{}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_ae455e0529fc174d97812a21a9ab39b2e}{push\_back}}(1);}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_ae455e0529fc174d97812a21a9ab39b2e}{push\_back}}(2);}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_ae455e0529fc174d97812a21a9ab39b2e}{push\_back}}(3);}
+
+\end{DoxyCode}
+
+
+Rezultatas:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1\ 2\ 3}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{2. {\ttfamily at()}}{2. {\ttfamily at()}}}\label{index_autotoc_md17}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v\ =\ \{\ 4,\ 5,\ 6\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::cout\ <<\ v.\doxymbox{\hyperlink{class_vector_a6138895f39699ab24cb66314c53cac0b}{at}}(1);}
+
+\end{DoxyCode}
+
+
+Rezultatas:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5}
+
+\end{DoxyCode}
+
+
+Jeigu indeksas yra uz ribu, {\ttfamily at()} meta {\ttfamily std::\+out\+\_\+of\+\_\+range} isimti.\hypertarget{index_autotoc_md18}{}\doxysubsection{\texorpdfstring{3. {\ttfamily insert()}}{3. {\ttfamily insert()}}}\label{index_autotoc_md18}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v\ =\ \{\ 1,\ 4\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_a361731a6926299359d3f42ae4ae93a3d}{insert}}(v.\doxymbox{\hyperlink{class_vector_a48330adb902d17d3fbed6e83fd58976f}{begin}}()\ +\ 1,\ \{\ 2,\ 3\ \});}
+
+\end{DoxyCode}
+
+
+Rezultatas:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1\ 2\ 3\ 4}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md19}{}\doxysubsection{\texorpdfstring{4. {\ttfamily erase()}}{4. {\ttfamily erase()}}}\label{index_autotoc_md19}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v\ =\ \{\ 1,\ 2,\ 3,\ 4\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_a983c5f1192137787a4e0b8807461d436}{erase}}(v.\doxymbox{\hyperlink{class_vector_a48330adb902d17d3fbed6e83fd58976f}{begin}}()\ +\ 1);}
+
+\end{DoxyCode}
+
+
+Rezultatas:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1\ 3\ 4}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{5. {\ttfamily resize()}}{5. {\ttfamily resize()}}}\label{index_autotoc_md20}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{v.\doxymbox{\hyperlink{class_vector_a9b70f3e73b39fc813ee463799e71c1f8}{resize}}(5,\ 9);}
+
+\end{DoxyCode}
+
+
+Rezultatas:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1\ 2\ 9\ 9\ 9}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{6. Iteratoriai ir {\ttfamily std::\+sort()}}{6. Iteratoriai ir {\ttfamily std::\+sort()}}}\label{index_autotoc_md21}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v\ =\ \{\ 3,\ 1,\ 2\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::sort(v.\doxymbox{\hyperlink{class_vector_a48330adb902d17d3fbed6e83fd58976f}{begin}}(),\ v.\doxymbox{\hyperlink{class_vector_aa8958aac9b8931d471cdd99428c2d535}{end}}());}
+
+\end{DoxyCode}
+
+
+Rezultatas:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1\ 2\ 3}
 
 \end{DoxyCode}
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md14}{}\doxysection{\texorpdfstring{Unit testai}{Unit testai}}\label{index_autotoc_md14}
-v2.\+0 versijoje buvo pridėti unit testai.
+\hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{{\ttfamily push\+\_\+back()} spartos tyrimas}{{\ttfamily push\+\_\+back()} spartos tyrimas}}\label{index_autotoc_md23}
+Buvo matuojama, kiek vidutiniskai laiko uztrunka tuscia {\ttfamily std::\+vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} ir tuscia {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} uzpildyti naudojant {\ttfamily push\+\_\+back()}.
 
-Juos pridėjau tam, kad būtų galima patikrinti, ar pagrindiniai {\ttfamily \doxylink{class_studentas}{Studentas}} klasės metodai veikia teisingai.
+Buvo atlikta 10 bandymu. Lenteleje pateikiamas vidurkis.
 
-Testams naudojau {\bfseries{Visual Studio C++ Unit Test Framework}}, nes projektą darau su Visual Studio ir testus patogu paleisti per {\ttfamily Test Explorer}.\hypertarget{index_autotoc_md15}{}\doxysubsection{\texorpdfstring{Testuojami metodai}{Testuojami metodai}}\label{index_autotoc_md15}
 
-\begin{DoxyTable}{2}{}{}{1}
-\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Testas  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Ką tikrina  \\
-{\ttfamily Default\+Constructor\+Creates\+Object}  &Patikrina, ar galima sukurti tuščią {\ttfamily \doxylink{class_studentas}{Studentas}} objektą  \\
-{\ttfamily Copy\+Constructor\+Works}  &Patikrina kopijavimo konstruktorių  \\
-{\ttfamily Copy\+Assignment\+Works}  &Patikrina kopijavimo priskyrimo operatorių  \\
-{\ttfamily Move\+Constructor\+Works}  &Patikrina perkėlimo konstruktorių  \\
-{\ttfamily Move\+Assignment\+Works}  &Patikrina perkėlimo priskyrimo operatorių  \\
-{\ttfamily Input\+Operator\+Works}  &Patikrina įvesties operatorių {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}  \\
-{\ttfamily Output\+Operator\+Works}  &Patikrina išvesties operatorių {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}  \\
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Elementu kiekis  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}std::\+vector vid. laikas, s  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}\doxylink{class_vector}{Vector} vid. laikas, s  \\
+\SetCell{r}10 000  &\SetCell{r}0.\+000178740  &\SetCell{r}0.\+000053870  \\
+\SetCell{r}100 000  &\SetCell{r}0.\+000558310  &\SetCell{r}0.\+000396890  \\
+\SetCell{r}1 000 000  &\SetCell{r}0.\+004688730  &\SetCell{r}0.\+003114310  \\
+\SetCell{r}10 000 000  &\SetCell{r}0.\+042939080  &\SetCell{r}0.\+034631990  \\
+\SetCell{r}100 000 000  &\SetCell{r}0.\+451623300  &\SetCell{r}0.\+313787700  \\
 \end{DoxyTable}
 
 
-Svarbiausia buvo patikrinti Rule of Five metodus, nes jie parodo, ar {\ttfamily \doxylink{class_studentas}{Studentas}} objektai teisingai kopijuojami, priskiriami ir perkeliami.\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Unit testų paleidimas}{Unit testų paleidimas}}\label{index_autotoc_md16}
-Testai paleidžiami per Visual Studio:\+
+Siame teste mano {\ttfamily \doxylink{class_vector}{Vector}} buvo greitesnis uz {\ttfamily std::\+vector}, nes mano realizacijoje talpa didinama dvigubinant, todel buvo maziau atminties perskirstymu. {\ttfamily std::\+vector} talpos didinimo strategija priklauso nuo konkrecios STL realizacijos.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md25}{}\doxysection{\texorpdfstring{Atminties perskirstymu skaicius}{Atminties perskirstymu skaicius}}\label{index_autotoc_md25}
+Perskirstymas buvo skaiciuojamas tada, kai pries {\ttfamily push\+\_\+back()} buvo tenkinama salyga:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{capacity()\ ==\ size()}
+
+\end{DoxyCode}
+
+
+Buvo uzpildoma 100 000 000 {\ttfamily int} elementu.
+
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Konteineris  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Perskirstymu skaicius  \\
+std::\+vector  &\SetCell{r}47  \\
+\doxylink{class_vector}{Vector}  &\SetCell{r}28  \\
+\end{DoxyTable}
+
+
+Mano {\ttfamily \doxylink{class_vector}{Vector}} perskirstymu atliko maziau, nes talpa buvo didinama dvigubinant.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Studentu programos tyrimas su std::\+vector ir Vector}{Studentu programos tyrimas su std::\+vector ir Vector}}\label{index_autotoc_md27}
+Buvo palygintas studentu programos veikimas naudojant {\ttfamily std::\+vector} ir mano {\ttfamily \doxylink{class_vector}{Vector}}.
+
+Naudoti nustatymai:\+
+
+
+\begin{DoxyItemize}
+\item galutinis balas skaiciuotas pagal vidurki;
+\item studentai rusiuoti pagal galutini rezultata;
+\item naudotas skirstymas su {\ttfamily std::\+stable\+\_\+partition};
+\item kiekvienam failui atlikti 3 bandymai;
+\item lenteleje pateikiami laiku vidurkiai.
+\end{DoxyItemize}
+
+
+\begin{DoxyTable}{7}{}{}{1}
+\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Studentu kiekis  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Konteineris  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Nuskaitymas, s  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Skirstymas, s  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Rusiavimas, s  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Isvedimas, s  &\SetCell{r,bg=\tableheadbgcolor,font=\bfseries}Bendras laikas, s  \\
+\SetCell{r}100 000  &{\ttfamily std::\+vector}  &\SetCell{r}0.\+499839  &\SetCell{r}0.\+015915  &\SetCell{r}0.\+021947  &\SetCell{r}0.\+094470  &\SetCell{r}0.\+633464  \\
+\SetCell{r}100 000  &{\ttfamily \doxylink{class_vector}{Vector}}  &\SetCell{r}0.\+530764  &\SetCell{r}0.\+018053  &\SetCell{r}0.\+022191  &\SetCell{r}0.\+093264  &\SetCell{r}0.\+665642  \\
+\SetCell{r}1 000 000  &{\ttfamily std::\+vector}  &\SetCell{r}4.\+841230  &\SetCell{r}0.\+152808  &\SetCell{r}0.\+225936  &\SetCell{r}0.\+856493  &\SetCell{r}6.\+091330  \\
+\SetCell{r}1 000 000  &{\ttfamily \doxylink{class_vector}{Vector}}  &\SetCell{r}4.\+954550  &\SetCell{r}0.\+173366  &\SetCell{r}0.\+223980  &\SetCell{r}0.\+831624  &\SetCell{r}6.\+199703  \\
+\SetCell{r}10 000 000  &{\ttfamily std::\+vector}  &\SetCell{r}49.\+436967  &\SetCell{r}1.\+674317  &\SetCell{r}2.\+427917  &\SetCell{r}9.\+419157  &\SetCell{r}63.\+118733  \\
+\SetCell{r}10 000 000  &{\ttfamily \doxylink{class_vector}{Vector}}  &\SetCell{r}51.\+044167  &\SetCell{r}1.\+422003  &\SetCell{r}2.\+283997  &\SetCell{r}8.\+322230  &\SetCell{r}63.\+281300  \\
+\end{DoxyTable}
+
+
+Rezultatai rodo, kad studentu programoje {\ttfamily std::\+vector} ir mano {\ttfamily \doxylink{class_vector}{Vector}} veike labai panasiai. {\ttfamily std::\+vector} buvo siek tiek greitesnis bendrame rezultate, nes tai standartines bibliotekos optimizuotas konteineris. Mano {\ttfamily \doxylink{class_vector}{Vector}} veikia teisingai su tais paciais duomenimis, bet jo realizacija yra paprastesne.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md29}{}\doxysection{\texorpdfstring{Unit testai}{Unit testai}}\label{index_autotoc_md29}
+Testams naudojamas {\bfseries{Visual Studio C++ Unit Test Framework}}.
+
+Testai pateikti faile:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{StudentasUnitTests/VectorUnitTests.cpp}
+
+\end{DoxyCode}
+
+
+Testai suskirstyti i kelias grupes:\+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Vector\+Constructor\+Tests};
+\item {\ttfamily Vector\+Capacity\+Tests};
+\item {\ttfamily Vector\+Element\+Access\+Tests};
+\item {\ttfamily Vector\+Rule\+Of\+Five\+Tests};
+\item {\ttfamily Vector\+Modifier\+Tests};
+\item {\ttfamily Vector\+Iterator\+Algorithm\+Tests};
+\item {\ttfamily Vector\+Comparison\+Tests};
+\item {\ttfamily Vector\+Std\+Vector\+Comparison\+Tests}.
+\end{DoxyItemize}
+
+Testais patikrinta:\+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{class_vector}{Vector}} konstruktoriai;
+\item {\ttfamily \doxylink{class_vector}{Vector}} kopijavimas;
+\item {\ttfamily \doxylink{class_vector}{Vector}} perkelimas;
+\item {\ttfamily push\+\_\+back()};
+\item {\ttfamily pop\+\_\+back()};
+\item {\ttfamily clear()};
+\item {\ttfamily reserve()};
+\item {\ttfamily resize()};
+\item {\ttfamily shrink\+\_\+to\+\_\+fit()};
+\item {\ttfamily insert()};
+\item {\ttfamily erase()};
+\item {\ttfamily assign()};
+\item {\ttfamily swap()};
+\item palyginimo operatoriai;
+\item iteratoriai;
+\item veikimas su {\ttfamily std::\+sort()};
+\item veikimas su {\ttfamily \doxylink{class_studentas}{Studentas}} objektais;
+\item keliu {\ttfamily std::\+vector} ir {\ttfamily \doxylink{class_vector}{Vector}} funkciju rezultatu palyginimas.
+\end{DoxyItemize}
+
+Visi unit testai praejo sekmingai.
+
+Unit testu rezultatu ekrano nuotrauka:\+
+
+
+
+Testai paleidziami per Visual Studio:\+
 
 
 \begin{DoxyEnumerate}
-\item Atidaryti projektą su Visual Studio.
-\item Viršutiniame meniu pasirinkti {\ttfamily Test}.
+\item Atidaryti projekta su Visual Studio.
+\item Virsutiniame meniu pasirinkti {\ttfamily Test}.
 \item Atidaryti {\ttfamily Test Explorer}.
 \item Paspausti {\ttfamily Run All Tests}.
 \end{DoxyEnumerate}
 
-Jeigu visi testai žali, reiškia testuojami metodai veikia gerai.
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md31}{}\doxysection{\texorpdfstring{Testavimo failai}{Testavimo failai}}\label{index_autotoc_md31}
+Installerio testavimui pateikiami failai:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{test\_files/studentai10000.txt}
+\DoxyCodeLine{test\_files/studentai100000.txt}
+
+\end{DoxyCode}
+
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md18}{}\doxysection{\texorpdfstring{Doxygen dokumentacija}{Doxygen dokumentacija}}\label{index_autotoc_md18}
-v2.\+0 versijoje projektui buvo sugeneruota dokumentacija naudojant {\bfseries{Doxygen}}.
+\hypertarget{index_autotoc_md33}{}\doxysection{\texorpdfstring{Doxygen dokumentacija}{Doxygen dokumentacija}}\label{index_autotoc_md33}
+Projektas dokumentuotas naudojant {\bfseries{Doxygen}}.
 
-Dokumentacijoje aprašyta {\ttfamily \doxylink{class_studentas}{Studentas}} klasė, jos konstruktoriai, Rule of Five metodai, įvesties ir išvesties operatoriai bei kiti pagrindiniai metodai.
+Dokumentacijoje aprasytos klases:\+
 
-Dokumentacija pateikta šiais formatais:\+
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{class_zmogus}{Zmogus}};
+\item {\ttfamily \doxylink{class_studentas}{Studentas}};
+\item {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}.
+\end{DoxyItemize}
+
+Sugeneruota dokumentacija pateikiama:\+
 
 
 \begin{DoxyTable}{2}{}{}{1}
@@ -165,90 +426,119 @@ PDF  &{\ttfamily docs/\+refman.\+pdf}  \\
 \end{DoxyTable}
 
 
-HTML dokumentaciją galima atidaryti naršyklėje:\+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md35}{}\doxysection{\texorpdfstring{Diegimo failas}{Diegimo failas}}\label{index_autotoc_md35}
+Programos diegimui parengtas Inno Setup scenarijus:\+
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{docs/html/index.html}
+\DoxyCodeLine{installer/setup.iss}
 
 \end{DoxyCode}
 
 
-PDF dokumentacija pateikta faile:\+
+Diegimo failas idiegia programa i:\+
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{docs/refman.pdf}
+\DoxyCodeLine{C:/Program\ Files/VU/Ignas-\/Simaitis}
 
 \end{DoxyCode}
 
 
-PDF failas buvo sukompiliuotas naudojant Overleaf.
+Diegimo failo kurimas:\+
+
+
+\begin{DoxyEnumerate}
+\item Sukompiliuoti programa {\ttfamily Release} rezimu.
+\item Atidaryti {\ttfamily installer/\+setup.\+iss} su Inno Setup.
+\item Paspausti {\ttfamily Compile}.
+\item Sugeneruojamas {\ttfamily Setup.\+exe}.
+\end{DoxyEnumerate}
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md20}{}\doxysection{\texorpdfstring{Relizų aprašas}{Relizų aprašas}}\label{index_autotoc_md20}
-\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{v2.\+0}{v2.\+0}}\label{index_autotoc_md21}
-Šioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.
+\hypertarget{index_autotoc_md37}{}\doxysection{\texorpdfstring{Versiju aprasas}{Versiju aprasas}}\label{index_autotoc_md37}
+\hypertarget{index_autotoc_md38}{}\doxysubsection{\texorpdfstring{v3.\+0}{v3.\+0}}\label{index_autotoc_md38}
+Sukurta nuosava {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} klase ir pritaikyta studentu programai.
 
 Pagrindiniai pakeitimai:\+
 
 
 \begin{DoxyItemize}
-\item pridėti unit testai {\ttfamily \doxylink{class_studentas}{Studentas}} klasei;
+\item sukurta sablonine {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} klase;
+\item realizuota dauguma pagrindiniu {\ttfamily std::\+vector} funkciju;
+\item {\ttfamily \doxylink{class_studentas}{Studentas}} namu darbu pazymiams naudoja {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}};
+\item sukurta programos versija su {\ttfamily \doxylink{class_vector}{Vector}\texorpdfstring{$<$}{<}\doxylink{class_studentas}{Studentas}\texorpdfstring{$>$}{>}};
+\item atlikti {\ttfamily std::\+vector} ir {\ttfamily \doxylink{class_vector}{Vector}} spartos tyrimai;
+\item suskaiciuoti atminties perskirstymai;
+\item prideti {\ttfamily \doxylink{class_vector}{Vector}} unit testai;
+\item {\ttfamily \doxylink{_vector_8h}{Vector.\+h}} itrauktas i Doxygen dokumentacija;
+\item parengtas Inno Setup diegimo scenarijus.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md40}{}\doxysubsection{\texorpdfstring{v2.\+0}{v2.\+0}}\label{index_autotoc_md40}
+Sioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.
+
+Pagrindiniai pakeitimai:\+
+
+
+\begin{DoxyItemize}
+\item prideti unit testai {\ttfamily \doxylink{class_studentas}{Studentas}} klasei;
 \item patikrinti Rule of Five metodai;
-\item patikrinti įvesties ir išvesties operatoriai {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} ir {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}};
+\item patikrinti ivesties ir isvesties operatoriai {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} ir {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}};
 \item sugeneruota Doxygen HTML dokumentacija;
 \item sugeneruota Doxygen La\+TeX dokumentacija;
-\item paruoštas dokumentacijos PDF failas;
+\item parengtas dokumentacijos PDF failas;
 \item atnaujintas {\ttfamily \doxylink{_r_e_a_d_m_e_8md}{README.\+md}} failas;
 \item patikrintas projekto kompiliavimas su CMake.
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md23}{}\doxysubsection{\texorpdfstring{v1.\+5}{v1.\+5}}\label{index_autotoc_md23}
-Šioje versijoje programa papildyta paveldėjimu.
+\hypertarget{index_autotoc_md42}{}\doxysubsection{\texorpdfstring{v1.\+5}{v1.\+5}}\label{index_autotoc_md42}
+Sioje versijoje programa papildyta paveldejimu.
 
-Buvo sukurta abstrakti bazinė klasė {\ttfamily \doxylink{class_zmogus}{Zmogus}}, iš kurios paveldi {\ttfamily \doxylink{class_studentas}{Studentas}} klasė.
+Buvo sukurta abstrakti bazine klase {\ttfamily \doxylink{class_zmogus}{Zmogus}}, is kurios paveldi {\ttfamily \doxylink{class_studentas}{Studentas}} klase.
 
-Programa išlaiko v1.\+2 versijos logiką:\+ veikia Rule of Five, įvesties ir išvesties operatoriai bei ankstesni testai.
+Programa islaiko v1.\+2 versijos logika:\+ veikia Rule of Five, ivesties ir isvesties operatoriai bei ankstesni testai.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{v1.\+2}{v1.\+2}}\label{index_autotoc_md25}
-Šioje versijoje {\ttfamily \doxylink{class_studentas}{Studentas}} klasė papildyta Rule of Five realizacija.
+\hypertarget{index_autotoc_md44}{}\doxysubsection{\texorpdfstring{v1.\+2}{v1.\+2}}\label{index_autotoc_md44}
+Sioje versijoje {\ttfamily \doxylink{class_studentas}{Studentas}} klase papildyta Rule of Five realizacija.
 
-Pridėta:\+
+Prideta:\+
 
 
 \begin{DoxyItemize}
 \item destruktorius;
 \item kopijavimo konstruktorius;
 \item kopijavimo priskyrimo operatorius;
-\item perkėlimo konstruktorius;
-\item perkėlimo priskyrimo operatorius.
+\item perkelimo konstruktorius;
+\item perkelimo priskyrimo operatorius.
 \end{DoxyItemize}
 
-Taip pat realizuoti įvesties ir išvesties operatoriai {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} ir {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}.
+Taip pat realizuoti ivesties ir isvesties operatoriai {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} ir {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md27}{}\doxysubsection{\texorpdfstring{v1.\+1}{v1.\+1}}\label{index_autotoc_md27}
-Šioje versijoje {\ttfamily \doxylink{class_studentas}{Studentas}} struktūra pakeista į klasę.
+\hypertarget{index_autotoc_md46}{}\doxysubsection{\texorpdfstring{v1.\+1}{v1.\+1}}\label{index_autotoc_md46}
+Sioje versijoje {\ttfamily \doxylink{class_studentas}{Studentas}} struktura pakeista i klase.
 
 Pagrindiniai pakeitimai:\+
 
 
 \begin{DoxyItemize}
-\item {\ttfamily \doxylink{class_studentas}{Studentas}} struktūra pakeista į klasę;
-\item studentų duomenys perkelti į privačius laukus;
-\item pridėti getteriai ir setteriai;
+\item {\ttfamily \doxylink{class_studentas}{Studentas}} struktura pakeista i klase;
+\item studentu duomenys perkelti i privacius laukus;
+\item prideti getteriai ir setteriai;
 \item realizuoti konstruktoriai ir destruktorius;
 \item atnaujintos funkcijos, kurios dirba su {\ttfamily \doxylink{class_studentas}{Studentas}} objektais;
-\item atliktas {\ttfamily struct} ir {\ttfamily class} versijų palyginimas;
-\item atlikta analizė su {\ttfamily O1}, {\ttfamily O2} ir {\ttfamily O3} optimizavimo flag\textquotesingle{}ais.
+\item atliktas {\ttfamily struct} ir {\ttfamily class} versiju palyginimas;
+\item atlikta analize su {\ttfamily O1}, {\ttfamily O2} ir {\ttfamily O3} optimizavimo flag\textquotesingle{}ais.
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{v1.\+0}{v1.\+0}}\label{index_autotoc_md29}
-Šioje versijoje pridėtas darbas su trimis konteineriais:\+
+\hypertarget{index_autotoc_md48}{}\doxysubsection{\texorpdfstring{v1.\+0}{v1.\+0}}\label{index_autotoc_md48}
+Sioje versijoje pridetas darbas su trimis konteineriais:\+
 
 
 \begin{DoxyItemize}
@@ -257,24 +547,24 @@ Pagrindiniai pakeitimai:\+
 \item {\ttfamily std::\+deque}.
 \end{DoxyItemize}
 
-Taip pat buvo pridėtos trys studentų skirstymo strategijos, atliktas konteinerių tyrimas ir paruoštas {\ttfamily CMake\+Lists.\+txt}.
+Taip pat buvo pridetas studentu skirstymas i dvi grupes, atliktas konteineriu tyrimas ir paruostas {\ttfamily CMake\+Lists.\+txt}.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md31}{}\doxysubsection{\texorpdfstring{v0.\+4}{v0.\+4}}\label{index_autotoc_md31}
-Šioje versijoje pridėtas studentų failų generavimas, studentų skirstymas į dvi grupes ir pradinis veikimo spartos tyrimas su {\ttfamily std::\+vector}.
+\hypertarget{index_autotoc_md50}{}\doxysubsection{\texorpdfstring{v0.\+4}{v0.\+4}}\label{index_autotoc_md50}
+Sioje versijoje pridetas studentu failu generavimas, studentu skirstymas i dvi grupes ir pradinis veikimo spartos tyrimas su {\ttfamily std::\+vector}.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md33}{}\doxysubsection{\texorpdfstring{v0.\+3}{v0.\+3}}\label{index_autotoc_md33}
-Šioje versijoje patobulinta įvesties validacija, pridėtas klaidų tikrinimas ir kodas išskaidytas į {\ttfamily .h} ir {\ttfamily .cpp} failus.
+\hypertarget{index_autotoc_md52}{}\doxysubsection{\texorpdfstring{v0.\+3}{v0.\+3}}\label{index_autotoc_md52}
+Sioje versijoje patobulinta ivesties validacija, pridetas klaidu tikrinimas ir kodas isskaidytas i {\ttfamily .h} ir {\ttfamily .cpp} failus.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md35}{}\doxysubsection{\texorpdfstring{v0.\+2}{v0.\+2}}\label{index_autotoc_md35}
-Šioje versijoje pridėtas duomenų nuskaitymas iš failo ir studentų rūšiavimas.
+\hypertarget{index_autotoc_md54}{}\doxysubsection{\texorpdfstring{v0.\+2}{v0.\+2}}\label{index_autotoc_md54}
+Sioje versijoje pridetas duomenu nuskaitymas is failo ir studentu rusiavimas.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md37}{}\doxysubsection{\texorpdfstring{v0.\+1}{v0.\+1}}\label{index_autotoc_md37}
-Šioje versijoje realizuotas rankinis studentų duomenų įvedimas ir galutinio balo skaičiavimas pagal vidurkį arba medianą.
+\hypertarget{index_autotoc_md56}{}\doxysubsection{\texorpdfstring{v0.\+1}{v0.\+1}}\label{index_autotoc_md56}
+Sioje versijoje realizuotas rankinis studentu duomenu ivedimas ir galutinio balo skaiciavimas pagal vidurki arba mediana.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md39}{}\doxysubsection{\texorpdfstring{v.\+pradinė}{v.\+pradinė}}\label{index_autotoc_md39}
-Sukurta pradinė studento duomenų struktūra ir realizuotas pradinis vidurkio bei medianos skaičiavimas. 
+\hypertarget{index_autotoc_md58}{}\doxysubsection{\texorpdfstring{v.\+pradine}{v.\+pradine}}\label{index_autotoc_md58}
+Sukurta pradine studento duomenu struktura ir realizuotas pradinis vidurkio bei medianos skaiciavimas. 

@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../class_studentas.html#a9201792d00afa48c63cd2e4f1ea41bb2',1,'Studentas']]],
-  ['operator_3d_1',['operator=',['../class_studentas.html#a8bd0a78e7c4ba39c5459c8e0b298bc47',1,'Studentas::operator=(const Studentas &amp;kitas)'],['../class_studentas.html#a3f542851deb85ac5cf58c6b62ab3b7c7',1,'Studentas::operator=(Studentas &amp;&amp;kitas) noexcept']]],
-  ['operator_3e_3e_2',['operator&gt;&gt;',['../class_studentas.html#ae33769c156dd94d4cea9cdba0c136194',1,'Studentas']]]
+  ['getegzaminas_0',['getEgzaminas',['../class_studentas.html#abe38c118e8e899b4de681f1d12adceab',1,'Studentas']]],
+  ['getpavarde_1',['getPavarde',['../class_zmogus.html#ac50d1e325af387bb385eb88bb7ff42b7',1,'Zmogus']]],
+  ['getpazymiai_2',['getPazymiai',['../class_studentas.html#ae2d08cdfbc6d0f435110c09eaa2f9342',1,'Studentas']]],
+  ['getrezultatas_3',['getRezultatas',['../class_studentas.html#a539f117ad6e1ab339be103475c05a277',1,'Studentas']]],
+  ['getsunaikintuobjektukiekis_4',['getSunaikintuObjektuKiekis',['../class_studentas.html#a8a1b411d320d067b79f416a9dd69ea16',1,'Studentas']]],
+  ['getvardas_5',['getVardas',['../class_zmogus.html#a4a580af3507a2d27efe978d5be0075ab',1,'Zmogus']]]
 ];

@@ -1,0 +1,879 @@
+\doxysection{Vector\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_vector}{}\label{class_vector}\index{Vector$<$ T $>$@{Vector$<$ T $>$}}
+
+
+Paprastas dinaminio masyvo konteineris, panasus i std::\+vector.  
+
+
+
+
+{\ttfamily \+\#include $<$Vector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}} ()
+\begin{DoxyCompactList}\small\item\em Sukuria tuscia \doxylink{class_vector}{Vector} konteineri. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector_a63bb30ab8b847f3c5c25d00ce4e858f8}{Vector}} (std::\+size\+\_\+t kiekis)
+\begin{DoxyCompactList}\small\item\em Sukuria \doxylink{class_vector}{Vector} konteineri su nurodytu elementu kiekiu. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector_a620a8b31264c7b2b7fb899260bbb536c}{Vector}} (std::\+size\+\_\+t kiekis, const T \&reiksme)
+\begin{DoxyCompactList}\small\item\em Sukuria \doxylink{class_vector}{Vector} konteineri su nurodytu elementu kiekiu ir pradiniu elementu reiksme. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector_ac31fbf5e42bcde776da928d544f1a0da}{Vector}} (std::\+initializer\+\_\+list$<$ T $>$ sarasas)
+\begin{DoxyCompactList}\small\item\em Sukuria \doxylink{class_vector}{Vector} konteineri is inicializavimo saraso. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector_afd524fac19e6d3d69db5198ffe2952b0}{\texorpdfstring{$\sim$}{\string~}\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Atlaisvina konteinerio naudojama atminti. \end{DoxyCompactList}\item 
+std::\+size\+\_\+t \doxymbox{\hyperlink{class_vector_a4915b749279bc88b82d22c8dd3b834cc}{size}} () const
+\begin{DoxyCompactList}\small\item\em Grazina elementu kieki. \end{DoxyCompactList}\item 
+std::\+size\+\_\+t \doxymbox{\hyperlink{class_vector_a370394494c6d183478f86413007fd412}{max\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Grazina teorini didziausia elementu kieki. \end{DoxyCompactList}\item 
+std::\+size\+\_\+t \doxymbox{\hyperlink{class_vector_ab7e262b8d43dbdf11f3eefcba6c0ba36}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Grazina rezervuotos vietos kieki. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_vector_ad688a8a0dfbd07ea63d838058a436f79}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Patikrina, ar konteineris tuscias. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a641a765cb13d9e9ff8f9bc4e5a375c9b}{data}} ()
+\begin{DoxyCompactList}\small\item\em Grazina rodykle i saugomu elementu masyva. \end{DoxyCompactList}\item 
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_adf2019fbfec16aeea3150a48e0c773ee}{data}} () const
+\begin{DoxyCompactList}\small\item\em Grazina rodykle i saugomu elementu masyva. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a48330adb902d17d3fbed6e83fd58976f}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Grazina iteratoriu i pirma elementa. \end{DoxyCompactList}\item 
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a43e6d258af863820f74ac2134381b086}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Grazina const iteratoriu i pirma elementa. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_aa8958aac9b8931d471cdd99428c2d535}{end}} ()
+\begin{DoxyCompactList}\small\item\em Grazina iteratoriu uz paskutinio elemento. \end{DoxyCompactList}\item 
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a69a6c13a449947d56543f022020de1f1}{end}} () const
+\begin{DoxyCompactList}\small\item\em Grazina konstantini iteratoriu uz paskutinio elemento. \end{DoxyCompactList}\item 
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a0aec5a86319470f0178ee6740819fd49}{cbegin}} () const
+\begin{DoxyCompactList}\small\item\em Grazina const iteratoriu i pirma elementa. \end{DoxyCompactList}\item 
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_af3ed5edac9bb41b6cbf9e970828a05f6}{cend}} () const
+\begin{DoxyCompactList}\small\item\em Grazina const iteratoriu uz paskutinio elemento. \end{DoxyCompactList}\item 
+T \& \doxymbox{\hyperlink{class_vector_a08f3452a0fb3e8c67017ef9fb8e3405d}{operator\+[$\,$]\+}} (std::\+size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Grazina elementa pagal indeksa be ribu tikrinimo. \end{DoxyCompactList}\item 
+const T \& \doxymbox{\hyperlink{class_vector_a151ca5e89eeffc181869ebf5d35cca83}{operator\+[$\,$]\+}} (std::\+size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Grazina elementa pagal indeksa be ribu tikrinimo. \end{DoxyCompactList}\item 
+T \& \doxymbox{\hyperlink{class_vector_a6138895f39699ab24cb66314c53cac0b}{at}} (std::\+size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Grazina elementa pagal indeksa su ribu tikrinimu. \end{DoxyCompactList}\item 
+const T \& \doxymbox{\hyperlink{class_vector_a1d1e40672db6fa62e612e58a702969d6}{at}} (std::\+size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Grazina elementa pagal indeksa su ribu tikrinimu. \end{DoxyCompactList}\item 
+T \& \doxymbox{\hyperlink{class_vector_a0061cc9127a9cbf541439121998a1fdd}{front}} ()
+\begin{DoxyCompactList}\small\item\em Grazina pirma elementa. \end{DoxyCompactList}\item 
+const T \& \doxymbox{\hyperlink{class_vector_ae891494a5654af2db2a00d162c50985a}{front}} () const
+\begin{DoxyCompactList}\small\item\em Grazina pirma elementa. \end{DoxyCompactList}\item 
+T \& \doxymbox{\hyperlink{class_vector_a6decf0bdeb6849bfcc151b2c514f639f}{back}} ()
+\begin{DoxyCompactList}\small\item\em Grazina paskutini elementa. \end{DoxyCompactList}\item 
+const T \& \doxymbox{\hyperlink{class_vector_ae2094e298cbe0394557b9213942a31d1}{back}} () const
+\begin{DoxyCompactList}\small\item\em Grazina paskutini elementa. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}{reserve}} (std::\+size\+\_\+t nauja\+Talpa)
+\begin{DoxyCompactList}\small\item\em Rezervuoja vietos nurodytam elemetu kiekiui. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_a9b70f3e73b39fc813ee463799e71c1f8}{resize}} (std::\+size\+\_\+t naujas\+Dydis)
+\begin{DoxyCompactList}\small\item\em Pakeicia konteinerio dydi. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_ad878c594f405c717a6b0554cb59f2c2d}{resize}} (std::\+size\+\_\+t naujas\+Dydis, const T \&reiksme)
+\begin{DoxyCompactList}\small\item\em Pakeicia konteinerio dydi ir naujiems elementams priskiria reiksme. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_ad6454ce193263b8000d4c18cb0c3a0c8}{shrink\+\_\+to\+\_\+fit}} ()
+\begin{DoxyCompactList}\small\item\em Sumazina talpa iki dabartinio elementu kiekio. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_ae455e0529fc174d97812a21a9ab39b2e}{push\+\_\+back}} (const T \&reiksme)
+\begin{DoxyCompactList}\small\item\em Prideda elementa i konteinerio pabaiga. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_ace17eace7edf4dfc0c1b798c1814f961}{push\+\_\+back}} (T \&\&reiksme)
+\begin{DoxyCompactList}\small\item\em Prideda perkelta elementa i konteinerio pabaiga. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\T \& \doxymbox{\hyperlink{class_vector_a6904d0d8d6f33208a69c696817c3aa85}{emplace\+\_\+back}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Sukuria nauja elementa konteinerio pabaigoje;. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a519001c30209b9bd611fb85e84b5e237}{emplace}} (T \texorpdfstring{$\ast$}{*}pozicija, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Sukuria nauja elementa nurodytoje pozicijoje. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_adcba035109febbe55cba2a25f8483ba6}{pop\+\_\+back}} ()
+\begin{DoxyCompactList}\small\item\em pasalina paskutini elementa. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a361731a6926299359d3f42ae4ae93a3d}{insert}} (T \texorpdfstring{$\ast$}{*}pozicija, const T \&reiksme)
+\begin{DoxyCompactList}\small\item\em Iterpia viena elementa pries nurodyta pozicija. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_ad2d29c0ffe3727d4c7603d942cda3011}{insert}} (T \texorpdfstring{$\ast$}{*}pozicija, std::\+size\+\_\+t kiekis, const T \&reiksme)
+\begin{DoxyCompactList}\small\item\em Iterpia kelias vienodas reikses pries nurodyta pozicija. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a5d8fb63c6a7e2f2b4479b01508f24093}{insert}} (T \texorpdfstring{$\ast$}{*}pozicija, std::\+initializer\+\_\+list$<$ T $>$ sarasas)
+\begin{DoxyCompactList}\small\item\em Iterpia inicializavimo saraso elementus pries nurodyta pozicija. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_a983c5f1192137787a4e0b8807461d436}{erase}} (T \texorpdfstring{$\ast$}{*}pozicija)
+\begin{DoxyCompactList}\small\item\em Pasalina elementa is nurodytos pozicijos. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector_ac41a9d537ad27e3eea5bf8ae1341c890}{erase}} (T \texorpdfstring{$\ast$}{*}pirma, T \texorpdfstring{$\ast$}{*}paskutine)
+\begin{DoxyCompactList}\small\item\em Pasalina elementus is nurodytos pozicijos intervalo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_a41d289d3ce9bddcc4908768b928fe010}{swap}} (\doxymbox{\hyperlink{class_vector}{Vector}} \&kitas) noexcept
+\begin{DoxyCompactList}\small\item\em Apkeicia du \doxylink{class_vector}{Vector} konteinerio duomenis. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_vector_adbb7740392a2dfeeddb2e3ebd3395b7d}{operator==}} (const \doxymbox{\hyperlink{class_vector}{Vector}} \&kitas) const
+\begin{DoxyCompactList}\small\item\em Palygina du \doxylink{class_vector}{Vector} objektus. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_vector_acc42da0f1b12b6c56ac73c595689f66c}{operator!=}} (const \doxymbox{\hyperlink{class_vector}{Vector}} \&kitas) const
+\begin{DoxyCompactList}\small\item\em Palygina du \doxylink{class_vector}{Vector} objektus. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_a92e8b81199bea2552fa4ce3c792c9195}{assign}} (std::\+size\+\_\+t kiekis, const T \&reiksme)
+\begin{DoxyCompactList}\small\item\em Pakeicia \doxylink{class_vector}{Vector} turinti nurodytu kiekiu vienodu elementu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_a8035b4d33c1ab35486d4a923a8c88da6}{assign}} (std::\+initializer\+\_\+list$<$ T $>$ sarasas)
+\begin{DoxyCompactList}\small\item\em Pakeicia \doxylink{class_vector}{Vector} turini inicializavimo sarasu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_vector_a32ad98b135472b0ebc5d6cb3ae5d0085}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Pasalina visus elementus, bet palieka rezervuota talpa. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector_a8c703865780f633231837f1f1c14f584}{Vector}} (const \doxymbox{\hyperlink{class_vector}{Vector}} \&kitas)
+\begin{DoxyCompactList}\small\item\em Sukuria \doxylink{class_vector}{Vector} kopija is kito \doxylink{class_vector}{Vector} objekto. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector}{Vector}} \& \doxymbox{\hyperlink{class_vector_ac4f801bbb3e61b10345f9a3721953c7f}{operator=}} (const \doxymbox{\hyperlink{class_vector}{Vector}} \&kitas)
+\begin{DoxyCompactList}\small\item\em Priskiria kito \doxylink{class_vector}{Vector} objekto kopija. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector_a77dbfa103aa7f9f57a5f8b2c87dea1cd}{Vector}} (\doxymbox{\hyperlink{class_vector}{Vector}} \&\&kitas) noexcept
+\begin{DoxyCompactList}\small\item\em Sukuria \doxylink{class_vector}{Vector} perimant kito \doxylink{class_vector}{Vector} objekto duomenis. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector}{Vector}} \& \doxymbox{\hyperlink{class_vector_aec8713c44289a3fe741c4eae0cea2f61}{operator=}} (\doxymbox{\hyperlink{class_vector}{Vector}} \&\&kitas) noexcept
+\begin{DoxyCompactList}\small\item\em Priskiria \doxylink{class_vector}{Vector} turini is inicializavimo saraso. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_vector}{Vector}} \& \doxymbox{\hyperlink{class_vector_ac0967b26cf159c0f61177005ce105f26}{operator=}} (std::\+initializer\+\_\+list$<$ T $>$ sarasas)
+\begin{DoxyCompactList}\small\item\em Priskira \doxylink{class_vector}{Vector} turini is inicializavimo saraso. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Vector$<$ T $>$}
+Paprastas dinaminio masyvo konteineris, panasus i std::\+vector. 
+
+\doxylink{class_vector}{Vector} klase realizuota kaip sablonine klase, todel gali saugoti skirtingu tipu elementus. Viduje naudojamas dinaminis masyvas, dabartinis elementu kiekis ir rezervuota talpa. Kai elementu kiekis pasiekia talpa, konteineris rezervuoja didesni masyva ir perkelia senus elementus.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Saugomu elementu tipas. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{class_vector_doc-constructors}
+\Hypertarget{class_vector_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vector_a39d6069675db4ecfc1ab81d440da759a}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_vector_a39d6069675db4ecfc1ab81d440da759a} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria tuscia \doxylink{class_vector}{Vector} konteineri. 
+
+\Hypertarget{class_vector_a63bb30ab8b847f3c5c25d00ce4e858f8}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_vector_a63bb30ab8b847f3c5c25d00ce4e858f8} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\+Vector (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{kiekis}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria \doxylink{class_vector}{Vector} konteineri su nurodytu elementu kiekiu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kiekis} & Pradinis elementu kiekis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_a620a8b31264c7b2b7fb899260bbb536c}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_vector_a620a8b31264c7b2b7fb899260bbb536c} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\+Vector (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{kiekis}{, }\item[{const T \&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria \doxylink{class_vector}{Vector} konteineri su nurodytu elementu kiekiu ir pradiniu elementu reiksme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kiekis} & Pradinis elementu kiekis. \\
+\hline
+{\em reiksme} & Pradine elementu reiksme. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_ac31fbf5e42bcde776da928d544f1a0da}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_vector_ac31fbf5e42bcde776da928d544f1a0da} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\+Vector (\begin{DoxyParamCaption}\item[{std::\+initializer\+\_\+list$<$ T $>$}]{sarasas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria \doxylink{class_vector}{Vector} konteineri is inicializavimo saraso. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sarasas} & Pradines elementu reiksmes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_afd524fac19e6d3d69db5198ffe2952b0}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}}
+\index{````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Vector()}{\string~Vector()}}
+{\footnotesize\ttfamily \label{class_vector_afd524fac19e6d3d69db5198ffe2952b0} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\texorpdfstring{$\sim$}{\string~}\doxymbox{\hyperlink{class_vector}{Vector}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Atlaisvina konteinerio naudojama atminti. 
+
+\Hypertarget{class_vector_a8c703865780f633231837f1f1c14f584}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_vector_a8c703865780f633231837f1f1c14f584} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\+Vector (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria \doxylink{class_vector}{Vector} kopija is kito \doxylink{class_vector}{Vector} objekto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kopijuojamas \doxylink{class_vector}{Vector} objektas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_a77dbfa103aa7f9f57a5f8b2c87dea1cd}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_vector_a77dbfa103aa7f9f57a5f8b2c87dea1cd} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+\+Vector (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&\&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Sukuria \doxylink{class_vector}{Vector} perimant kito \doxylink{class_vector}{Vector} objekto duomenis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & \doxylink{class_vector}{Vector} objektas, is kurio duomenys perkeliami. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_vector_doc-func-members}
+\Hypertarget{class_vector_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vector_a8035b4d33c1ab35486d4a923a8c88da6}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!assign@{assign}}
+\index{assign@{assign}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{assign()}{assign()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a8035b4d33c1ab35486d4a923a8c88da6} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+assign (\begin{DoxyParamCaption}\item[{std::\+initializer\+\_\+list$<$ T $>$}]{sarasas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pakeicia \doxylink{class_vector}{Vector} turini inicializavimo sarasu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sarasas} & Naujos elementu reiksmes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_a92e8b81199bea2552fa4ce3c792c9195}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!assign@{assign}}
+\index{assign@{assign}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{assign()}{assign()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_a92e8b81199bea2552fa4ce3c792c9195} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+assign (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{kiekis}{, }\item[{const T \&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pakeicia \doxylink{class_vector}{Vector} turinti nurodytu kiekiu vienodu elementu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kiekis} & Naujai priskiriamų elementų kiekis. \\
+\hline
+{\em reiksme} & Reikšmė, kuria bus priskirti nauji elementai. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_a6138895f39699ab24cb66314c53cac0b}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!at@{at}}
+\index{at@{at}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a6138895f39699ab24cb66314c53cac0b} 
+template$<$typename T$>$ \\
+T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+at (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina elementa pagal indeksa su ribu tikrinimu. 
+
+\Hypertarget{class_vector_a1d1e40672db6fa62e612e58a702969d6}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!at@{at}}
+\index{at@{at}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_a1d1e40672db6fa62e612e58a702969d6} 
+template$<$typename T$>$ \\
+const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+at (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina elementa pagal indeksa su ribu tikrinimu. 
+
+\Hypertarget{class_vector_a6decf0bdeb6849bfcc151b2c514f639f}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!back@{back}}
+\index{back@{back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a6decf0bdeb6849bfcc151b2c514f639f} 
+template$<$typename T$>$ \\
+T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina paskutini elementa. 
+
+\Hypertarget{class_vector_ae2094e298cbe0394557b9213942a31d1}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!back@{back}}
+\index{back@{back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_ae2094e298cbe0394557b9213942a31d1} 
+template$<$typename T$>$ \\
+const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina paskutini elementa. 
+
+\Hypertarget{class_vector_a48330adb902d17d3fbed6e83fd58976f}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a48330adb902d17d3fbed6e83fd58976f} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina iteratoriu i pirma elementa. 
+
+\Hypertarget{class_vector_a43e6d258af863820f74ac2134381b086}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_a43e6d258af863820f74ac2134381b086} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina const iteratoriu i pirma elementa. 
+
+\Hypertarget{class_vector_ab7e262b8d43dbdf11f3eefcba6c0ba36}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily \label{class_vector_ab7e262b8d43dbdf11f3eefcba6c0ba36} 
+template$<$typename T$>$ \\
+std::\+size\+\_\+t \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina rezervuotos vietos kieki. 
+
+\Hypertarget{class_vector_a0aec5a86319470f0178ee6740819fd49}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily \label{class_vector_a0aec5a86319470f0178ee6740819fd49} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+cbegin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina const iteratoriu i pirma elementa. 
+
+\Hypertarget{class_vector_af3ed5edac9bb41b6cbf9e970828a05f6}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!cend@{cend}}
+\index{cend@{cend}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily \label{class_vector_af3ed5edac9bb41b6cbf9e970828a05f6} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+cend (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina const iteratoriu uz paskutinio elemento. 
+
+\Hypertarget{class_vector_a32ad98b135472b0ebc5d6cb3ae5d0085}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!clear@{clear}}
+\index{clear@{clear}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{class_vector_a32ad98b135472b0ebc5d6cb3ae5d0085} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pasalina visus elementus, bet palieka rezervuota talpa. 
+
+\Hypertarget{class_vector_a641a765cb13d9e9ff8f9bc4e5a375c9b}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!data@{data}}
+\index{data@{data}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a641a765cb13d9e9ff8f9bc4e5a375c9b} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina rodykle i saugomu elementu masyva. 
+
+\Hypertarget{class_vector_adf2019fbfec16aeea3150a48e0c773ee}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!data@{data}}
+\index{data@{data}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_adf2019fbfec16aeea3150a48e0c773ee} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina rodykle i saugomu elementu masyva. 
+
+\Hypertarget{class_vector_a519001c30209b9bd611fb85e84b5e237}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!emplace@{emplace}}
+\index{emplace@{emplace}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{emplace()}{emplace()}}
+{\footnotesize\ttfamily \label{class_vector_a519001c30209b9bd611fb85e84b5e237} 
+template$<$typename T$>$ \\
+template$<$typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+emplace (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{pozicija}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria nauja elementa nurodytoje pozicijoje. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Konstruktoriaus argumentu tipai \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em pozicija} & Iteratorius i vieta, kur bus iterpiamas elementas. \\
+\hline
+{\em args} & Argumentai, perduodami elemento konstruktoriui. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iteratorius i naujai sukurta elementa. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_a6904d0d8d6f33208a69c696817c3aa85}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!emplace\_back@{emplace\_back}}
+\index{emplace\_back@{emplace\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{emplace\_back()}{emplace\_back()}}
+{\footnotesize\ttfamily \label{class_vector_a6904d0d8d6f33208a69c696817c3aa85} 
+template$<$typename T$>$ \\
+template$<$typename... Args$>$ \\
+T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+emplace\+\_\+back (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sukuria nauja elementa konteinerio pabaigoje;. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Konstruktoriaus argumentu tipai. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Argumentai, perduodami elemento konstruktoriui.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i naujai sukurta elementa. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_ad688a8a0dfbd07ea63d838058a436f79}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!empty@{empty}}
+\index{empty@{empty}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily \label{class_vector_ad688a8a0dfbd07ea63d838058a436f79} 
+template$<$typename T$>$ \\
+bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Patikrina, ar konteineris tuscias. 
+
+\Hypertarget{class_vector_aa8958aac9b8931d471cdd99428c2d535}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!end@{end}}
+\index{end@{end}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_aa8958aac9b8931d471cdd99428c2d535} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina iteratoriu uz paskutinio elemento. 
+
+\Hypertarget{class_vector_a69a6c13a449947d56543f022020de1f1}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!end@{end}}
+\index{end@{end}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_a69a6c13a449947d56543f022020de1f1} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina konstantini iteratoriu uz paskutinio elemento. 
+
+\Hypertarget{class_vector_ac41a9d537ad27e3eea5bf8ae1341c890}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!erase@{erase}}
+\index{erase@{erase}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_ac41a9d537ad27e3eea5bf8ae1341c890} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+erase (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{pirma}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{paskutine}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pasalina elementus is nurodytos pozicijos intervalo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pirma} & Iteratorius i pirma salinama elementa \\
+\hline
+{\em paskutine} & Iteratorius uz paskutinio salinamo elemento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iteratorius i vieta, kurioje prasideda pasalintas intervalas 
+\end{DoxyReturn}
+\Hypertarget{class_vector_a983c5f1192137787a4e0b8807461d436}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!erase@{erase}}
+\index{erase@{erase}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_a983c5f1192137787a4e0b8807461d436} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+erase (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{pozicija}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pasalina elementa is nurodytos pozicijos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pozicija} & Iteratoriaus i salinama elementa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iteratorius i elementa po pasalinto elemento 
+\end{DoxyReturn}
+\Hypertarget{class_vector_a0061cc9127a9cbf541439121998a1fdd}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!front@{front}}
+\index{front@{front}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a0061cc9127a9cbf541439121998a1fdd} 
+template$<$typename T$>$ \\
+T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina pirma elementa. 
+
+\Hypertarget{class_vector_ae891494a5654af2db2a00d162c50985a}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!front@{front}}
+\index{front@{front}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_ae891494a5654af2db2a00d162c50985a} 
+template$<$typename T$>$ \\
+const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina pirma elementa. 
+
+\Hypertarget{class_vector_a361731a6926299359d3f42ae4ae93a3d}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_vector_a361731a6926299359d3f42ae4ae93a3d} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+insert (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{pozicija}{, }\item[{const T \&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Iterpia viena elementa pries nurodyta pozicija. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pozicija} & Iteratorius i vieta, pries kuria iterpiama. \\
+\hline
+{\em reiksme} & Iterpiama reiksme. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iteratorius i iterpta elementa. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_a5d8fb63c6a7e2f2b4479b01508f24093}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_vector_a5d8fb63c6a7e2f2b4479b01508f24093} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+insert (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{pozicija}{, }\item[{std::\+initializer\+\_\+list$<$ T $>$}]{sarasas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Iterpia inicializavimo saraso elementus pries nurodyta pozicija. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pozicija} & Iteratorius i vieta, pries kuria iterpiama \\
+\hline
+{\em sarasas} & Iterpiamos reiksmes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iteratorius i pirma iterpta elementa 
+\end{DoxyReturn}
+\Hypertarget{class_vector_ad2d29c0ffe3727d4c7603d942cda3011}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_vector_ad2d29c0ffe3727d4c7603d942cda3011} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+insert (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{pozicija}{, }\item[{std::\+size\+\_\+t}]{kiekis}{, }\item[{const T \&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Iterpia kelias vienodas reikses pries nurodyta pozicija. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pozicija} & Iteratorius i vieta, pries kuria iterpiama. \\
+\hline
+{\em kiekis} & Kiek elementu iterpti \\
+\hline
+{\em reiksme} & Iterpiama reiksme \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iteratorius i pirma iterpta elementa. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_a370394494c6d183478f86413007fd412}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{max\_size()}{max\_size()}}
+{\footnotesize\ttfamily \label{class_vector_a370394494c6d183478f86413007fd412} 
+template$<$typename T$>$ \\
+std::\+size\+\_\+t \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+max\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina teorini didziausia elementu kieki. 
+
+\begin{DoxyReturn}{Returns}
+Didziausias galimas elementu kiekis. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_acc42da0f1b12b6c56ac73c595689f66c}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{class_vector_acc42da0f1b12b6c56ac73c595689f66c} 
+template$<$typename T$>$ \\
+bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator!= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{kitas}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Palygina du \doxylink{class_vector}{Vector} objektus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_vector}{Vector} objektas, su kuriuo bus lyginamas esamas objektas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true jeigu dydis arba bent vienas elementas nesutampa. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_ac4f801bbb3e61b10345f9a3721953c7f}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_vector_ac4f801bbb3e61b10345f9a3721953c7f} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}} \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Priskiria kito \doxylink{class_vector}{Vector} objekto kopija. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kopijuojamas \doxylink{class_vector}{Vector} objektas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i si \doxylink{class_vector}{Vector} objekta. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_ac0967b26cf159c0f61177005ce105f26}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_vector_ac0967b26cf159c0f61177005ce105f26} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}} \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator= (\begin{DoxyParamCaption}\item[{std::\+initializer\+\_\+list$<$ T $>$}]{sarasas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Priskira \doxylink{class_vector}{Vector} turini is inicializavimo saraso. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sarasas} & Naujos elementu reiksmes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nuoroda i si \doxylink{class_vector}{Vector} objekta, 
+\end{DoxyReturn}
+\Hypertarget{class_vector_aec8713c44289a3fe741c4eae0cea2f61}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_vector_aec8713c44289a3fe741c4eae0cea2f61} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_vector}{Vector}} \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator= (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&\&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Priskiria \doxylink{class_vector}{Vector} turini is inicializavimo saraso. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sarasas} & Naujos elementu reiksmes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuoroda i si \doxylink{class_vector}{Vector} objekta. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_adbb7740392a2dfeeddb2e3ebd3395b7d}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_vector_adbb7740392a2dfeeddb2e3ebd3395b7d} 
+template$<$typename T$>$ \\
+bool \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{kitas}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Palygina du \doxylink{class_vector}{Vector} objektus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_vector}{Vector} objektas, su kuriuo bus lyginamas esamas objektas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true jeigu dydis ir visi elementai sutampa. 
+\end{DoxyReturn}
+\Hypertarget{class_vector_a08f3452a0fb3e8c67017ef9fb8e3405d}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\+[]\+@{operator[]}}
+\index{operator\+[]\+@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a08f3452a0fb3e8c67017ef9fb8e3405d} 
+template$<$typename T$>$ \\
+T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator\+[$\,$]\+ (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina elementa pagal indeksa be ribu tikrinimo. 
+
+\Hypertarget{class_vector_a151ca5e89eeffc181869ebf5d35cca83}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\+[]\+@{operator[]}}
+\index{operator\+[]\+@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_a151ca5e89eeffc181869ebf5d35cca83} 
+template$<$typename T$>$ \\
+const T \& \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+operator\+[$\,$]\+ (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina elementa pagal indeksa be ribu tikrinimo. 
+
+\Hypertarget{class_vector_adcba035109febbe55cba2a25f8483ba6}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!pop\_back@{pop\_back}}
+\index{pop\_back@{pop\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pop\_back()}{pop\_back()}}
+{\footnotesize\ttfamily \label{class_vector_adcba035109febbe55cba2a25f8483ba6} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+pop\+\_\+back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+pasalina paskutini elementa. 
+
+\Hypertarget{class_vector_ae455e0529fc174d97812a21a9ab39b2e}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_ae455e0529fc174d97812a21a9ab39b2e} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+push\+\_\+back (\begin{DoxyParamCaption}\item[{const T \&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prideda elementa i konteinerio pabaiga. 
+
+\Hypertarget{class_vector_ace17eace7edf4dfc0c1b798c1814f961}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_ace17eace7edf4dfc0c1b798c1814f961} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+push\+\_\+back (\begin{DoxyParamCaption}\item[{T \&\&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prideda perkelta elementa i konteinerio pabaiga. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reiksme} & Perkeliama reiksme \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!reserve@{reserve}}
+\index{reserve@{reserve}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily \label{class_vector_adbe1ecf96bb8050d8fa237528b95a2c5} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+reserve (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{nauja\+Talpa}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rezervuoja vietos nurodytam elemetu kiekiui. 
+
+Jei nauja talpa yra mazesne arba lygi dabartinei, nieko nedaro. \Hypertarget{class_vector_a9b70f3e73b39fc813ee463799e71c1f8}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!resize@{resize}}
+\index{resize@{resize}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_vector_a9b70f3e73b39fc813ee463799e71c1f8} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+resize (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{naujas\+Dydis}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pakeicia konteinerio dydi. 
+
+Jei naujas dydis yra didesnis uz dabartini, nauji elementai inicializuojami numatytaja reiksme.
+
+
+\begin{DoxyParams}{Parameters}
+{\em naujas\+Dydis} & Naujas konteinerio dydis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_ad878c594f405c717a6b0554cb59f2c2d}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!resize@{resize}}
+\index{resize@{resize}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_vector_ad878c594f405c717a6b0554cb59f2c2d} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+resize (\begin{DoxyParamCaption}\item[{std::\+size\+\_\+t}]{naujas\+Dydis}{, }\item[{const T \&}]{reiksme}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pakeicia konteinerio dydi ir naujiems elementams priskiria reiksme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em naujas\+Dydis} & Naujas konteinerio dydis. \\
+\hline
+{\em reiksme} & Reiksme, kuria uzpildomi nauji elementai. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vector_ad6454ce193263b8000d4c18cb0c3a0c8}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!shrink\_to\_fit@{shrink\_to\_fit}}
+\index{shrink\_to\_fit@{shrink\_to\_fit}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{shrink\_to\_fit()}{shrink\_to\_fit()}}
+{\footnotesize\ttfamily \label{class_vector_ad6454ce193263b8000d4c18cb0c3a0c8} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+shrink\+\_\+to\+\_\+fit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sumazina talpa iki dabartinio elementu kiekio. 
+
+\Hypertarget{class_vector_a4915b749279bc88b82d22c8dd3b834cc}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!size@{size}}
+\index{size@{size}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{class_vector_a4915b749279bc88b82d22c8dd3b834cc} 
+template$<$typename T$>$ \\
+std::\+size\+\_\+t \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grazina elementu kieki. 
+
+\Hypertarget{class_vector_a41d289d3ce9bddcc4908768b928fe010}\index{Vector$<$ T $>$@{Vector$<$ T $>$}!swap@{swap}}
+\index{swap@{swap}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily \label{class_vector_a41d289d3ce9bddcc4908768b928fe010} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$::\+swap (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{kitas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Apkeicia du \doxylink{class_vector}{Vector} konteinerio duomenis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kitas} & Kitas \doxylink{class_vector}{Vector} konteineris, su kuriuo keciami duomenys. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Objektinis/\+\doxymbox{\hyperlink{_vector_8h}{Vector.\+h}}\end{DoxyCompactItemize}

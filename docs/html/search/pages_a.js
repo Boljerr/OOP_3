@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kompiliavimas_20su_20cmake_0',['Programos kompiliavimas su CMake',['../index.html#autotoc_md9',1,'']]]
+  ['erase_0',['4. &lt;span class=&quot;tt&quot;&gt;erase()&lt;/span&gt;',['../index.html#autotoc_md19',1,'']]]
 ];

@@ -22,7 +22,7 @@ Inheritance diagram for Studentas:\+\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Tuscias konstruktorius, kuris sukuria \doxylink{class_studentas}{Studentas} objekta su numatytomis reiksmemis. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_studentas_a7b3f3a8f6acc9d3d18d8682502a80c29}{Studentas}} (const std::\+string \&vardas, const std::\+string \&pavarde)
 \begin{DoxyCompactList}\small\item\em Konstruktorius su studento vardu ir pavarde. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{class_studentas_a78125bb14725b97568689387df8541cc}{Studentas}} (const std::\+string \&vardas, const std::\+string \&pavarde, const std::\+vector$<$ int $>$ \&pazymiai, int egzaminas)
+\doxymbox{\hyperlink{class_studentas_a2f17ad8f53c4da25d3b1b4d5509f9b69}{Studentas}} (const std::\+string \&vardas, const std::\+string \&pavarde, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&pazymiai, int egzaminas)
 \begin{DoxyCompactList}\small\item\em Konstruktorius su studento vardu, pavarde, namu darbu pazymiais ir egzamino pazymiu. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_studentas_a63e449e0f51a0b14340d02ee71b4be23}{\texorpdfstring{$\sim$}{\string~}\+Studentas}} ()
 \begin{DoxyCompactList}\small\item\em Destruktorius. \end{DoxyCompactList}\item 
@@ -34,13 +34,13 @@ Inheritance diagram for Studentas:\+\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Perkėlimo konstruktorius. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_studentas}{Studentas}} \& \doxymbox{\hyperlink{class_studentas_a3f542851deb85ac5cf58c6b62ab3b7c7}{operator=}} (\doxymbox{\hyperlink{class_studentas}{Studentas}} \&\&kitas) noexcept
 \begin{DoxyCompactList}\small\item\em Perkėlimo priskyrimo operatorius. \end{DoxyCompactList}\item 
-const std::\+vector$<$ int $>$ \& \doxymbox{\hyperlink{class_studentas_a0f4347b5d93a0aea1f8428f2d86fbf2a}{get\+Pazymiai}} () const
+const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \& \doxymbox{\hyperlink{class_studentas_ae2d08cdfbc6d0f435110c09eaa2f9342}{get\+Pazymiai}} () const
 \begin{DoxyCompactList}\small\item\em Grazina studento namu darbu pazymius. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{class_studentas_abe38c118e8e899b4de681f1d12adceab}{get\+Egzaminas}} () const
 \begin{DoxyCompactList}\small\item\em Grazina studento egzamino pazymi. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{class_studentas_a539f117ad6e1ab339be103475c05a277}{get\+Rezultatas}} () const
 \begin{DoxyCompactList}\small\item\em Grazina studento galutini rezultata. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_studentas_af68c4e292bc857598670ee686001855d}{set\+Pazymiai}} (const std::\+vector$<$ int $>$ \&namu\+Darbai)
+void \doxymbox{\hyperlink{class_studentas_ac265c7f6906abede972919c1dcc6cb82}{set\+Pazymiai}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&namu\+Darbai)
 \begin{DoxyCompactList}\small\item\em Nustato studento namu darbu pazymius. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_studentas_ac7fa2f1df9d544ac1fc050689d1928bc}{set\+Egzaminas}} (int egzaminas)
 \begin{DoxyCompactList}\small\item\em Nustato studento egzamino pazymi. \end{DoxyCompactList}\item 
@@ -130,11 +130,11 @@ Konstruktorius su studento vardu ir pavarde.
 {\em pavarde} & Studento pavarde. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_studentas_a78125bb14725b97568689387df8541cc}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\Hypertarget{class_studentas_a2f17ad8f53c4da25d3b1b4d5509f9b69}\index{Studentas@{Studentas}!Studentas@{Studentas}}
 \index{Studentas@{Studentas}!Studentas@{Studentas}}
 \doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
-{\footnotesize\ttfamily \label{class_studentas_a78125bb14725b97568689387df8541cc} 
-Studentas::\+\+Studentas (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{vardas}{, }\item[{const std::\+string \&}]{pavarde}{, }\item[{const std::\+vector$<$ int $>$ \&}]{pazymiai}{, }\item[{int}]{egzaminas}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_studentas_a2f17ad8f53c4da25d3b1b4d5509f9b69} 
+Studentas::\+\+Studentas (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{vardas}{, }\item[{const std::\+string \&}]{pavarde}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&}]{pazymiai}{, }\item[{int}]{egzaminas}{}\end{DoxyParamCaption})}
 
 
 
@@ -155,13 +155,13 @@ Konstruktorius su studento vardu, pavarde, namu darbu pazymiais ir egzamino pazy
 \index{````~Studentas@{\texorpdfstring{$\sim$}{\string~}Studentas}!Studentas@{Studentas}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Studentas()}{\string~Studentas()}}
 {\footnotesize\ttfamily \label{class_studentas_a63e449e0f51a0b14340d02ee71b4be23} 
-Studentas::\+\texorpdfstring{$\sim$}{\string~}\+Studentas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+Studentas::\+\texorpdfstring{$\sim$}{\string~}\+Studentas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Destruktorius. 
 
-Sunaikinus objekta padidinamas sunaikintu objektu skaicius. \Hypertarget{class_studentas_a9c99fb8afa58ff7806759aa22e3c1a6f}\index{Studentas@{Studentas}!Studentas@{Studentas}}
+\Hypertarget{class_studentas_a9c99fb8afa58ff7806759aa22e3c1a6f}\index{Studentas@{Studentas}!Studentas@{Studentas}}
 \index{Studentas@{Studentas}!Studentas@{Studentas}}
 \doxysubsubsection{\texorpdfstring{Studentas()}{Studentas()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
 {\footnotesize\ttfamily \label{class_studentas_a9c99fb8afa58ff7806759aa22e3c1a6f} 
@@ -209,11 +209,11 @@ Grazina studento egzamino pazymi.
 \begin{DoxyReturn}{Returns}
 Studento egzamino pazymys. 
 \end{DoxyReturn}
-\Hypertarget{class_studentas_a0f4347b5d93a0aea1f8428f2d86fbf2a}\index{Studentas@{Studentas}!getPazymiai@{getPazymiai}}
+\Hypertarget{class_studentas_ae2d08cdfbc6d0f435110c09eaa2f9342}\index{Studentas@{Studentas}!getPazymiai@{getPazymiai}}
 \index{getPazymiai@{getPazymiai}!Studentas@{Studentas}}
 \doxysubsubsection{\texorpdfstring{getPazymiai()}{getPazymiai()}}
-{\footnotesize\ttfamily \label{class_studentas_a0f4347b5d93a0aea1f8428f2d86fbf2a} 
-const std::\+vector$<$ int $>$ \& Studentas::\+get\+Pazymiai (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_studentas_ae2d08cdfbc6d0f435110c09eaa2f9342} 
+const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \& Studentas::\+get\+Pazymiai (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -352,11 +352,11 @@ Nustato studento egzamino pazymi.
 {\em egzaminas} & Studento egzamino pazymys. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_studentas_af68c4e292bc857598670ee686001855d}\index{Studentas@{Studentas}!setPazymiai@{setPazymiai}}
+\Hypertarget{class_studentas_ac265c7f6906abede972919c1dcc6cb82}\index{Studentas@{Studentas}!setPazymiai@{setPazymiai}}
 \index{setPazymiai@{setPazymiai}!Studentas@{Studentas}}
 \doxysubsubsection{\texorpdfstring{setPazymiai()}{setPazymiai()}}
-{\footnotesize\ttfamily \label{class_studentas_af68c4e292bc857598670ee686001855d} 
-void Studentas::\+set\+Pazymiai (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ int $>$ \&}]{namu\+Darbai}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_studentas_ac265c7f6906abede972919c1dcc6cb82} 
+void Studentas::\+set\+Pazymiai (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&}]{namu\+Darbai}{}\end{DoxyParamCaption})}
 
 
 
