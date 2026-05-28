@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <initializer_list>
 #include <utility>
-
+#include <limits>
 /**
  * @brief Paprastas dinaminio masyvo konteineris, panasus i std::vector.
  *
@@ -829,7 +829,7 @@ public:
 	 */
 	Vector& operator=(std::initializer_list<T> sarasas)
 	{
-		if (sarasas.size() > talpa_);
+		if (sarasas.size() > talpa_)
 		{
 			delete[] duomenys_;
 			duomenys_ = new T[sarasas.size()];

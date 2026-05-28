@@ -4,7 +4,7 @@
 #define MyAppExeName "Studentai.exe"
 
 [Setup]
-AppId={{A7D4A8F1-2B84-4C94-8B12-STUDENTAI3000}
+AppId={{A7D4A8F1-2B84-4C94-8B12-123456789ABC}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}

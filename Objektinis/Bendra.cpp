@@ -57,7 +57,7 @@ double calculateMedian(Vector<int> grade)
 
 	if (dydis % 2 == 0)
 	{
-		return grade[dydis / 2 - 1] + grade[dydis / 2] / 2.0;
+		return (grade[dydis / 2 - 1] + grade[dydis / 2]) / 2.0;
 	}
 	return grade[dydis / 2];
 
