@@ -1,55 +1,64 @@
-# Studentų pažymių skaičiavimo programa
+# Studentu pazymiu skaiciavimo programa
 
-## Apie programą
+## Apie programa
 
-Ši programa skirta studentų duomenims apdoroti.
+Si programa skirta studentu duomenims apdoroti. Programa gali nuskaityti studentu vardus, pavardes, namu darbu pazymius ir egzamino rezultata. Pagal siuos duomenis apskaiciuojamas galutinis balas.
 
-Programa gali nuskaityti studentų vardus, pavardes, namų darbų pažymius ir egzamino rezultatą. Pagal šiuos duomenis yra apskaičiuojamas galutinis balas.
+Galutinis balas gali buti skaiciuojamas pagal:
 
-Galutinis balas gali būti skaičiuojamas pagal:
+- namu darbu vidurki;
+- namu darbu mediana.
 
-- namų darbų vidurkį;
-- namų darbų medianą.
+Galutinio balo formule:
+
+```cpp
+galutinis = 0.4 * namuDarbuRezultatas + 0.6 * egzaminas;
+```
 
 ---
 
 ## Programos funkcijos
 
-Programa leidžia:
+Programa leidzia:
 
-- rankiniu būdu įvesti studentų duomenis;
-- generuoti pažymius;
-- generuoti studentus ir jų pažymius;
-- nuskaityti studentų duomenis iš failo;
-- generuoti studentų failus;
-- skaičiuoti galutinį balą pagal vidurkį arba medianą;
-- rūšiuoti studentus pagal vardą, pavardę arba rezultatą;
-- skirstyti studentus į dvi grupes;
-- atlikti veikimo spartos tyrimus;
-- testuoti `Studentas` klasę;
-- peržiūrėti sugeneruotą Doxygen dokumentaciją.
+- rankiniu budu ivesti studentu duomenis;
+- generuoti pazymius;
+- generuoti studentus ir ju pazymius;
+- nuskaityti studentu duomenis is failo;
+- generuoti studentu failus;
+- skaiciuoti galutini bala pagal vidurki arba mediana;
+- rusiuoti studentus pagal varda, pavarde arba rezultata;
+- skirstyti studentus i dvi grupes;
+- atlikti konteineriu veikimo spartos tyrimus;
+- naudoti nuosava `Vector<T>` konteineri;
+- palyginti `std::vector` ir `Vector` veikima;
+- paleisti unit testus;
+- sugeneruoti Doxygen dokumentacija.
 
 ---
 
 ## Reikalavimai
 
-Norint paleisti programą, reikia turėti:
+Norint paleisti programa, reikia tureti:
 
-- C++ kompiliatorių su C++17 palaikymu;
+- C++ kompiliatoriu su C++17 palaikymu;
 - CMake;
 - Git;
-- Visual Studio, jeigu norima paleisti unit testus per `Test Explorer`.
+- Visual Studio, jeigu norima paleisti unit testus per `Test Explorer`;
+- Doxygen, jeigu norima sugeneruoti dokumentacija;
+- Inno Setup, jeigu norima sugeneruoti diegimo faila.
 
 ---
 
 ## Programos atsisiuntimas
 
-Projektą galima atsisiųsti iš GitHub:
+Projektas atsisiunciamas is GitHub:
 
 ```bash
-git clone https://github.com/Boljerr/OOP_2.git
-cd OOP_2
+git clone https://github.com/Boljerr/OOP_3.git
+cd OOP_3
 ```
+
 
 ---
 
@@ -57,31 +66,30 @@ cd OOP_2
 
 Projektas kompiliuojamas naudojant CMake.
 
-Pirmiausia reikia sukurti `build` aplanką:
-
 ```bash
 mkdir build
 cd build
-```
-
-Tada paleisti CMake:
-
-```bash
 cmake ..
-```
-
-Kompiliavimas `Release` režimu:
-
-```bash
 cmake --build . --config Release
 ```
 
+Paleidziamas failas paprastai sukuriamas:
+
+```text
+build/Release/Studentai.exe
+```
+
+---
+
 ## Programos paleidimas
 
+Is `build` aplanko:
 
 ```bash
-.\Release\Studentai.exe
+./Release/Studentai.exe
 ```
+
+Windows aplinkoje programa taip pat galima paleisti per Visual Studio arba tiesiog atidaryti sugeneruota `.exe` faila.
 
 ---
 
@@ -98,53 +106,316 @@ cmake --build . --config Release
 8 - Atlikti v1.1 konteineriu tyrima
 9 - Atlikti v1.1 skirstymo strategiju tyrima
 10 - Testuoti Studentas klase
-11 - Baigti
+11 - Atlikti v3.0 duomenu apdorojimo tyrima(mano Vector)
+12 - Atlikti std::vector ir Vector push_back tyrima
+13 - Palyginti std::vector ir mano Vector su studentu failu
+14 - Baigti
 ```
+
+---
+
+## v3.0 nuosavas Vector konteineris
+
+v3.0 versijoje sukurtas nuosavas sabloninis konteineris `Vector<T>`, kuris veikia panasiai kaip `std::vector`.
+
+Konteineris realizuotas naudojant dinamini masyva. Viduje saugomi trys pagrindiniai laukai:
+
+- `T* duomenys_` - rodykle i dinamini masyva;
+- `std::size_t dydis_` - dabartinis elementu kiekis;
+- `std::size_t talpa_` - rezervuota vieta elementams.
+
+Kai `push_back()` metu nebelieka vietos naujam elementui, konteinerio talpa padidinama ir seni elementai perkeliami i nauja masyva.
+
+---
+
+## Realizuotos Vector funkcijos
+
+Realizuotos pagrindines `std::vector` tipo funkcijos:
+
+- `Vector()`
+- `Vector(size_t kiekis)`
+- `Vector(size_t kiekis, const T& reiksme)`
+- `Vector(std::initializer_list<T>)`
+- kopijavimo konstruktorius
+- kopijavimo priskyrimo operatorius
+- perkelimo konstruktorius
+- perkelimo priskyrimo operatorius
+- destruktorius
+- `size()`
+- `capacity()`
+- `empty()`
+- `max_size()`
+- `operator[]`
+- `at()`
+- `front()`
+- `back()`
+- `data()`
+- `begin()`
+- `end()`
+- `cbegin()`
+- `cend()`
+- `reserve()`
+- `resize()`
+- `shrink_to_fit()`
+- `push_back()`
+- `pop_back()`
+- `clear()`
+- `insert()`
+- `erase()`
+- `assign()`
+- `swap()`
+- `emplace_back()`
+- `emplace()`
+- `operator==`
+- `operator!=`
+
+---
+
+## Vector funkciju pavyzdziai
+
+### 1. `push_back()`
+
+```cpp
+Vector<int> v;
+
+v.push_back(1);
+v.push_back(2);
+v.push_back(3);
+```
+
+Rezultatas:
+
+```text
+1 2 3
+```
+
+### 2. `at()`
+
+```cpp
+Vector<int> v = { 4, 5, 6 };
+
+std::cout << v.at(1);
+```
+
+Rezultatas:
+
+```text
+5
+```
+
+Jeigu indeksas yra uz ribu, `at()` meta `std::out_of_range` isimti.
+
+### 3. `insert()`
+
+```cpp
+Vector<int> v = { 1, 4 };
+
+v.insert(v.begin() + 1, { 2, 3 });
+```
+
+Rezultatas:
+
+```text
+1 2 3 4
+```
+
+### 4. `erase()`
+
+```cpp
+Vector<int> v = { 1, 2, 3, 4 };
+
+v.erase(v.begin() + 1);
+```
+
+Rezultatas:
+
+```text
+1 3 4
+```
+
+### 5. `resize()`
+
+```cpp
+Vector<int> v = { 1, 2 };
+
+v.resize(5, 9);
+```
+
+Rezultatas:
+
+```text
+1 2 9 9 9
+```
+
+### 6. Iteratoriai ir `std::sort()`
+
+```cpp
+Vector<int> v = { 3, 1, 2 };
+
+std::sort(v.begin(), v.end());
+```
+
+Rezultatas:
+
+```text
+1 2 3
+```
+
+---
+
+## Vector naudojimas studentu programoje
+
+v3.0 versijoje `Studentas` klaseje namu darbu pazymiai saugomi naudojant mano `Vector<int>` konteineri.
+
+Taip pat sukurta atskira programos dalis, kur studentu sarasui naudojamas `Vector<Studentas>`. Tai leidzia palyginti programos veikima naudojant:
+
+- `std::vector<Studentas>`;
+- `Vector<Studentas>`.
+
+Studentu skirstymui naudojama strategija su `std::stable_partition`, todel patikrinama, ar mano `Vector` veikia su iteratoriais ir standartiniais algoritmais.
 
 ---
 
 ## Unit testai
 
-v2.0 versijoje buvo pridėti unit testai.
+Testams naudojamas **Visual Studio C++ Unit Test Framework**.
 
-Juos pridėjau tam, kad būtų galima patikrinti, ar pagrindiniai `Studentas` klasės metodai veikia teisingai.
+Testai suskirstyti i kelias grupes:
 
-Testams naudojau **Visual Studio C++ Unit Test Framework**, nes projektą darau su Visual Studio ir testus patogu paleisti per `Test Explorer`.
+- `StudentasRuleOfFiveTests`;
+- `StudentasStreamOperatorTests`;
+- `StudentasVectorIntegrationTests`;
+- `VectorConstructorTests`;
+- `VectorCapacityTests`;
+- `VectorElementAccessTests`;
+- `VectorRuleOfFiveTests`;
+- `VectorModifierTests`;
+- `VectorIteratorAlgorithmTests`;
+- `VectorComparisonTests`;
+- `VectorStdVectorComparisonTests`.
 
-### Testuojami metodai
+Testais patikrinta:
 
-| Testas | Ką tikrina |
-|---|---|
-| `DefaultConstructorCreatesObject` | Patikrina, ar galima sukurti tuščią `Studentas` objektą |
-| `CopyConstructorWorks` | Patikrina kopijavimo konstruktorių |
-| `CopyAssignmentWorks` | Patikrina kopijavimo priskyrimo operatorių |
-| `MoveConstructorWorks` | Patikrina perkėlimo konstruktorių |
-| `MoveAssignmentWorks` | Patikrina perkėlimo priskyrimo operatorių |
-| `InputOperatorWorks` | Patikrina įvesties operatorių `>>` |
-| `OutputOperatorWorks` | Patikrina išvesties operatorių `<<` |
+- `Studentas` klases konstruktoriai;
+- `Studentas` Rule of Five metodai;
+- ivesties ir isvesties operatoriai;
+- `Vector` konstruktoriai;
+- `Vector` kopijavimas;
+- `Vector` perkelimas;
+- `push_back()`;
+- `pop_back()`;
+- `clear()`;
+- `reserve()`;
+- `resize()`;
+- `shrink_to_fit()`;
+- `insert()`;
+- `erase()`;
+- `assign()`;
+- `swap()`;
+- palyginimo operatoriai;
+- iteratoriai;
+- veikimas su `std::sort()`;
+- veikimas su `Studentas` objektais;
+- keliu `std::vector` ir `Vector` funkciju rezultatu palyginimas.
 
-Svarbiausia buvo patikrinti Rule of Five metodus, nes jie parodo, ar `Studentas` objektai teisingai kopijuojami, priskiriami ir perkeliami.
+Visi unit testai praejo sekmingai.
 
-### Unit testų paleidimas
+Unit testu rezultatu ekrano nuotrauka:
 
-Testai paleidžiami per Visual Studio:
+![v3.0 unit tests](images/v3.0_Unit_tests.png)
 
-1. Atidaryti projektą su Visual Studio.
-2. Viršutiniame meniu pasirinkti `Test`.
+
+Testai paleidziami per Visual Studio:
+
+1. Atidaryti projekta su Visual Studio.
+2. Virsutiniame meniu pasirinkti `Test`.
 3. Atidaryti `Test Explorer`.
 4. Paspausti `Run All Tests`.
 
-Jeigu visi testai žali, reiškia testuojami metodai veikia gerai.
+---
+
+## `push_back()` spartos tyrimas
+
+Buvo matuojama, kiek vidutiniskai laiko uztrunka tuscia `std::vector<int>` ir tuscia `Vector<int>` uzpildyti naudojant `push_back()`.
+
+Buvo atlikta 10 bandymu. Lenteleje pateikiamas vidurkis.
+
+| Elementu kiekis | std::vector vid. laikas, s | Vector vid. laikas, s |
+|---:|---:|---:|
+| 10 000 | 0.000178740 | 0.000053870 |
+| 100 000 | 0.000558310 | 0.000396890 |
+| 1 000 000 | 0.004688730 | 0.003114310 |
+| 10 000 000 | 0.042939080 | 0.034631990 |
+| 100 000 000 | 0.451623300 | 0.313787700 |
+
+Siame teste mano `Vector` buvo greitesnis uz `std::vector`, nes mano realizacijoje talpa didinama dvigubinant, todel buvo maziau atminties perskirstymu. `std::vector` talpos didinimo strategija priklauso nuo konkrecios STL realizacijos.
+
+---
+
+## Atminties perskirstymu skaicius
+
+Perskirstymas buvo skaiciuojamas tada, kai pries `push_back()` buvo tenkinama salyga:
+
+```cpp
+capacity() == size()
+```
+
+Buvo uzpildoma 100 000 000 `int` elementu.
+
+| Konteineris | Perskirstymu skaicius |
+|---|---:|
+| std::vector | 47 |
+| Vector | 28 |
+
+Mano `Vector` perskirstymu atliko maziau, nes talpa buvo didinama dvigubinant.
+
+---
+
+## Studentu programos tyrimas su std::vector ir Vector
+
+Buvo palygintas studentu programos veikimas naudojant `std::vector` ir mano `Vector`.
+
+Naudoti nustatymai:
+
+- galutinis balas skaiciuotas pagal vidurki;
+- studentai rusiuoti pagal galutini rezultata;
+- naudotas skirstymas su `std::stable_partition`;
+- kiekvienam failui atlikti 3 bandymai;
+- lenteleje pateikiami bendro laiko vidurkiai.
+
+| Studentu kiekis | std::vector vid. laikas, s | Vector vid. laikas, s |
+|---:|---:|---:|
+| 100 000 | 0.643 | 0.676 |
+| 1 000 000 | 6.158 | 6.287 |
+| 10 000 000 | 64.301 | 64.613 |
+
+Rezultatai rodo, kad studentu programoje `std::vector` ir mano `Vector` veike labai panasiai. `std::vector` buvo siek tiek greitesnis daugumoje bandymu, nes tai standartines bibliotekos optimizuotas konteineris. Mano `Vector` veikia teisingai su tais paciais duomenimis, bet jo realizacija yra paprastesne.
+
+---
+
+## Testavimo failai
+
+Installerio testavimui pateikiami failai:
+
+```text
+test_files/studentai10000.txt
+test_files/studentai100000.txt
+```
 
 ---
 
 ## Doxygen dokumentacija
 
-v2.0 versijoje projektui buvo sugeneruota dokumentacija naudojant **Doxygen**.
+Projektas dokumentuotas naudojant **Doxygen**.
 
-Dokumentacijoje aprašyta `Studentas` klasė, jos konstruktoriai, Rule of Five metodai, įvesties ir išvesties operatoriai bei kiti pagrindiniai metodai.
+Dokumentacijoje aprasytos klases:
 
-Dokumentacija pateikta šiais formatais:
+- `Zmogus`;
+- `Studentas`;
+- `Vector<T>`.
+
+
+Sugeneruota dokumentacija pateikiama:
 
 | Dokumentacijos tipas | Vieta projekte |
 |---|---|
@@ -152,36 +423,64 @@ Dokumentacija pateikta šiais formatais:
 | LaTeX | `docs/latex/` |
 | PDF | `docs/refman.pdf` |
 
-HTML dokumentaciją galima atidaryti naršyklėje:
+---
+
+## Diegimo failas
+
+Programos diegimui parengtas Inno Setup scenarijus:
 
 ```text
-docs/html/index.html
+installer/setup.iss
 ```
 
-PDF dokumentacija pateikta faile:
+Diegimo failas idiegia programa i:
 
 ```text
-docs/refman.pdf
+C:/Program Files/VU/Ignas-Simaitis
 ```
 
-PDF failas buvo sukompiliuotas naudojant Overleaf.
+
+Diegimo failo kurimas:
+
+1. Sukompiliuoti programa `Release` rezimu.
+2. Atidaryti `installer/setup.iss` su Inno Setup.
+3. Paspausti `Compile`.
+4. Sugeneruojamas `Setup.exe`.
 
 ---
 
-## Relizų aprašas
+## Versiju aprasas
 
-### v2.0
+### v3.0
 
-Šioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.
+Sukurta nuosava `Vector<T>` klase ir pritaikyta studentu programai.
 
 Pagrindiniai pakeitimai:
 
-- pridėti unit testai `Studentas` klasei;
+- sukurta sablonine `Vector<T>` klase;
+- realizuota dauguma pagrindiniu `std::vector` funkciju;
+- `Studentas` namu darbu pazymiams naudoja `Vector<int>`;
+- sukurta programos versija su `Vector<Studentas>`;
+- atlikti `std::vector` ir `Vector` spartos tyrimai;
+- suskaiciuoti atminties perskirstymai;
+- prideti `Vector` unit testai;
+- `Vector.h` itrauktas i Doxygen dokumentacija;
+- parengtas Inno Setup diegimo scenarijus.
+
+---
+
+### v2.0
+
+Sioje versijoje projektas papildytas unit testais ir Doxygen dokumentacija.
+
+Pagrindiniai pakeitimai:
+
+- prideti unit testai `Studentas` klasei;
 - patikrinti Rule of Five metodai;
-- patikrinti įvesties ir išvesties operatoriai `>>` ir `<<`;
+- patikrinti ivesties ir isvesties operatoriai `>>` ir `<<`;
 - sugeneruota Doxygen HTML dokumentacija;
 - sugeneruota Doxygen LaTeX dokumentacija;
-- paruoštas dokumentacijos PDF failas;
+- parengtas dokumentacijos PDF failas;
 - atnaujintas `README.md` failas;
 - patikrintas projekto kompiliavimas su CMake.
 
@@ -189,82 +488,82 @@ Pagrindiniai pakeitimai:
 
 ### v1.5
 
-Šioje versijoje programa papildyta paveldėjimu.
+Sioje versijoje programa papildyta paveldejimu.
 
-Buvo sukurta abstrakti bazinė klasė `Zmogus`, iš kurios paveldi `Studentas` klasė.
+Buvo sukurta abstrakti bazine klase `Zmogus`, is kurios paveldi `Studentas` klase.
 
-Programa išlaiko v1.2 versijos logiką: veikia Rule of Five, įvesties ir išvesties operatoriai bei ankstesni testai.
+Programa islaiko v1.2 versijos logika: veikia Rule of Five, ivesties ir isvesties operatoriai bei ankstesni testai.
 
 ---
 
 ### v1.2
 
-Šioje versijoje `Studentas` klasė papildyta Rule of Five realizacija.
+Sioje versijoje `Studentas` klase papildyta Rule of Five realizacija.
 
-Pridėta:
+Prideta:
 
 - destruktorius;
 - kopijavimo konstruktorius;
 - kopijavimo priskyrimo operatorius;
-- perkėlimo konstruktorius;
-- perkėlimo priskyrimo operatorius.
+- perkelimo konstruktorius;
+- perkelimo priskyrimo operatorius.
 
-Taip pat realizuoti įvesties ir išvesties operatoriai `>>` ir `<<`.
+Taip pat realizuoti ivesties ir isvesties operatoriai `>>` ir `<<`.
 
 ---
 
 ### v1.1
 
-Šioje versijoje `Studentas` struktūra pakeista į klasę.
+Sioje versijoje `Studentas` struktura pakeista i klase.
 
 Pagrindiniai pakeitimai:
 
-- `Studentas` struktūra pakeista į klasę;
-- studentų duomenys perkelti į privačius laukus;
-- pridėti getteriai ir setteriai;
+- `Studentas` struktura pakeista i klase;
+- studentu duomenys perkelti i privacius laukus;
+- prideti getteriai ir setteriai;
 - realizuoti konstruktoriai ir destruktorius;
 - atnaujintos funkcijos, kurios dirba su `Studentas` objektais;
-- atliktas `struct` ir `class` versijų palyginimas;
-- atlikta analizė su `O1`, `O2` ir `O3` optimizavimo flag'ais.
+- atliktas `struct` ir `class` versiju palyginimas;
+- atlikta analize su `O1`, `O2` ir `O3` optimizavimo flag'ais.
 
 ---
 
 ### v1.0
 
-Šioje versijoje pridėtas darbas su trimis konteineriais:
+Sioje versijoje pridetas darbas su trimis konteineriais:
 
 - `std::vector`;
 - `std::list`;
 - `std::deque`.
 
-Taip pat buvo pridėtos trys studentų skirstymo strategijos, atliktas konteinerių tyrimas ir paruoštas `CMakeLists.txt`.
+Taip pat buvo pridetas studentu skirstymas i dvi grupes, atliktas konteineriu tyrimas ir paruostas `CMakeLists.txt`.
 
 ---
 
 ### v0.4
 
-Šioje versijoje pridėtas studentų failų generavimas, studentų skirstymas į dvi grupes ir pradinis veikimo spartos tyrimas su `std::vector`.
+Sioje versijoje pridetas studentu failu generavimas, studentu skirstymas i dvi grupes ir pradinis veikimo spartos tyrimas su `std::vector`.
 
 ---
 
 ### v0.3
 
-Šioje versijoje patobulinta įvesties validacija, pridėtas klaidų tikrinimas ir kodas išskaidytas į `.h` ir `.cpp` failus.
+Sioje versijoje patobulinta ivesties validacija, pridetas klaidu tikrinimas ir kodas isskaidytas i `.h` ir `.cpp` failus.
 
 ---
 
 ### v0.2
 
-Šioje versijoje pridėtas duomenų nuskaitymas iš failo ir studentų rūšiavimas.
+Sioje versijoje pridetas duomenu nuskaitymas is failo ir studentu rusiavimas.
 
 ---
 
 ### v0.1
 
-Šioje versijoje realizuotas rankinis studentų duomenų įvedimas ir galutinio balo skaičiavimas pagal vidurkį arba medianą.
+Sioje versijoje realizuotas rankinis studentu duomenu ivedimas ir galutinio balo skaiciavimas pagal vidurki arba mediana.
 
 ---
 
-### v.pradinė
+### v.pradine
 
-Sukurta pradinė studento duomenų struktūra ir realizuotas pradinis vidurkio bei medianos skaičiavimas.
+Sukurta pradine studento duomenu struktura ir realizuotas pradinis vidurkio bei medianos skaiciavimas.
