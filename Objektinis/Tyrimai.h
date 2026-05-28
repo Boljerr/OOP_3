@@ -60,3 +60,8 @@ StrategijuRezultatai atliktiSkirstymoStrategijuTyrimaDeque
 void atliktiKonteineriuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, int kartu);
 
 void atliktiStrategijuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, int kartu);
+
+
+void atliktiPushBackTyrima(unsigned int dydis);
+void atliktiPushBackTyrimus();
+void skaiciuotiPerskirstymus(unsigned int dydis);

@@ -3,11 +3,13 @@
 #include "ListFunkcijos.h"
 #include "DequeFunkcijos.h"
 #include "Bendra.h"
+#include "Vector.h"
 #include <iostream>
 #include <vector>
 #include <list>
 #include <deque>
 #include <chrono>
+#include <iomanip>
 
 #include<fstream>
 #include<string>
@@ -416,4 +418,37 @@ void atliktiStrategijuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int 
 	std::cout << "Strategija 3: " << dequeVidurkis.strategija3 << " s\n";
 
 
+}
+
+void atliktiPushBackTyrima(unsigned int dydis)
+{
+    auto stdStart = std::chrono::high_resolution_clock::now();
+
+    std::vector<int> v1;
+
+    for (unsigned int i = 1; i <= dydis; ++i)
+    {
+        v1.push_back(i);
+    }
+
+    auto stdEnd = std::chrono::high_resolution_clock::now();
+
+    auto manoStart = std::chrono::high_resolution_clock::now();
+
+    Vector<int> v2;
+
+    for (unsigned int i = 1 ; i <= dydis; ++i)
+    {
+        v2.push_back(i);
+    }
+    auto manoEnd = std::chrono::high_resolution_clock::now();
+
+
+    std::chrono::duration<double> stdLaikas = stdEnd - stdStart;
+    std::chrono::duration<double> manoLaikas = manoEnd - manoStart;
+
+    std::cout << std::left << std::setw(15) << dydis
+        << std::setw(20) << stdLaikas.count()
+        << std::setw(20) << manoLaikas.count()
+        << "\n";
 }
