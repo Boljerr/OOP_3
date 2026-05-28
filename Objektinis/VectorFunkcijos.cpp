@@ -236,8 +236,6 @@ void atliktiDuomenuApdorojimoTyrimaVector(const std::string& failoPavadinimas, i
 {
 	std::vector<Studentas> studentai;
 	std::vector<Studentas> nuskriaustieji;
-	std::vector<Studentas> kietiakiai;
-
 	std::string pagrindinisVardas = gautiFailoVardaBePletinio(failoPavadinimas);
 	std::string bloguFailas = pagrindinisVardas + "_nuskriaustieji.txt";
 	std::string geruFailas = pagrindinisVardas + "_kietiakiai.txt";
@@ -252,17 +250,17 @@ void atliktiDuomenuApdorojimoTyrimaVector(const std::string& failoPavadinimas, i
 	skaiciuotiRezultatusVector(studentai, skaiciavimoTipas);
 
 	auto skirstymoStart = std::chrono::high_resolution_clock::now();
-	padalintiStudentus1Vector(studentai, nuskriaustieji, kietiakiai);
+	padalintiStudentus3Vector(studentai, nuskriaustieji);
 	auto skirstymoEnd = std::chrono::high_resolution_clock::now();
 
 	auto rusiavimoStart = std::chrono::high_resolution_clock::now();
 	rusiuotiStudentusVector(nuskriaustieji, rusiavimoTipas);
-	rusiuotiStudentusVector(kietiakiai, rusiavimoTipas);
+	rusiuotiStudentusVector(studentai, rusiavimoTipas);
 	auto rusiavimoEnd = std::chrono::high_resolution_clock::now();
 
 	auto isvedimoStart = std::chrono::high_resolution_clock::now();
 	isvestiRezultatusIFailaVector(nuskriaustieji, skaiciavimoTipas, bloguFailas);
-	isvestiRezultatusIFailaVector(kietiakiai, skaiciavimoTipas, geruFailas);
+	isvestiRezultatusIFailaVector(studentai, skaiciavimoTipas, geruFailas);
 	auto isvedimoEnd = std::chrono::high_resolution_clock::now();
 
 	auto visoEnd = std::chrono::high_resolution_clock::now();
@@ -491,7 +489,6 @@ void atliktiDuomenuApdorojimoTyrimaManoVector(const std::string& failoPavadinima
 {
 	Vector<Studentas> studentai;
 	Vector<Studentas> nuskriaustieji;
-	Vector<Studentas> kietiakiai;
 
 	std::string pagrindinisVardas = gautiFailoVardaBePletinio(failoPavadinimas);
 	std::string bloguFailas = pagrindinisVardas + "_mano_vector_nuskriaustieji.txt";
@@ -506,17 +503,17 @@ void atliktiDuomenuApdorojimoTyrimaManoVector(const std::string& failoPavadinima
 	skaiciuotiRezultatusManoVector(studentai, skaiciavimoTipas);
 
 	auto skirstymoStart = std::chrono::high_resolution_clock::now();
-	padalintiStudentus1ManoVector(studentai, nuskriaustieji, kietiakiai);
+	padalintiStudentus3ManoVector(studentai, nuskriaustieji);
 	auto skirstymoEnd = std::chrono::high_resolution_clock::now();
 
 	auto rusiavimoStart = std::chrono::high_resolution_clock::now();
 	rusiuotiStudentusManoVector(nuskriaustieji, rusiavimoTipas);
-	rusiuotiStudentusManoVector(kietiakiai, rusiavimoTipas);
+	rusiuotiStudentusManoVector(studentai, rusiavimoTipas);
 	auto rusiavimoEnd = std::chrono::high_resolution_clock::now();
 
 	auto isvedimoStart = std::chrono::high_resolution_clock::now();
 	isvestiRezultatusIFailaManoVector(nuskriaustieji, skaiciavimoTipas, bloguFailas);
-	isvestiRezultatusIFailaManoVector(kietiakiai, skaiciavimoTipas, geruFailas);
+	isvestiRezultatusIFailaManoVector(studentai, skaiciavimoTipas, geruFailas);
 	auto isvedimoEnd = std::chrono::high_resolution_clock::now();
 
 	auto visoEnd = std::chrono::high_resolution_clock::now();
