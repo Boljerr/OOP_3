@@ -35,7 +35,8 @@ int main()
 		std::cout << "8 - Atlikti v1.1 konteineriu tyrima\n";
 		std::cout << "9 - Atlikti v1.1 skirstymo strategiju tyrima\n";
 		std::cout << "10 - Testuoti Studentas klase\n";
-		std::cout << "11 - Baigti\n";
+		std::cout << "11 - Atlikti V3.0 duomenu  apdorojimo tyrima (mano Vector)";
+		std::cout << "12 - Baigti\n";
 		std::cin >> pasirinkimas;
 		if (std::cin.fail())
 		{
@@ -333,6 +334,28 @@ int main()
 			break;
 			}
 		case 11:
+		{
+			std::string failas;
+			system("dir *.txt");
+			std::cout << "Iveskite jau sugeneruoto failo pavadinima: ";
+			std::cin >> failas;
+
+			int skaiciavimoTipas = pasirinktiSkaiciavimoTipa();
+			int rusiavimoTipas = pasirinktiRusiavimoTipa();
+			int kartu = ivestiIntSuValidacija("Kiek kartu kartoti testa? ", 1, 10);
+
+			try
+			{
+				atliktiDuomenuApdorojimoTyrimoVidurkiManoVector(failas, skaiciavimoTipas, rusiavimoTipas, kartu);
+			}
+			catch (const std::exception& ex)
+			{
+				std::cout << "Klaida: " << ex.what() << "\n";
+			}
+
+			break;
+		}
+		case 12:
 			{
 			std::cout << "Programa baige darba.\n";
 			break;
@@ -344,7 +367,7 @@ int main()
 		}
 		}
 
-	} while (pasirinkimas != 11);
+	} while (pasirinkimas != 12);
 	
 	return 0;
 }
