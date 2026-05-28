@@ -20,7 +20,7 @@ Studentas::Studentas(const std::string& vardas, const std::string& pavarde) : Zm
 	rezultatas_ = 0.0;
 }
 
-Studentas::Studentas(const std::string& vardas, const std::string& pavarde, const std::vector<int>& pazymiai, int egzaminas) : Zmogus(vardas, pavarde)
+Studentas::Studentas(const std::string& vardas, const std::string& pavarde, const Vector<int>& pazymiai, int egzaminas) : Zmogus(vardas, pavarde)
 {
 	pazymiai_ = pazymiai;
 	egzaminas_ = egzaminas;
@@ -76,7 +76,7 @@ Studentas& Studentas::operator=(Studentas&& kitas) noexcept
 }
 
 
-const std::vector<int>& Studentas::getPazymiai() const
+const Vector<int>& Studentas::getPazymiai() const
 {
 	return pazymiai_;
 }
@@ -96,7 +96,7 @@ int Studentas::getSunaikintuObjektuKiekis()
 	return sunaikintuObjektuKiekis_;
 }
 
-void Studentas::setPazymiai(const std::vector<int>& pazymiai)
+void Studentas::setPazymiai(const Vector<int>& pazymiai)
 {
 	pazymiai_ = pazymiai;
 }
@@ -129,7 +129,7 @@ void Studentas::read(std::istream& in)
 
 	std::string vardas;
 	std::string pavarde;
-	std::vector<int> pazymiai;
+	Vector<int> pazymiai;
 	int skaicius;
 
 	ss >> vardas >> pavarde;

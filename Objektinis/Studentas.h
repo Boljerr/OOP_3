@@ -2,6 +2,7 @@
 #ifndef STUDENTAS_H
 #define STUDENTAS_H
 #include "Zmogus.h"
+#include "Vector.h"
 
 #include <string>
 #include <vector>
@@ -28,7 +29,7 @@ private:
 	/**
 	 * @brief Studento namu darbu pazymiai.
 	 */
-	std::vector<int> pazymiai_;
+	Vector<int> pazymiai_;
 	/**
 	 * @brief Studento egzamino pazymys.
 	 */
@@ -62,7 +63,7 @@ public:
 	 * @param pazymiai Studento namu darbu pazymiai.
 	 * @param egzaminas Studento egzamino pazymys.
 	 */
-	Studentas(const std::string& vardas, const std::string& pavarde, const std::vector<int>& pazymiai, int egzaminas);
+	Studentas(const std::string& vardas, const std::string& pavarde, const Vector<int>& pazymiai, int egzaminas);
 
 	/**
 	 * @brief Destruktorius.
@@ -113,7 +114,7 @@ public:
 	 * @brief Grazina studento namu darbu pazymius.
 	 * @return Studento namu darbu pazymiai.
 	 */
-	const std::vector<int>& getPazymiai() const;
+	const Vector<int>& getPazymiai() const;
 	
 	/**
 	 * @brief Grazina studento egzamino pazymi.
@@ -131,7 +132,7 @@ public:
 	 * @brief Nustato studento namu darbu pazymius.
 	 * @param namuDarbai Studento namu darbu pazymiai.
 	 */
-	void setPazymiai(const std::vector<int>& namuDarbai);
+	void setPazymiai(const Vector<int>& namuDarbai);
 	
 	/**
 	 * @brief Nustato studento egzamino pazymi.
