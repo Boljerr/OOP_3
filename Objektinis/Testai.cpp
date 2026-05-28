@@ -1,6 +1,7 @@
 #include "Testai.h"
 #include "Studentas.h"
 #include "Zmogus.h"
+#include "Vector.h"
 
 #include <iostream>
 #include <sstream>
@@ -35,7 +36,7 @@ void testuotiStudentoKlase()
 		tusciasStudentas.getPazymiai().empty();
 	spausdintiTestoRezultata(tusciasKonstruktoriusPavyko, "Studento klases tuscias konstruktorius");
 
-	std::vector<int> pazymiai = { 8, 9, 10 };
+	Vector<int> pazymiai = { 8, 9, 10 };
 
 	Studentas s1("Jonas", "Jonaitis", pazymiai, 7);
 	s1.setRezultatas(8.2);
