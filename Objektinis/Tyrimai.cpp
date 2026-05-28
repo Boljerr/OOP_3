@@ -420,6 +420,9 @@ void atliktiStrategijuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int 
 
 }
 
+
+//V3.0 =============================================================================================
+
 void atliktiPushBackTyrima(unsigned int dydis)
 {
     auto stdStart = std::chrono::high_resolution_clock::now();
@@ -502,4 +505,35 @@ void skaiciuotiPerskirstymus(unsigned int dydis)
     std::cout << "\nPerskirstymu skaicius uzpildant " << dydis << " elementu:\n";
     std::cout << "std::vector: " << stdPerskirstymai << "\n";
     std::cout << "Vector: " << manoPerskirstymai << "\n";
+}
+
+void palygintiStdVectorIrManoVector(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas)
+{
+    std::cout << "\n================ std::vector tyrimas ================\n";
+
+    auto stdStart = std::chrono::high_resolution_clock::now();
+    atliktiDuomenuApdorojimoTyrimaVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
+    auto stdEnd = std::chrono::high_resolution_clock::now();
+
+    std::cout << "\n================ Mano Vector tyrimas ================\n";
+
+    auto manoStart = std::chrono::high_resolution_clock::now();
+    atliktiDuomenuApdorojimoTyrimaManoVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
+    auto manoEnd = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> stdLaikas = stdEnd - stdStart;
+    std::chrono::duration<double> manoLaikas = manoEnd - manoStart;
+
+    std::cout << "\nBendras palyginimas:\n";
+    std::cout << "std::vector bendras laikas: " << stdLaikas.count() << " s\n";
+    std::cout << "Mano Vector bendras laikas: " << manoLaikas.count() << " s\n";
+}
+
+void palygintiStdVectorIrManoVectorSuVidurkiu(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, int kartu)
+{
+    for (int i = 0; i < kartu; ++i)
+    {
+        std::cout << "\n================ PALYGINIMO BANDYMAS NR. " << i + 1 << " ================\n";
+        palygintiStdVectorIrManoVector(failoPavadinimas, skaiciavimoTipas, rusiavimoTipas);
+    }
 }

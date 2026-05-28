@@ -65,3 +65,6 @@ void atliktiStrategijuTyrimaSuVidurkiu(const std::string& failoPavadinimas, int 
 void atliktiPushBackTyrima(unsigned int dydis);
 void atliktiPushBackTyrimus();
 void skaiciuotiPerskirstymus(unsigned int dydis);
+
+void palygintiStdVectorIrManoVector(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas);
+void palygintiStdVectorIrManoVectorSuVidurkiu(const std::string& failoPavadinimas, int skaiciavimoTipas, int rusiavimoTipas, int kartu);

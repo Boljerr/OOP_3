@@ -10,6 +10,11 @@
 /**
  * @brief Paprastas dinaminio masyvo konteineris, panasus i std::vector.
  *
+ * Vector klase realizuota kaip sablonine klase, todel gali saugoti skirtingu tipu
+ * elementus. Viduje naudojamas dinaminis masyvas, dabartinis elementu kiekis ir
+ * rezervuota talpa. Kai elementu kiekis pasiekia talpa, konteineris rezervuoja
+ * didesni masyva ir perkelia senus elementus.
+ *
  * @tparam T Saugomu elementu tipas.
  */
 template <typename T>
