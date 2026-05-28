@@ -1,42 +1,5 @@
 # Studentu pazymiu skaiciavimo programa
 
-## Apie programa
-
-Si programa skirta studentu duomenims apdoroti. Programa gali nuskaityti studentu vardus, pavardes, namu darbu pazymius ir egzamino rezultata. Pagal siuos duomenis apskaiciuojamas galutinis balas.
-
-Galutinis balas gali buti skaiciuojamas pagal:
-
-- namu darbu vidurki;
-- namu darbu mediana.
-
-Galutinio balo formule:
-
-```cpp
-galutinis = 0.4 * namuDarbuRezultatas + 0.6 * egzaminas;
-```
-
----
-
-## Programos funkcijos
-
-Programa leidzia:
-
-- rankiniu budu ivesti studentu duomenis;
-- generuoti pazymius;
-- generuoti studentus ir ju pazymius;
-- nuskaityti studentu duomenis is failo;
-- generuoti studentu failus;
-- skaiciuoti galutini bala pagal vidurki arba mediana;
-- rusiuoti studentus pagal varda, pavarde arba rezultata;
-- skirstyti studentus i dvi grupes;
-- atlikti konteineriu veikimo spartos tyrimus;
-- naudoti nuosava `Vector<T>` konteineri;
-- palyginti `std::vector` ir `Vector` veikima;
-- paleisti unit testus;
-- sugeneruoti Doxygen dokumentacija.
-
----
-
 ## Reikalavimai
 
 Norint paleisti programa, reikia tureti:
@@ -58,7 +21,6 @@ Projektas atsisiunciamas is GitHub:
 git clone https://github.com/Boljerr/OOP_3.git
 cd OOP_3
 ```
-
 
 ---
 
@@ -111,7 +73,6 @@ Windows aplinkoje programa taip pat galima paleisti per Visual Studio arba tiesi
 13 - Palyginti std::vector ir mano Vector su studentu failu
 14 - Baigti
 ```
-
 ---
 
 ## v3.0 nuosavas Vector konteineris
@@ -263,77 +224,6 @@ Rezultatas:
 
 ---
 
-## Vector naudojimas studentu programoje
-
-v3.0 versijoje `Studentas` klaseje namu darbu pazymiai saugomi naudojant mano `Vector<int>` konteineri.
-
-Taip pat sukurta atskira programos dalis, kur studentu sarasui naudojamas `Vector<Studentas>`. Tai leidzia palyginti programos veikima naudojant:
-
-- `std::vector<Studentas>`;
-- `Vector<Studentas>`.
-
-Studentu skirstymui naudojama strategija su `std::stable_partition`, todel patikrinama, ar mano `Vector` veikia su iteratoriais ir standartiniais algoritmais.
-
----
-
-## Unit testai
-
-Testams naudojamas **Visual Studio C++ Unit Test Framework**.
-
-Testai suskirstyti i kelias grupes:
-
-- `StudentasRuleOfFiveTests`;
-- `StudentasStreamOperatorTests`;
-- `StudentasVectorIntegrationTests`;
-- `VectorConstructorTests`;
-- `VectorCapacityTests`;
-- `VectorElementAccessTests`;
-- `VectorRuleOfFiveTests`;
-- `VectorModifierTests`;
-- `VectorIteratorAlgorithmTests`;
-- `VectorComparisonTests`;
-- `VectorStdVectorComparisonTests`.
-
-Testais patikrinta:
-
-- `Studentas` klases konstruktoriai;
-- `Studentas` Rule of Five metodai;
-- ivesties ir isvesties operatoriai;
-- `Vector` konstruktoriai;
-- `Vector` kopijavimas;
-- `Vector` perkelimas;
-- `push_back()`;
-- `pop_back()`;
-- `clear()`;
-- `reserve()`;
-- `resize()`;
-- `shrink_to_fit()`;
-- `insert()`;
-- `erase()`;
-- `assign()`;
-- `swap()`;
-- palyginimo operatoriai;
-- iteratoriai;
-- veikimas su `std::sort()`;
-- veikimas su `Studentas` objektais;
-- keliu `std::vector` ir `Vector` funkciju rezultatu palyginimas.
-
-Visi unit testai praejo sekmingai.
-
-Unit testu rezultatu ekrano nuotrauka:
-
-![v3.0 unit tests](images/v3.0_Unit_tests.png)
-
-
-Testai paleidziami per Visual Studio:
-
-1. Atidaryti projekta su Visual Studio.
-2. Virsutiniame meniu pasirinkti `Test`.
-3. Atidaryti `Test Explorer`.
-4. Paspausti `Run All Tests`.
-
----
-
 ## `push_back()` spartos tyrimas
 
 Buvo matuojama, kiek vidutiniskai laiko uztrunka tuscia `std::vector<int>` ir tuscia `Vector<int>` uzpildyti naudojant `push_back()`.
@@ -381,17 +271,79 @@ Naudoti nustatymai:
 - studentai rusiuoti pagal galutini rezultata;
 - naudotas skirstymas su `std::stable_partition`;
 - kiekvienam failui atlikti 3 bandymai;
-- lenteleje pateikiami bendro laiko vidurkiai.
+- lenteleje pateikiami laiku vidurkiai.
 
-| Studentu kiekis | std::vector vid. laikas, s | Vector vid. laikas, s |
-|---:|---:|---:|
-| 100 000 | 0.643 | 0.676 |
-| 1 000 000 | 6.158 | 6.287 |
-| 10 000 000 | 64.301 | 64.613 |
+| Studentu kiekis | Konteineris | Nuskaitymas, s | Skirstymas, s | Rusiavimas, s | Isvedimas, s | Bendras laikas, s |
+|---:|---|---:|---:|---:|---:|---:|
+| 100 000 | `std::vector` | 0.499839 | 0.015915 | 0.021947 | 0.094470 | 0.633464 |
+| 100 000 | `Vector` | 0.530764 | 0.018053 | 0.022191 | 0.093264 | 0.665642 |
+| 1 000 000 | `std::vector` | 4.841230 | 0.152808 | 0.225936 | 0.856493 | 6.091330 |
+| 1 000 000 | `Vector` | 4.954550 | 0.173366 | 0.223980 | 0.831624 | 6.199703 |
+| 10 000 000 | `std::vector` | 49.436967 | 1.674317 | 2.427917 | 9.419157 | 63.118733 |
+| 10 000 000 | `Vector` | 51.044167 | 1.422003 | 2.283997 | 8.322230 | 63.281300 |
 
-Rezultatai rodo, kad studentu programoje `std::vector` ir mano `Vector` veike labai panasiai. `std::vector` buvo siek tiek greitesnis daugumoje bandymu, nes tai standartines bibliotekos optimizuotas konteineris. Mano `Vector` veikia teisingai su tais paciais duomenimis, bet jo realizacija yra paprastesne.
+Rezultatai rodo, kad studentu programoje `std::vector` ir mano `Vector` veike labai panasiai. `std::vector` buvo siek tiek greitesnis bendrame rezultate, nes tai standartines bibliotekos optimizuotas konteineris. Mano `Vector` veikia teisingai su tais paciais duomenimis, bet jo realizacija yra paprastesne.
+
 
 ---
+
+## Unit testai
+
+Testams naudojamas **Visual Studio C++ Unit Test Framework**.
+
+Testai pateikti faile:
+
+```text
+StudentasUnitTests/VectorUnitTests.cpp
+```
+
+Testai suskirstyti i kelias grupes:
+
+- `VectorConstructorTests`;
+- `VectorCapacityTests`;
+- `VectorElementAccessTests`;
+- `VectorRuleOfFiveTests`;
+- `VectorModifierTests`;
+- `VectorIteratorAlgorithmTests`;
+- `VectorComparisonTests`;
+- `VectorStdVectorComparisonTests`.
+
+Testais patikrinta:
+
+- `Vector` konstruktoriai;
+- `Vector` kopijavimas;
+- `Vector` perkelimas;
+- `push_back()`;
+- `pop_back()`;
+- `clear()`;
+- `reserve()`;
+- `resize()`;
+- `shrink_to_fit()`;
+- `insert()`;
+- `erase()`;
+- `assign()`;
+- `swap()`;
+- palyginimo operatoriai;
+- iteratoriai;
+- veikimas su `std::sort()`;
+- veikimas su `Studentas` objektais;
+- keliu `std::vector` ir `Vector` funkciju rezultatu palyginimas.
+
+Visi unit testai praejo sekmingai.
+
+Unit testu rezultatu ekrano nuotrauka:
+
+![v3.0 unit tests](images/v3.0_Unit_tests.png)
+
+Testai paleidziami per Visual Studio:
+
+1. Atidaryti projekta su Visual Studio.
+2. Virsutiniame meniu pasirinkti `Test`.
+3. Atidaryti `Test Explorer`.
+4. Paspausti `Run All Tests`.
+
+---
+
 
 ## Testavimo failai
 
@@ -413,7 +365,6 @@ Dokumentacijoje aprasytos klases:
 - `Zmogus`;
 - `Studentas`;
 - `Vector<T>`.
-
 
 Sugeneruota dokumentacija pateikiama:
 
@@ -438,7 +389,6 @@ Diegimo failas idiegia programa i:
 ```text
 C:/Program Files/VU/Ignas-Simaitis
 ```
-
 
 Diegimo failo kurimas:
 
