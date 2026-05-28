@@ -427,6 +427,16 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+!test_files/
+!test_files/studentai10000.txt
+!test_files/studentai1000000.txt
+
+
+
+studentai100.txt
+studentai10000.txt
+studentai100000.txt
+studentai1000000.txt
 rezultatai.txt
 kietiakiai.txt
 nuskriaustieji.txt
@@ -445,6 +455,22 @@ studentai1000_kietiakiai.txt
 studentai1000_nuskriaustieji.txt
 studentai100_kietiakiai.txt
 studentai100_nuskriaustieji.txt
+
+
+# v3.0 generated benchmark files
+test_files/studentai1000000.txt
+test_files/studentai10000000.txt
+test_files/studentai100000000.txt
+
+# v3.0 generated result files
+*_nuskriaustieji.txt
+*_kietiakiai.txt
+*_vector_strategija*.txt
+*_list_strategija*.txt
+*_deque_strategija*.txt
+rusiuoti_studentai_vector.txt
+nuskriaustieji_vector.txt
+rezultatai.txt
 
 V1.0_nuskriausieji.txt
 V1.0_studentai.txt
